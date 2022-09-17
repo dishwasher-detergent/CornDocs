@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import NavItem from "./NavItem";
 import { useTheme } from "next-themes";
-import { FaRegMoon, FaSun } from "react-icons/fa";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 function Header() {
@@ -12,19 +12,19 @@ function Header() {
     return src;
   };
   return (
-    <header className="absolute w-full dark:bg-slate-800 bg-gray-100">
-      <div className="no-prose text-center flex justify-between p-5 lg:p-8 ">
+    <header className="w-full flex justify-center border-b border-slate-300 dark:bg-slate-900 dark:border-slate-700">
+      <div className="flex justify-between px-6 h-20 w-full max-w-7xl">
         <Link href="/" passHref>
-          <div className="flex gap-2 align-center text-center">
+          <div className="flex gap-4 align-center items-center">
             <Image
               loader={customLoader}
-              src={`${prefix}/static/logo.png`}
+              src={`${prefix}/static/logo.svg`}
               alt="Profile Image"
-              height="30"
-              width="30"
+              height={60}
+              width={60}
               className="cursor-pointer"
             />
-            <span className="ml-3 text-lg xl:text-2xl md:text-xxl hidden md:block cursor-pointer dark:text-white">
+            <span className="font-bold text-lg xl:text-2xl md:text-xxl hidden md:block cursor-pointer dark:text-white">
               {process.env.NEXT_PUBLIC_OWNER_NAME}
             </span>
           </div>
@@ -34,7 +34,7 @@ function Header() {
             className="text-gray-900 dark:text-white"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
-            {theme === "dark" ? <FaSun /> : <FaRegMoon />}
+            {theme === "dark" ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" /> }
           </button>
         </nav>
       </div>

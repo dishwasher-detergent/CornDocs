@@ -1,7 +1,7 @@
 import { NextSeo } from "next-seo";
 import { TypeBlogDetails } from "../types/TypeBlogDetails";
 import { getAllPosts } from "../lib/blog-api";
-import BlogPreview from "../components/blog-preview/BlogPreview";
+import Preview from "../components/preview/Preview";
 
 export const getStaticProps = async () => {
   const postList: TypeBlogDetails[] = getAllPosts();
@@ -22,43 +22,41 @@ const Home = ({ posts }: Props) => {
   return (
     <>
       <NextSeo
-        title={`Blog | ${process.env.NEXT_PUBLIC_OWNER_NAME}`}
+        title={`${process.env.NEXT_PUBLIC_OWNER_NAME}`}
         canonical={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}`}
-        description={`Technical blogs written by ${process.env.NEXT_PUBLIC_OWNER_NAME}`}
+        description={`Documentation for ${process.env.NEXT_PUBLIC_OWNER_NAME}`}
         openGraph={{
-          title: `Blog | ${process.env.NEXT_PUBLIC_OWNER_NAME}`,
+          title: `${process.env.NEXT_PUBLIC_OWNER_NAME}`,
           url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}`,
-          description: `Technical blogs written by ${process.env.NEXT_PUBLIC_OWNER_NAME}`,
+          description: `Documentation for ${process.env.NEXT_PUBLIC_OWNER_NAME}`,
           type: "article",
           images: [
             {
-              url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/static/profile.png`,
+              url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/static/logo.svg`,
               width: 800,
               height: 600,
-              alt: "Profile Image",
-              type: "image/png",
+              alt: "Logo",
+              type: "svg",
             },
             {
-              url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/static/profile.png`,
+              url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/static/logo.svg`,
               width: 900,
               height: 800,
-              alt: "Profile Image",
-              type: "image/png",
+              alt: "Logo",
+              type: "svg",
             },
           ],
-          site_name: `${process.env.NEXT_PUBLIC_OWNER_NAME}'s Blog`,
+          site_name: `${process.env.NEXT_PUBLIC_OWNER_NAME}'s Documentation`,
         }}
       />
-
-      <div className="flex flex-wrap p-5 gap-5 justify-evenly">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {posts.map((blogItem: TypeBlogDetails) => (
-          <BlogPreview
+          <Preview
             key={blogItem.slug}
             slug={blogItem.slug}
             title={blogItem.data.title}
             description={blogItem.data.description}
             imageUrl={blogItem.data.banner}
-            tags={blogItem.data.tags}
             date={blogItem.data.date}
           />
         ))}

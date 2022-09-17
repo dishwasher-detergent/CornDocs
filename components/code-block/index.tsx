@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { FaRegCopy, FaRegClipboard } from "react-icons/fa";
+import { ClipboardDocumentIcon, ClipboardDocumentCheckIcon } from '@heroicons/react/24/solid'
 import Prism from "prismjs";
 
 interface CodeBlockProps {
@@ -20,19 +20,18 @@ const CodeBlock = ({ className = "lang-js", children }: CodeBlockProps) => {
   }, []);
 
   return (
-    <div className="flex flex-col">
-      <pre>
+    <div className="relative">
+      <pre className="h-full w-full">
         <code className={`language-${language}`}>{children}</code>
       </pre>
 
       <CopyToClipboard text={children} onCopy={() => setIsCopied(true)}>
-        <button className="flex self-center">
+        <button className="absolute top-2 right-2 p-2 rounded-md bg-slate-200/10 text-slate-50 hover:bg-slate-200/40">
           {isCopied ? (
-            <FaRegClipboard className="mx-2 self-center" />
+           <ClipboardDocumentCheckIcon className="h-6 w-6 text-emerald-300" />
           ) : (
-            <FaRegCopy className="mx-2 self-center" />
+            <ClipboardDocumentIcon className="h-6 w-6" />
           )}{" "}
-          {isCopied ? "Copied!" : "Copy to Clipboard"}
         </button>
       </CopyToClipboard>
     </div>

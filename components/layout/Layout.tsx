@@ -6,23 +6,24 @@ import GoogleAnalytics from "../analytics/GoogleAnalytics";
 import { useRouter } from "next/router";
 
 interface LayoutProps {
-  pageTitle: string;
   children: React.ReactElement;
 }
 
-function Layout({ children, pageTitle }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   const router = useRouter();
   return (
     <>
       <GoogleAnalytics />
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{pageTitle}</title>
-      </Head>
-      <div className="h-screen">
+      <div className="w-screen h-screen flex flex-col overflow-hidden">
         <Header />
-        <main className="min-h-[94%] py-24 ">{children}</main>
-        <Footer />
+        <main className="h-full w-full flex flex-col overflow-y-auto">
+          <div className="flex-1 w-full flex justify-center">
+            <div className="w-full h-full max-w-7xl p-6">
+              {children}
+            </div>
+          </div>
+          <Footer />
+        </main>
       </div>
     </>
   );

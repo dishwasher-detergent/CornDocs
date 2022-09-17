@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <DefaultSeo {...seoConfig} />
       <ThemeProvider attribute="class">
-        <Layout pageTitle={`Blog | ${process.env.NEXT_PUBLIC_OWNER_NAME}`}>
+        <Layout>
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

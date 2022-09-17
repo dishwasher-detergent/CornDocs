@@ -14,7 +14,7 @@ export const getStaticPaths = (): GetStaticPathsResult => {
   const paths = posts.map((postSlug: string) => {
     return {
       params: {
-        slug: postSlug.replace(".md", ""),
+        slug: postSlug.replace(".mdx", ""),
       },
     };
   });
@@ -38,7 +38,7 @@ export const getStaticProps = ({
       slug: postDetails.slug,
       content: postDetails.content,
       tags: postDetails.data.tags,
-      banner: postDetails.data.banner,
+      banner: postDetails.data.banner ? postDetails.data.banner : "",
     },
   };
 };
@@ -97,7 +97,7 @@ function BlogDetails({
               type: "image/jpeg",
             },
           ],
-          site_name: `${process.env.NEXT_PUBLIC_OWNER_NAME}'s Portfolio`,
+          site_name: `${process.env.NEXT_PUBLIC_OWNER_NAME}'s Documentation`,
         }}
       />
       <div className="flex justify-center">
