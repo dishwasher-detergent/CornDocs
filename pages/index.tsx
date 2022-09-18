@@ -1,24 +1,22 @@
 import { NextSeo } from "next-seo";
 import { TypeBlogDetails } from "../types/TypeBlogDetails";
-import { getAllPosts } from "../lib/blog-api";
 import Preview from "../components/preview/Preview";
+import { useEffect, useState } from "react";
 
-export const getStaticProps = async () => {
-  const postList: TypeBlogDetails[] = getAllPosts();
+const Home = () => {
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading] = useState(false);
 
-  return {
-    props: {
-      posts: postList,
-    },
-  };
-};
+  useEffect(() => {
+    setLoading(true);
+    fetch("/api/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  }, []);
 
-interface Props {
-  posts: TypeBlogDetails[];
-  children?: React.ReactNode;
-}
-
-const Home = ({ posts }: Props) => {
   return (
     <>
       <NextSeo
@@ -49,8 +47,8 @@ const Home = ({ posts }: Props) => {
           site_name: `${process.env.NEXT_PUBLIC_OWNER_NAME}'s Documentation`,
         }}
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {posts.map((blogItem: TypeBlogDetails) => (
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        {data.map((blogItem: TypeBlogDetails) => (
           <Preview
             key={blogItem.slug}
             slug={blogItem.slug}

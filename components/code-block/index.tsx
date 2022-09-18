@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { ClipboardDocumentIcon, ClipboardDocumentCheckIcon } from '@heroicons/react/24/solid'
+import {
+  ClipboardDocumentIcon,
+  ClipboardDocumentCheckIcon,
+} from "@heroicons/react/24/solid";
 import Prism from "prismjs";
 
 interface CodeBlockProps {
@@ -26,9 +29,9 @@ const CodeBlock = ({ className = "lang-js", children }: CodeBlockProps) => {
       </pre>
 
       <CopyToClipboard text={children} onCopy={() => setIsCopied(true)}>
-        <button className="absolute top-2 right-2 p-2 rounded-md bg-slate-200/10 text-slate-50 hover:bg-slate-200/40">
+        <button className="absolute top-2 right-2 rounded-md bg-slate-200/10 p-2 text-slate-50 hover:bg-slate-200/40">
           {isCopied ? (
-           <ClipboardDocumentCheckIcon className="h-6 w-6 text-emerald-300" />
+            <ClipboardDocumentCheckIcon className="h-6 w-6 text-emerald-300" />
           ) : (
             <ClipboardDocumentIcon className="h-6 w-6" />
           )}{" "}

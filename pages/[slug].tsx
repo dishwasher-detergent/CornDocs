@@ -101,7 +101,7 @@ function BlogDetails({
         }}
       />
       <div className="flex justify-center">
-        <article className="break-normal px-6 md:px-0 my-10 prose md:prose-xl dark:prose-dark dark:md:prose-xl-dark">
+        <article className="dark:prose-dark dark:md:prose-xl-dark prose my-10 break-normal px-6 md:prose-xl md:px-0">
           <Markdown
             options={{
               wrapper: "article",
