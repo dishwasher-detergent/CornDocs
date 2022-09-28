@@ -20,7 +20,7 @@ export function getPostSlugs() {
   const dirTree: DirectoryTree & { id?: string } = directoryTree(
     postsDirectory,
     { extensions: /\.mdx$/, normalizePath: true, attributes: ["type"] },
-    null,
+    undefined,
     (item) => {
       item?.children?.forEach((child, index) => {
         let path: string[] | string = child.path.split("/");
