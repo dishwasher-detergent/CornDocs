@@ -17,7 +17,7 @@ function Sidebar() {
   }, []);
 
   return (
-    <aside className="dark:bg-slate-00 relative h-full w-64 flex-none overflow-y-auto overflow-x-hidden border-r border-slate-300 bg-slate-100 pb-6 dark:border-slate-700 dark:bg-slate-800">
+    <aside className="dark:bg-slate-00 relative h-full w-64 flex-none overflow-y-auto overflow-x-hidden border-r border-l border-slate-300 bg-slate-100 pb-6 dark:border-slate-700 dark:bg-slate-800">
       <ul className="flex w-full flex-col gap-1 px-4 pt-6">
         {data.map((item: TypeBlogDetails) => {
           return (

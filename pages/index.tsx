@@ -48,14 +48,14 @@ const Home = () => {
         }}
       />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        {data.map((blogItem: TypeBlogDetails) => (
+        {data.map((item: TypeBlogDetails) => (
           <Preview
-            key={blogItem.slug}
-            slug={blogItem.slug}
-            title={blogItem.data.title}
-            description={blogItem.data.description}
-            imageUrl={blogItem.data.banner}
-            date={blogItem.data.date}
+            key={item.slug}
+            slug={item.slug}
+            title={item.data.title}
+            description={item.data.description}
+            imageUrl={item.data.banner}
+            date={item.data.date}
           />
         ))}
       </div>
