@@ -23,8 +23,11 @@ export function getPostSlugs() {
     null,
     (item) => {
       item?.children?.forEach((child, index) => {
+        let path: string[] | string = child.path.split("/");
+        path = path.splice(path.indexOf("_posts") + 1, path.length).join("/");
+
         files.push({
-          path: child.path,
+          path: path,
           slug: child.name.replace(/\.mdx$/, ""),
           type: child.type,
         });
@@ -35,21 +38,30 @@ export function getPostSlugs() {
   return files;
 }
 
-export function getPostBySlug(slug: File) {
-  const fullPath = join(postsDirectory, `${slug.slug}.mdx`);
+export function getPostBySlug(doc: File) {
+  if (doc.type == "directory")
+    return {
+      slug: doc.slug,
+      path: doc.path,
+      type: doc.type,
+      data: { title: doc.slug },
+    };
+  const fullPath = join(postsDirectory, doc.path);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return { slug: slug, content, data: data as TypeBlogMetaData };
+  return {
+    slug: doc.slug,
+    path: doc.path,
+    type: doc.type,
+    content,
+    data: data as TypeBlogMetaData,
+  };
 }
 
 export function getAllPosts() {
   const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
-    .sort((post1, post2) =>
-      new Date(post1.data.date) > new Date(post2.data.date) ? -1 : 1
-    );
+  const posts = slugs.map((doc) => getPostBySlug(doc)).sort();
   return posts;
 }
 
