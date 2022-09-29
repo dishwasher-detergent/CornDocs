@@ -11,7 +11,7 @@ interface ButtonProps {
 const Button = ({ data, children }: ButtonProps) => {
   return !data.children ? (
     <li>
-      <Link href={`/${data.custom.path}`}>
+      <Link href={`/Docs/${data.custom.path}`}>
         <a className="flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-amber-400/10">
           {children}
         </a>
@@ -41,7 +41,7 @@ const Button = ({ data, children }: ButtonProps) => {
               {data.children.map((item: TypeDocsDetails, index: number) => {
                 return !item.children ? (
                   <li key={index}>
-                    <Link href={`/${item.custom.path}`}>
+                    <Link href={`/Docs/${item.custom.path}`}>
                       <a className="flex cursor-pointer flex-row flex-nowrap items-center justify-start gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-amber-400/10">
                         <svg
                           className="h-4 w-4 rotate-90 text-amber-500"
