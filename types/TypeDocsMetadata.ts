@@ -1,4 +1,4 @@
-export interface TypeBlogMetaData {
+export interface TypeDocsMetaData {
   title: string;
   subTitle: string;
   description: string;

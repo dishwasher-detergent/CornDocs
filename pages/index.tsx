@@ -1,5 +1,5 @@
 import { NextSeo } from "next-seo";
-import { TypeBlogDetails } from "../types/TypeBlogDetails";
+import { TypeDocsDetails } from "../types/TypeDocsDetails";
 import Preview from "../components/preview/Preview";
 import { useEffect, useState } from "react";
 
@@ -48,16 +48,18 @@ const Home = () => {
         }}
       />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        {data.map((item: TypeBlogDetails) => (
-          <Preview
-            key={item.slug}
-            slug={item.slug}
-            title={item.data.title}
-            description={item.data.description}
-            imageUrl={item.data.banner}
-            date={item.data.date}
-          />
-        ))}
+        {data.map((item: TypeDocsDetails) => {
+          item.type != "directory" && (
+            <Preview
+              key={item.custom.slug}
+              slug={item.custom.slug}
+              title={item.custom.data.title}
+              description={item.custom.data.description}
+              imageUrl={item.custom.data.banner}
+              date={item.custom.data.date}
+            />
+          );
+        })}
       </div>
     </>
   );

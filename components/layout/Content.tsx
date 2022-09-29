@@ -4,7 +4,7 @@ interface Props {
 
 export const Content = ({ children }: Props) => {
   return (
-    <div className="flex h-full w-full max-w-screen-2xl flex-col overflow-y-auto overflow-x-hidden border-r border-slate-300 dark:border-slate-700">
+    <div className="flex h-full w-full flex-col overflow-y-auto overflow-x-hidden">
       <div className="w-full flex-1 p-6">{children}</div>
     </div>
   );
@@ -12,8 +12,10 @@ export const Content = ({ children }: Props) => {
 
 export const Wrapper = ({ children }: Props) => {
   return (
-    <div className="flex w-full flex-1 flex-row flex-nowrap justify-center overflow-hidden">
-      {children}
+    <div className="h-full w-full overflow-hidden">
+      <div className="mx-auto flex h-full w-full max-w-screen-2xl flex-row flex-nowrap border-x border-slate-300 dark:border-slate-700">
+        {children}
+      </div>
     </div>
   );
 };

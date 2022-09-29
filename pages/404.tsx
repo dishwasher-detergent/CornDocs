@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { TypeBlogDetails } from "../types/TypeBlogDetails";
+import { TypeDocsDetails } from "../types/TypeDocsDetails";
 
 function NotFoundPage() {
   return (
@@ -13,32 +13,9 @@ function NotFoundPage() {
           Looks like the documentation you were looking for is nowhere to be
           found
         </p>
-        <p>
-          Maybe you'll like <RandomButton /> instead
-        </p>
       </div>
     </div>
   );
 }
 
 export default NotFoundPage;
-
-const RandomButton = () => {
-  const [data, setData] = useState<TypeBlogDetails[]>([]);
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch("/api/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        let index = Math.floor(Math.random() * data.length);
-        setData([data[index]]);
-        setLoading(false);
-      });
-  }, []);
-
-  return (
-    <>{!isLoading && <Link href={data[0].slug}>{data[0].data.title}</Link>}</>
-  );
-};

@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d out -t true"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^2.0.11",
     "@tailwindcss/line-clamp": "^0.3.1",
     "directory-tree": "^3.3.1",
