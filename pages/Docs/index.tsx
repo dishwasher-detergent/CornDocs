@@ -1,10 +1,11 @@
 import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
+import DisplayChildren from "../../components/display/Children";
 import Preview from "../../components/preview/Preview";
 import PreviewFolder from "../../components/preview/PreviewFolder";
 
 const Docs = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,10 +13,12 @@ const Docs = () => {
     fetch("/api/posts")
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
+        setData({ children: data });
         setLoading(false);
       });
   }, []);
+
+  console.log(data);
 
   return (
     <>
@@ -47,30 +50,7 @@ const Docs = () => {
           site_name: `${process.env.NEXT_PUBLIC_OWNER_NAME}'s Documentation`,
         }}
       />
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        {!isLoading &&
-          data.map((item: any) =>
-            item.type != "directory" ? (
-              <Preview
-                path={item.custom.path}
-                key={item.custom.slug}
-                slug={item.custom.slug}
-                title={item.custom.data.title}
-                description={item.custom.data.description}
-                imageUrl={item.custom.data.banner}
-                date={item.custom.data.date}
-              />
-            ) : (
-              <PreviewFolder
-                path={item.custom.path}
-                key={item.name}
-                slug={item.name}
-                title={item.name}
-                count={item.children.length}
-              />
-            )
-          )}
-      </div>
+      {!isLoading && <DisplayChildren data={data} />}
     </>
   );
 };

@@ -5,34 +5,30 @@ import styles from "./breadcrumb.module.css";
 import { HomeIcon } from "@heroicons/react/20/solid";
 
 const Breadcrumb = ({ data }: any) => {
+  console.log(data);
   return (
     <div
       className={`mb-6 flex h-4 w-full flex-row items-center ${styles.breadcrumb}`}
     >
       <Link href={"/Docs"}>
-        <a className="text-slate-500 hover:text-slate-600 dark:text-white hover:dark:text-slate-200">
+        <a className="flex flex-row gap-1 text-slate-500 hover:text-slate-600 dark:text-white hover:dark:text-slate-200">
           <HomeIcon className="h-4 w-4" />
+          Home
         </a>
       </Link>
-      <div>/</div>
-      {data ? (
+      {data &&
         data.map((item: string, index: number) => {
           return (
             <>
+              <div>/</div>
               <Link href={`/Docs/${data.slice(0, index + 1).join("/")}`}>
                 <a className="text-slate-500 hover:text-slate-600 dark:text-white hover:dark:text-slate-200">
                   {item}
                 </a>
               </Link>
-              {index < data.length - 1 && <div>/</div>}
             </>
           );
-        })
-      ) : (
-        <div className="h-full w-24">
-          <Skeleton height={"100%"} />
-        </div>
-      )}
+        })}
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import DisplayChildren from "../../components/display/Children";
 import DisplayDoc from "../../components/display/Doc";
-import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 
 function Doc() {
   const router = useRouter();
@@ -21,10 +20,8 @@ function Doc() {
     }
   }, [router]);
 
-  console.log(router);
   return (
     <>
-      <Breadcrumb data={router.query.slug} />
       {!isLoading &&
         (data.children ? (
           <DisplayChildren data={data} />

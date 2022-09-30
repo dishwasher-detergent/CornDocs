@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-const Heading = ({ children }: { children?: ReactNode }) => {
+export const H2 = ({ children }: { children?: ReactNode }) => {
   return (
     <h2>
       <a
@@ -14,4 +14,16 @@ const Heading = ({ children }: { children?: ReactNode }) => {
   );
 };
 
-export default Heading;
+export const H3 = ({ children }: { children?: ReactNode }) => {
+  return (
+    <h3>
+      <a
+        href={`#${children?.toString().replace(/\s+/g, "-").toLowerCase()}`}
+        id={`${children?.toString().replace(/\s+/g, "-").toLowerCase()}`}
+        className={`no-underline`}
+      >
+        {children}
+      </a>
+    </h3>
+  );
+};

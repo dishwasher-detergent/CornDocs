@@ -4,8 +4,8 @@ interface Props {
 
 export const Content = ({ children }: Props) => {
   return (
-    <div className="flex h-full w-full flex-col overflow-y-auto overflow-x-hidden">
-      <div className="w-full flex-1 p-6">{children}</div>
+    <div className="flex h-full w-full flex-col overflow-hidden">
+      {children}
     </div>
   );
 };

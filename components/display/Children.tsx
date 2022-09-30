@@ -1,5 +1,7 @@
+import Breadcrumb from "../breadcrumb/breadcrumb";
 import Preview from "../preview/Preview";
 import PreviewFolder from "../preview/PreviewFolder";
+import { useRouter } from "next/router";
 
 interface DocProps {
   data: {
@@ -19,30 +21,35 @@ interface DocProps {
 }
 
 const DisplayChildren = ({ data }: DocProps) => {
+  const router = useRouter();
+
   return (
-    <section className="grid-col-1 grid md:grid-cols-2 lg:grid-cols-3">
-      {data.children.map((item: any) =>
-        item.type != "directory" ? (
-          <Preview
-            path={item.custom.path}
-            key={item.custom.slug}
-            slug={item.custom.slug}
-            title={item.custom.data.title}
-            description={item.custom.data.description}
-            imageUrl={item.custom.data.banner}
-            date={item.custom.data.date}
-          />
-        ) : (
-          <PreviewFolder
-            key={item.name}
-            slug={item.name}
-            path={item.custom.path}
-            title={item.name}
-            count={item.children.length}
-          />
-        )
-      )}
-    </section>
+    <div className="p-6">
+      <Breadcrumb data={router.query.slug} />
+      <section className="grid-col-1 grid md:grid-cols-2 lg:grid-cols-3">
+        {data.children.map((item: any) =>
+          item.type != "directory" ? (
+            <Preview
+              path={item.custom.path}
+              key={item.custom.slug}
+              slug={item.custom.slug}
+              title={item.custom.data.title}
+              description={item.custom.data.description}
+              imageUrl={item.custom.data.banner}
+              date={item.custom.data.date}
+            />
+          ) : (
+            <PreviewFolder
+              key={item.name}
+              slug={item.name}
+              path={item.custom.path}
+              title={item.name}
+              count={item.children.length}
+            />
+          )
+        )}
+      </section>
+    </div>
   );
 };
 
