@@ -11,33 +11,9 @@
 }
 
 *::-webkit-scrollbar-track {
-  @apply bg-slate-200;
+  @apply bg-slate-200 dark:bg-slate-800;
 }
 
 *::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-slate-400;
-}
-
-.prose pre {
-  max-width: 98vw;
-}
-
-.prose img {
-  border-radius: 4px;
-}
-
-.blog-post pre {
-  background-color: #eff0f1;
-  padding: 16px;
-  border-radius: 4px;
-  overflow: auto;
-  font-size: 14px;
-  margin-bottom: 4.1rem;
-  padding: 3.7rem 0 1.6rem 0.4rem;
-  border-radius: 12px;
-  overflow: hidden;
-  /* background-image: url(your_url_to_image.png); */
-  background-repeat: no-repeat;
-  background-size: 44px 10px;
-  background-position: 16px 14px;
+  @apply rounded-full bg-slate-400 dark:bg-slate-600;
 }

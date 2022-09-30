@@ -13,19 +13,25 @@ const callback: DirectoryTreeCallback = async (
   item: DirectoryTree,
   path: string
 ) => {
-  if (item.type != "directory") {
-    let path: string[] | string = item.path.split("/");
-    path = path.splice(path.indexOf("_posts") + 1, path.length).join("/");
+  let refinedPath: string[] | string = item.path.split("/");
+  refinedPath = refinedPath
+    .splice(refinedPath.indexOf("_posts") + 1, refinedPath.length)
+    .join("/");
 
-    const fullPath = join(postsDirectory, path);
+  if (item.type != "directory") {
+    const fullPath = join(postsDirectory, refinedPath);
     const fileContents = fs.readFileSync(fullPath, "utf8");
-    const { data, content } = matter(fileContents);
+    const { data } = matter(fileContents);
 
     item.custom = {
-      path: path.replace(/\.mdx$/, ""),
+      path: refinedPath.replace(/\.mdx$/, ""),
       slug: item.name.replace(/\.mdx$/, ""),
-      content,
       data: data as TypeDocsMetaData,
+    };
+  } else {
+    item.custom = {
+      path: refinedPath.replace(/\.mdx$/, ""),
+      children: item.children,
     };
   }
 };

@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+// /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
@@ -20,5 +20,17 @@ const nextConfig = {
     return config;
   },
 };
-
 module.exports = nextConfig;
+
+const frontmatter = require("remark-frontmatter");
+
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [frontmatter],
+    providerImportSource: "@mdx-js/react",
+  },
+});
+module.exports = withMDX({
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+});

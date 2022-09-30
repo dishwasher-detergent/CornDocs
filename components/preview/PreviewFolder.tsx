@@ -4,9 +4,7 @@ import React from "react";
 
 interface PreviewProps {
   title: string;
-  description: string;
-  imageUrl: string;
-  date: string;
+  count: number;
   slug: string;
   path: string;
 }
@@ -18,18 +16,18 @@ const prefix = process.env.NEXT_PUBLIC_BASE_PATH
   ? `${process.env.NEXT_PUBLIC_BASE_PATH}/`
   : "";
 
-function Preview(props: PreviewProps) {
-  const { title, description, imageUrl, date, slug, path } = props;
+function PreviewFolder(props: PreviewProps) {
+  const { title, slug, count, path } = props;
   return (
     <Link href={`/Docs/${path}`} passHref>
       <div className="flex w-full cursor-pointer flex-col overflow-hidden rounded-md bg-white p-2 transition-all hover:bg-amber-300/20 dark:bg-gray-900 dark:text-white hover:dark:bg-amber-300/20">
         <div className="relative h-[128px] w-full overflow-hidden rounded-md bg-slate-100 dark:bg-slate-800">
-          {imageUrl && (
+          {slug && (
             <Image
               loader={customLoader}
               objectFit="cover"
               layout="fill"
-              src={`${prefix}${imageUrl}`}
+              src={`${prefix}${slug}`}
               alt="This is the preview image of the component"
             />
           )}
@@ -39,7 +37,7 @@ function Preview(props: PreviewProps) {
             {title}
           </div>
           <div className="text-xs text-slate-700 line-clamp-3 dark:text-slate-50">
-            {description}
+            {count} Sub-Item{count > 1 ? "s" : ""}
           </div>
         </div>
       </div>
@@ -47,4 +45,4 @@ function Preview(props: PreviewProps) {
   );
 }
 
-export default Preview;
+export default PreviewFolder;

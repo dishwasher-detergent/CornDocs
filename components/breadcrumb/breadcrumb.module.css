@@ -1,0 +1,7 @@
+.breadcrumb {
+  @apply order-first flex space-x-2 text-sm font-semibold;
+}
+
+.breadcrumb > :last-child {
+  @apply text-amber-500;
+}
