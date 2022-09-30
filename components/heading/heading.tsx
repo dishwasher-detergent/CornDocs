@@ -5,6 +5,7 @@ const Heading = ({ children }: { children?: ReactNode }) => {
     <h2>
       <a
         href={`#${children?.toString().replace(/\s+/g, "-").toLowerCase()}`}
+        id={`${children?.toString().replace(/\s+/g, "-").toLowerCase()}`}
         className={`no-underline`}
       >
         {children}
