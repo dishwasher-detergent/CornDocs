@@ -5,10 +5,12 @@ import CodeBlock from "../markdown/code-block";
 import { H2, H3 } from "../markdown/heading";
 import Breadcrumb from "../breadcrumb/breadcrumb";
 import { useRouter } from "next/router";
+import Loading from "../loading";
 
 const DynamicDocument = (c: any) =>
   dynamic(() => import(`../../_posts/${c}.mdx`), {
     ssr: false,
+    loading: Loading,
   });
 
 interface DocProps {
@@ -33,8 +35,6 @@ const components = {
 const DisplayDoc = ({ data }: DocProps) => {
   const DocumentContent = DynamicDocument(data.path);
   const router = useRouter();
-
-  console.log(router);
 
   return (
     <>
@@ -67,14 +67,14 @@ const DisplayDoc = ({ data }: DocProps) => {
         }}
       />
       <div className="relative flex flex-row justify-start gap-6 overflow-y-auto p-6">
-        <article className="prose prose-slate max-w-none dark:prose-invert">
+        <article className="prose prose-slate w-full max-w-none dark:prose-invert">
           <Breadcrumb data={router.query.slug} />
           {/* @ts-ignore */}
           <MDXProvider components={components}>
             <DocumentContent />
           </MDXProvider>
         </article>
-        <nav className="sticky top-0 flex w-32 flex-col gap-1 md:w-48">
+        <nav className="sticky top-0 flex w-32 flex-none flex-col gap-1 md:w-48">
           <p className="w-full rounded-md bg-amber-300/20 px-2 py-1.5 font-bold text-amber-500">
             On this page
           </p>
