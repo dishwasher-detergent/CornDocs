@@ -29,7 +29,7 @@ function Preview(props: PreviewProps) {
               loader={customLoader}
               objectFit="cover"
               layout="fill"
-              src={`${prefix}${imageUrl}`}
+              src={`/images/${path}.jpeg`}
               alt="This is the preview image of the component"
             />
           )}

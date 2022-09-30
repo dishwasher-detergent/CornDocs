@@ -27,7 +27,7 @@ function PreviewFolder(props: PreviewProps) {
               loader={customLoader}
               objectFit="cover"
               layout="fill"
-              src={`${prefix}${slug}`}
+              src={`/images/${path}.jpeg`}
               alt="This is the preview image of the component"
             />
           )}

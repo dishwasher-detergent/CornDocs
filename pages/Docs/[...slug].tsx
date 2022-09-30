@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Markdown from "markdown-to-jsx";
-import CodeBlock from "../../components/code-block";
-import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import DisplayChildren from "../../components/display/Children";
 import DisplayDoc from "../../components/display/Doc";

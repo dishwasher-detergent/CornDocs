@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import { TypeDocsDetails } from "../../types/TypeDocsDetails";
+import { TypeDocsDetails } from "../../../types/TypeDocsDetails";
 
 interface ButtonProps {
   data: any;

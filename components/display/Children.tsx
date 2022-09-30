@@ -1,6 +1,3 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { TypeDocsMetaData } from "../../types/TypeDocsMetadata";
 import Preview from "../preview/Preview";
 import PreviewFolder from "../preview/PreviewFolder";
 

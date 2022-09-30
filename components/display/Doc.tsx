@@ -1,10 +1,8 @@
 import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import { MDXProvider } from "@mdx-js/react";
-import CodeBlock from "../code-block";
-import Markdown from "markdown-to-jsx";
-import { ReactNode } from "react";
-import Heading from "../heading/heading";
+import CodeBlock from "../markdown/code-block";
+import Heading from "../markdown/heading";
 
 const DynamicDocument = (c: any) =>
   dynamic(() => import(`../../_posts/${c}.mdx`), {
