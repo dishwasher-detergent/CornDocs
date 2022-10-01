@@ -3,7 +3,7 @@ const seoConfig = {
     type: "Documentation",
     locale: "en_IE",
     url: process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL,
-    site_name: `${process.env.NEXT_PUBLIC_OWNER_NAME}'s Documentation`,
+    site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
   },
   twitter: {
     handle: process.env.NEXT_PUBLIC_TWITTER_HANDLE,

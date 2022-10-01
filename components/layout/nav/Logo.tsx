@@ -10,15 +10,18 @@ const Logo = () => {
   return (
     <Link href="/" passHref>
       <a className="flex h-full cursor-pointer items-center justify-start gap-2 text-xl font-black">
-        <Image
-          loader={customLoader}
-          src={`${prefix}/static/logo.svg`}
-          alt="Profile Image"
-          height={60}
-          width={60}
-          className="cursor-pointer"
-        />
-        <span>{process.env.NEXT_PUBLIC_OWNER_NAME}</span>
+        <span className="relative h-10 w-24 overflow-hidden">
+          <Image
+            loader={customLoader}
+            src={`${prefix}/static/logo.svg`}
+            alt="Profile Image"
+            width="100%"
+            height="100%"
+            layout="fill"
+            className="cursor-pointer"
+          />
+        </span>
+        <span>{process.env.NEXT_PUBLIC_PROJECT_NAME}</span>
       </a>
     </Link>
   );

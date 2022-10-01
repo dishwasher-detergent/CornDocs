@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 interface PreviewProps {
   title: string;
@@ -11,23 +11,38 @@ interface PreviewProps {
   path: string;
 }
 
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH
-  ? `${process.env.NEXT_PUBLIC_BASE_PATH}/`
-  : "";
+const customLoader = ({ src }: any) => {
+  return src;
+};
 
 function Preview(props: PreviewProps) {
   const { title, description, imageUrl, path } = props;
+  const [fallbackImage, setFallbackImage] = useState(false);
+
   return (
     <Link href={`/Docs/${path}`} passHref>
       <div className="flex w-full cursor-pointer flex-col overflow-hidden rounded-md bg-white p-2 transition-all hover:bg-amber-300/20 dark:bg-gray-900 dark:text-white hover:dark:bg-amber-300/20">
         <div className="relative h-[128px] w-full overflow-hidden rounded-md bg-slate-100 dark:bg-slate-800">
-          {imageUrl && (
+          {!fallbackImage ? (
             <Image
+              loader={customLoader}
               objectFit="cover"
               layout="fill"
               src={`/images/${path}.jpeg`}
               alt="This is the preview image of the component"
+              onError={() => {
+                setFallbackImage(true);
+              }}
             />
+          ) : (
+            <div className="flex h-full w-full flex-col justify-center p-2">
+              <p className="whitespace-nowrap text-4xl font-black text-slate-300 dark:text-slate-700">
+                {title}
+              </p>
+              <p className="whitespace-nowrap text-2xl font-bold text-slate-300 dark:text-slate-700">
+                {description}
+              </p>
+            </div>
           )}
         </div>
         <div className="py-4 px-2">

@@ -1,8 +1,6 @@
 import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 import DisplayChildren from "../../components/display/Children";
-import Preview from "../../components/preview/Preview";
-import PreviewFolder from "../../components/preview/PreviewFolder";
 
 const Docs = () => {
   const [data, setData] = useState<any>([]);
@@ -18,18 +16,16 @@ const Docs = () => {
       });
   }, []);
 
-  console.log(data);
-
   return (
     <>
       <NextSeo
-        title={`${process.env.NEXT_PUBLIC_OWNER_NAME}`}
+        title={`${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
         canonical={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}`}
-        description={`Documentation for ${process.env.NEXT_PUBLIC_OWNER_NAME}`}
+        description={`Documentation for ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
         openGraph={{
-          title: `${process.env.NEXT_PUBLIC_OWNER_NAME}`,
+          title: `${process.env.NEXT_PUBLIC_PROJECT_NAME}`,
           url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}`,
-          description: `Documentation for ${process.env.NEXT_PUBLIC_OWNER_NAME}`,
+          description: `Documentation for ${process.env.NEXT_PUBLIC_PROJECT_NAME}`,
           type: "article",
           images: [
             {
@@ -47,7 +43,7 @@ const Docs = () => {
               type: "svg",
             },
           ],
-          site_name: `${process.env.NEXT_PUBLIC_OWNER_NAME}'s Documentation`,
+          site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
         }}
       />
       {!isLoading && <DisplayChildren data={data} />}

@@ -5,7 +5,6 @@ import styles from "./breadcrumb.module.css";
 import { HomeIcon } from "@heroicons/react/20/solid";
 
 const Breadcrumb = ({ data }: any) => {
-  console.log(data);
   return (
     <div
       className={`mb-6 flex h-4 w-full flex-row items-center ${styles.breadcrumb}`}
