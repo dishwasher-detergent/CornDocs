@@ -8,7 +8,7 @@ interface ProviderProps {
 }
 
 const SidebarProvider = ({ children }: ProviderProps) => {
-  const [sidebar, setSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(true);
   const toggleSidebar = () => {
     setSidebar(!sidebar);
   };
