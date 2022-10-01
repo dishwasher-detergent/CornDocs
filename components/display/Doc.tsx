@@ -70,7 +70,7 @@ const DisplayDoc = ({ data }: DocProps) => {
       <div className="relative">
         <div className="relative flex flex-row justify-start">
           <article className="prose prose-slate w-full max-w-none dark:prose-invert">
-            <div className="p-10">
+            <div className="p-6 md:p-10">
               <Breadcrumb data={router.query.slug} />
               {/* @ts-ignore */}
               <MDXProvider components={components}>
