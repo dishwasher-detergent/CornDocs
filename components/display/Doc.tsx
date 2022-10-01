@@ -68,7 +68,7 @@ const DisplayDoc = ({ data }: DocProps) => {
         }}
       />
       <div className="relative flex flex-row justify-start gap-10 overflow-y-auto">
-        <div className="prose prose-slate h-full w-full max-w-none p-10 dark:prose-invert">
+        <div className="prose prose-slate h-full w-full max-w-none p-6 dark:prose-invert md:p-10">
           <Breadcrumb data={router.query.slug} />
           {/* @ts-ignore */}
           <MDXProvider components={components}>
