@@ -1,7 +1,7 @@
-import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import { SunIcon, MoonIcon } from "@heroicons/react/20/solid";
 import { useTheme } from "next-themes";
 
-const Logo = () => {
+const DarkToggle = () => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -18,4 +18,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default DarkToggle;

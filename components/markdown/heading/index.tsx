@@ -1,29 +1,32 @@
 import React, { ReactNode } from "react";
+import styles from "./heading.module.css";
 
 export const H2 = ({ children }: { children?: ReactNode }) => {
   return (
-    <h2>
+    <h2 className={`relative flex items-center ${styles.heading}`}>
       <a
         href={`#${children?.toString().replace(/\s+/g, "-").toLowerCase()}`}
         id={`${children?.toString().replace(/\s+/g, "-").toLowerCase()}`}
-        className={`no-underline`}
+        className={`absolute -left-8 grid place-content-center rounded-md border border-slate-300 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all`}
       >
-        {children}
+        #
       </a>
+      {children}
     </h2>
   );
 };
 
 export const H3 = ({ children }: { children?: ReactNode }) => {
   return (
-    <h3>
+    <h3 className={`relative flex items-center ${styles.heading}`}>
       <a
         href={`#${children?.toString().replace(/\s+/g, "-").toLowerCase()}`}
         id={`${children?.toString().replace(/\s+/g, "-").toLowerCase()}`}
-        className={`no-underline`}
+        className={`absolute -left-8 grid place-content-center rounded-md border border-slate-300 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all`}
       >
-        {children}
+        #
       </a>
+      {children}
     </h3>
   );
 };

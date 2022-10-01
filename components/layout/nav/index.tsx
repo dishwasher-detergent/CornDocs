@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import DarkToggle from "./DarkToggle";
+import SidebarToggle from "./SidebarToggle";
 
 function Nav() {
   return (
@@ -8,7 +9,10 @@ function Nav() {
       <div className="flex h-full w-full max-w-screen-2xl items-center justify-between px-6 py-2">
         <Logo />
         {/* <Search /> */}
-        <DarkToggle />
+        <div className="flex flex-row justify-end gap-4">
+          <DarkToggle />
+          <SidebarToggle />
+        </div>
       </div>
     </header>
   );

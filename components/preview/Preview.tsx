@@ -10,23 +10,19 @@ interface PreviewProps {
   slug: string;
   path: string;
 }
-const customLoader = ({ src }: any) => {
-  return src;
-};
 
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH
   ? `${process.env.NEXT_PUBLIC_BASE_PATH}/`
   : "";
 
 function Preview(props: PreviewProps) {
-  const { title, description, imageUrl, date, slug, path } = props;
+  const { title, description, imageUrl, path } = props;
   return (
     <Link href={`/Docs/${path}`} passHref>
       <div className="flex w-full cursor-pointer flex-col overflow-hidden rounded-md bg-white p-2 transition-all hover:bg-amber-300/20 dark:bg-gray-900 dark:text-white hover:dark:bg-amber-300/20">
         <div className="relative h-[128px] w-full overflow-hidden rounded-md bg-slate-100 dark:bg-slate-800">
           {imageUrl && (
             <Image
-              loader={customLoader}
               objectFit="cover"
               layout="fill"
               src={`/images/${path}.jpeg`}

@@ -1,4 +1,5 @@
 import React from "react";
+import Div100vh from "react-div-100vh";
 
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];
@@ -6,9 +7,7 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex h-screen w-screen flex-col overflow-hidden">
-      {children}
-    </div>
+    <Div100vh className="flex flex-col overflow-hidden">{children}</Div100vh>
   );
 }
 
