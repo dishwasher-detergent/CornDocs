@@ -6,10 +6,10 @@ import { HomeIcon } from "@heroicons/react/20/solid";
 const Breadcrumb = ({ data }: any) => {
   return (
     <div
-      className={`mb-6 flex h-4 w-full flex-row items-center ${styles.breadcrumb}`}
+      className={`mb-6 flex h-4 w-full flex-row items-center text-slate-500 dark:text-white  ${styles.breadcrumb}`}
     >
       <Link href={"/Docs"}>
-        <a className="flex flex-row gap-1 text-slate-500 hover:text-slate-600 dark:text-white hover:dark:text-slate-200">
+        <a className="flex flex-row gap-1 hover:text-slate-600 hover:dark:text-slate-200">
           <HomeIcon className="h-4 w-4" />
           Home
         </a>
@@ -20,9 +20,7 @@ const Breadcrumb = ({ data }: any) => {
             <>
               <div>/</div>
               <Link href={`/Docs/${data.slice(0, index + 1).join("/")}`}>
-                <a className="text-slate-500 hover:text-slate-600 dark:text-white hover:dark:text-slate-200">
-                  {item}
-                </a>
+                <a>{item}</a>
               </Link>
             </>
           );

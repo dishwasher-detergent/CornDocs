@@ -68,7 +68,7 @@ const DisplayDoc = ({ data }: DocProps) => {
           site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
         }}
       />
-      <article className="prose prose-slate h-full w-full max-w-none flex-1 p-6 dark:prose-invert md:p-10">
+      <article className="prose prose-slate h-full w-full max-w-none flex-1 p-6 dark:prose-invert">
         <Breadcrumb data={router.query.slug} />
         {/* @ts-ignore */}
         <MDXProvider components={components}>
@@ -86,7 +86,7 @@ const DisplayDoc = ({ data }: DocProps) => {
         </Footer>
       </article>
       {data.headings.length > 0 && (
-        <nav className="sticky top-0 hidden h-full w-72 flex-none flex-col gap-1 overflow-y-auto p-10 dark:text-white md:flex">
+        <nav className="sticky top-0 hidden h-full w-72 flex-none flex-col gap-1 overflow-y-auto p-6 dark:text-white md:flex">
           <p className="w-full rounded-md bg-primary-300/20 px-2 py-1.5 font-bold text-primary-500">
             On this page
           </p>
