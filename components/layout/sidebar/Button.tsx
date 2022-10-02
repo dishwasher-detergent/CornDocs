@@ -12,7 +12,7 @@ const Button = ({ data, children }: ButtonProps) => {
   return !data.children ? (
     <li>
       <Link href={`/Docs/${data.custom.path}`}>
-        <a className="flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-amber-400/10">
+        <a className="flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-primary-300/20">
           {children}
         </a>
       </Link>
@@ -25,7 +25,7 @@ const Button = ({ data, children }: ButtonProps) => {
             <Disclosure.Button
               as="li"
               className={`flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold ${
-                open && "bg-amber-400/10"
+                open && "bg-primary-300/20"
               }`}
             >
               <span className="flex w-full flex-row items-center gap-2 truncate">
@@ -33,7 +33,7 @@ const Button = ({ data, children }: ButtonProps) => {
               </span>
               <ChevronRightIcon
                 className={`h-4 w-4 transition-all ${
-                  open && "rotate-90 text-amber-500"
+                  open && "rotate-90 text-primary-500"
                 }`}
               />
             </Disclosure.Button>
@@ -42,9 +42,9 @@ const Button = ({ data, children }: ButtonProps) => {
                 return !item.children ? (
                   <li key={index}>
                     <Link href={`/Docs/${item.custom.path}`}>
-                      <a className="flex cursor-pointer flex-row flex-nowrap items-center justify-start gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-amber-400/10">
+                      <a className="flex cursor-pointer flex-row flex-nowrap items-center justify-start gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-primary-300/20">
                         <svg
-                          className="h-4 w-4 rotate-90 text-amber-500"
+                          className="h-4 w-4 rotate-90 text-primary-500"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 384 512"
                           fill="currentColor"
@@ -60,7 +60,7 @@ const Button = ({ data, children }: ButtonProps) => {
                   <Button data={item} key={index}>
                     <>
                       <svg
-                        className="h-4 w-4 rotate-90 text-amber-500"
+                        className="h-4 w-4 rotate-90 text-primary-500"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 384 512"
                         fill="currentColor"

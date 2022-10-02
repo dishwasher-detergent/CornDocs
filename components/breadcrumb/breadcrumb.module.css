@@ -3,5 +3,5 @@
 }
 
 .breadcrumb > :last-child {
-  @apply text-amber-500;
+  @apply text-primary-500;
 }

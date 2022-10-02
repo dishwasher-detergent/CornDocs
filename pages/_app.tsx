@@ -9,13 +9,14 @@ import { DefaultSeo } from "next-seo";
 import seoConfig from "../next-seo.config";
 import { ThemeProvider } from "next-themes";
 import { SidebarProvider } from "../context/SidebarContext";
+import { DarkmodeProvider } from "../context/DarkModeContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <DefaultSeo {...seoConfig} />
-      <ThemeProvider attribute="class">
-        <SidebarProvider>
+      <SidebarProvider>
+        <DarkmodeProvider>
           <Layout>
             <Nav />
             <Wrapper>
@@ -25,8 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
               </Content>
             </Wrapper>
           </Layout>
-        </SidebarProvider>
-      </ThemeProvider>
+        </DarkmodeProvider>
+      </SidebarProvider>
     </>
   );
 }

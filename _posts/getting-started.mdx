@@ -82,6 +82,32 @@ public/
         └── setup.jpg (this will give the file setup.mdx an image if that was assigned in the frontmatter.)
 ```
 
+## Setting up Favicon
+
+Generate your favicon files through your favorite method, or use [https://www.favicon-generator.org/](https://www.favicon-generator.org/)
+
+### Color customization
+
+You can change the accent color to be whatever you like by going into **tailwind.config.js** and updating the primary color to your preference.
+
+#### Example:
+
+```js
+const colors = require("tailwindcss/colors");
+
+module.exports = {
+  ...
+  theme: {
+    extend: {
+      colors: {
+        primary: colors.amber,
+      },
+    },
+  },
+  ...
+};
+```
+
 ### Run the project to verify
 
 If you want to test the project locally
@@ -92,12 +118,9 @@ npm run dev
 
 and go to **http://localhost:3000/getting-started** to see the fruits of your labor!
 
-## Setting up Favicon
-
-Generate your favicon files through your favorite method, or use [https://www.favicon-generator.org/](https://www.favicon-generator.org/)
-
 ## Deploy!
 
+Once you're done, you can deploy to Vercel with the click of a button!
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdishwasher-detergent%2FCornDocs&env=NEXT_PUBLIC_PRODUCTION_ROOT_URL,NEXT_PUBLIC_GITHUB_URL,NEXT_PUBLIC_PROJECT_NAME,NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY&envDescription=Getting%20CornDocs%20setup&envLink=corndocs.com%2FDocs%2FGetting-Started)
 
 ### Technologies Used

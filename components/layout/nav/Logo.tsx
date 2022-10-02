@@ -21,7 +21,9 @@ const Logo = () => {
             className="cursor-pointer"
           />
         </span>
-        <span>{process.env.NEXT_PUBLIC_PROJECT_NAME}</span>
+        <span className="hidden md:inline-block">
+          {process.env.NEXT_PUBLIC_PROJECT_NAME}
+        </span>
       </a>
     </Link>
   );

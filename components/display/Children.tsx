@@ -24,7 +24,7 @@ const DisplayChildren = ({ data }: DocProps) => {
   const router = useRouter();
 
   return (
-    <div className="p-6">
+    <div className="h-full w-full p-6">
       <Breadcrumb data={router.query.slug} />
       <section className="grid-col-1 grid md:grid-cols-2 lg:grid-cols-3">
         {data.children.map((item: any) =>

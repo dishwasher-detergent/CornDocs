@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   // purge: ["./**/*.tsx"],
   mode: "jit",
@@ -13,5 +15,12 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
+  },
+  theme: {
+    extend: {
+      colors: {
+        primary: colors.amber,
+      },
+    },
   },
 };

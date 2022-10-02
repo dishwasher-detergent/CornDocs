@@ -1,5 +1,4 @@
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/20/solid";
-import { useTheme } from "next-themes";
 import { useContext } from "react";
 import { SidebarContext } from "../../../context/SidebarContext";
 
