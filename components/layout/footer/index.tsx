@@ -7,7 +7,7 @@ interface FooterProps {
 function Footer({ children }: FooterProps) {
   return (
     <footer className="flex w-full justify-center border-t border-slate-300 p-4 py-6 dark:border-slate-700">
-      <div className="flex w-full max-w-7xl flex-row justify-between text-slate-900 dark:text-white">
+      <div className="flex w-full max-w-7xl flex-row items-center justify-between">
         <p className="text-center text-sm font-bold sm:text-left">
           © 2022 {process.env.NEXT_PUBLIC_PROJECT_NAME}
         </p>

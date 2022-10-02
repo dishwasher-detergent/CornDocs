@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import "../styles/prism-dracula.css";
 import type { AppProps } from "next/app";
 import Layout from "../components/layout/Layout";
-import { Wrapper, Content } from "../components/layout/Content";
+import { Content } from "../components/layout/Content";
 import Sidebar from "../components/layout/sidebar";
 import Nav from "../components/layout/nav";
 import { DefaultSeo } from "next-seo";
@@ -19,12 +19,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <DarkmodeProvider>
           <Layout>
             <Nav />
-            <Wrapper>
-              <Sidebar />
-              <Content>
-                <Component {...pageProps} />
-              </Content>
-            </Wrapper>
+            <Sidebar />
+            <Content>
+              <Component {...pageProps} />
+            </Content>
           </Layout>
         </DarkmodeProvider>
       </SidebarProvider>

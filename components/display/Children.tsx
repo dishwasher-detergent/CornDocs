@@ -26,7 +26,7 @@ const DisplayChildren = ({ data }: DocProps) => {
   return (
     <div className="h-full w-full p-6">
       <Breadcrumb data={router.query.slug} />
-      <section className="grid-col-1 grid md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid-col-1 grid gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data.children.map((item: any) =>
           item.type != "directory" ? (
             <Preview

@@ -12,7 +12,7 @@ function Layout({ children }: LayoutProps) {
 
   return (
     <Div100vh
-      className={`flex flex-col overflow-hidden transition-all ${
+      className={`flex flex-row overflow-hidden transition-all ${
         darkmode ? "dark" : ""
       }`}
     >

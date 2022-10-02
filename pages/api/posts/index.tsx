@@ -16,12 +16,10 @@ async function getHeadings(source: any) {
 
   return headingLines.map((raw: any) => {
     const text = raw.replace(/^###*\s/, "");
-    const level = raw.slice(0, 3) === "###" ? 3 : 2;
+    const level = raw.split(" ")[0].lastIndexOf("#") + 1;
 
     return { text, level };
   });
-
-  return headingLines;
 }
 
 const callback: DirectoryTreeCallback = async (
