@@ -5,6 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
+import React, { useContext } from "react";
 import { DarkmodeContext } from "../context/DarkModeContext";
 
 class MyDocument extends Document {
