@@ -4,6 +4,7 @@
 
 * {
   font-family: "Nunito", sans-serif;
+  @apply transition-all;
 }
 
 *::-webkit-scrollbar {

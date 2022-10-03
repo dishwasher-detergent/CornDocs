@@ -16,7 +16,7 @@ function Layout({ children }: LayoutProps) {
         darkmode ? "dark" : ""
       }`}
     >
-      <div className="h-full w-full overflow-hidden transition-all dark:bg-slate-900 bg-white">
+      <div className="h-full w-full overflow-hidden dark:bg-slate-900 bg-white">
         {children}
       </div>
     </Div100vh>
