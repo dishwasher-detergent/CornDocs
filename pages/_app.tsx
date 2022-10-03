@@ -19,10 +19,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <DarkmodeProvider>
           <Layout>
             <Nav />
-            <Sidebar />
-            <Content>
-              <Component {...pageProps} />
-            </Content>
+            <div className="w-full h-full overflow-hidden">
+              <Sidebar />
+              <Content>
+                <Component {...pageProps} />
+              </Content>
+            </div>
           </Layout>
         </DarkmodeProvider>
       </SidebarProvider>

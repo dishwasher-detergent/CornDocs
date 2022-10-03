@@ -68,7 +68,7 @@ const DisplayDoc = ({ data }: DocProps) => {
           site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
         }}
       />
-      <article className="prose prose-slate h-full w-full max-w-none flex-1 p-6 dark:prose-invert">
+      <article className="prose prose-slate h-full w-full max-w-none flex-1 md:pl-10 p-6 dark:prose-invert">
         <Breadcrumb data={router.query.slug} />
         {/* @ts-ignore */}
         <MDXProvider components={components}>
