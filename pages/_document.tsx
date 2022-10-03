@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
-import { DarkmodeContext } from "../../context/DarkModeContext";
+import { DarkmodeContext } from "../context/DarkModeContext";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<any> {
