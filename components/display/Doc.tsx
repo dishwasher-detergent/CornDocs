@@ -78,7 +78,7 @@ const DisplayDoc = ({ data }: DocProps) => {
           {process.env.NEXT_PUBLIC_GITHUB_URL && (
             <a
               target="_blank"
-              href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/edit/master/_posts/${data.path}.mdx`}
+              href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/edit/${process.env.NEXT_PUBLIC_GITHUB_BRANCH}/_posts/${data.path}.mdx`}
             >
               Edit on GitHub
             </a>
