@@ -2,8 +2,6 @@
 
 ## Adding docs to your project
 
----
-
 ### Step 1: Change the environment variables
 
 Go into the **.env.local** file and change the following variables to include your own.
