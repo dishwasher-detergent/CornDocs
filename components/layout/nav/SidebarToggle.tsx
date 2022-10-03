@@ -8,7 +8,7 @@ const SidebarToggle = () => {
 
   return (
     <button
-      className="block text-gray-900 dark:text-white md:hidden"
+      className="block text-gray-900 dark:text-white lg:hidden"
       onClick={() => toggleSidebar()}
     >
       {sidebar ? (

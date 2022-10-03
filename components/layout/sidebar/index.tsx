@@ -22,7 +22,7 @@ function Sidebar() {
   return (
     <aside
       className={`fixed md:absolute inset-0 top-16 z-10 flex-none overflow-y-auto overflow-x-hidden border-slate-300 bg-white/80 pb-6 backdrop-blur-md  dark:border-slate-700 dark:bg-slate-900/80 dark:text-white md:w-64 md:border-r ${
-        sidebar && "hidden md:block"
+        sidebar && "hidden lg:block"
       }`}
     >
       <ul className="flex w-full flex-col gap-1 px-4 pt-6">
