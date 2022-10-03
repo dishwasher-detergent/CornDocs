@@ -12,11 +12,13 @@ function Layout({ children }: LayoutProps) {
 
   return (
     <Div100vh
-      className={`flex flex-row overflow-hidden transition-all dark:bg-slate-900 bg-white ${
+      className={`${
         darkmode ? "dark" : ""
       }`}
     >
-      {children}
+      <div className="flex flex-row overflow-hidden transition-all dark:bg-slate-900 bg-white">
+        {children}
+      </div>
     </Div100vh>
   );
 }
