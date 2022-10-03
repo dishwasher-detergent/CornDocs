@@ -111,6 +111,7 @@ and go to **http://localhost:3000/getting-started** to see the fruits of your la
 ## Deploy!
 
 Once you're done, you can deploy to Vercel with the click of a button!
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdishwasher-detergent%2FCornDocs&env=NEXT_PUBLIC_PRODUCTION_ROOT_URL,NEXT_PUBLIC_GITHUB_URL,NEXT_PUBLIC_PROJECT_NAME,NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY&envDescription=Getting%20CornDocs%20setup&envLink=corndocs.com%2FDocs%2FGetting-Started)
 
 ### Technologies Used
