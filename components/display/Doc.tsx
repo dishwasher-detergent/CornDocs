@@ -86,7 +86,7 @@ const DisplayDoc = ({ data }: DocProps) => {
         </Footer>
       </article>
       {data.headings.length > 0 && (
-        <nav className="fixed z-20 top-16 bottom-0 right-[max(0px,50%)] hidden w-72 flex-none flex-col gap-1 overflow-y-auto p-6 dark:text-white md:flex">
+        <nav className="fixed z-20 top-16 bottom-0 right-[max(0px,calc(50%-47.25rem))] hidden w-72 flex-none flex-col gap-1 overflow-y-auto p-6 dark:text-white md:flex">
           <p className="w-full rounded-md bg-primary-300/20 px-2 py-1.5 font-bold text-primary-500">
             On this page
           </p>
