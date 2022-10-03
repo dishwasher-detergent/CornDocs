@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <DarkmodeProvider>
           <Layout>
             <Nav />
-            <div className="w-full h-full overflow-hidden">
+            <div className="w-full h-full overflow-hidden mx-auto max-w-xl">
               <Sidebar />
               <Content>
                 <Component {...pageProps} />
