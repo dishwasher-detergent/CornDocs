@@ -5,9 +5,6 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
-import React, { useContext } from "react";
-import { DarkmodeContext } from "../context/DarkModeContext";
-
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<any> {
     const initialProps = await Document.getInitialProps(ctx);
@@ -15,9 +12,6 @@ class MyDocument extends Document {
   }
 
   render() {
-    /* @ts-ignore */
-    const { darkmode } = useContext(DarkmodeContext);
-
     return (
       <Html>
         <Head>
@@ -33,9 +27,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className={`${
-          darkmode ? "dark" : ""
-        }`}>
+        <body>
           <Main />
           <NextScript />
         </body>
