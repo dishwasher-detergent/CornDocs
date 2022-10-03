@@ -6,6 +6,7 @@ interface Props {
 }
 
 export const Content = ({ children }: Props) => {
+  /* @ts-ignore */
   const { sidebar } = useContext(SidebarContext);
 
   return (
