@@ -28,9 +28,10 @@ function Doc() {
         </h1>
         <div className="text-center text-xl">
           <p>
-            Looks like the documentation for {router.query.slug} is nowhere to be
+            Looks like the documentation for <span className="font-bold">{router.query.slug}</span> is nowhere to be
             found!
           </p>
+          <p>Try looking for something else.</p>
         </div>
       </div>
     )
