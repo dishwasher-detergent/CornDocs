@@ -26,7 +26,7 @@ function Doc() {
         <h1 className="rounded-md bg-primary-300/20 p-4 text-9xl font-black text-primary-500">
           404
         </h1>
-        <div className="text-center text-xl dark:text-slate-900 text-white">
+        <div className="text-center text-xl text-slate-900 dark:text-white">
           <p>
             Looks like the documentation for <span className="font-bold">{router.query.slug}</span> is nowhere to be
             found!
