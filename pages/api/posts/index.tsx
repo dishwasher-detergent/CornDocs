@@ -8,7 +8,6 @@ import directoryTree, {
 } from "directory-tree";
 
 const postsDirectory = join(process.cwd(), "_posts");
-let singlePost = false;
 
 async function getHeadings(source: any) {
   const headingLines = source.split("\n").filter((line: any) => {
@@ -46,15 +45,14 @@ const callback: DirectoryTreeCallback = async (
   } else {
     item.custom = {
       path: refinedPath.replace(/\.mdx$/, ""),
-      children: (singlePost ? item.children : null),
+      children: item.children,
     };
   }
 };
 
-export async function getPostSlugs(singlePost: boolean = false) {
-  singlePost = singlePost;
+export async function getPostSlugs(path: string) {
   const dirTree: DirectoryTree & { id?: string } = directoryTree(
-    postsDirectory,
+    `${postsDirectory}${(path ? path : null)}`,
     { extensions: /\.mdx$/, normalizePath: true, attributes: ["type"] },
     callback,
     callback
