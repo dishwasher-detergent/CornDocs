@@ -44,8 +44,7 @@ const callback: DirectoryTreeCallback = async (
     };
   } else {
     item.custom = {
-      path: refinedPath.replace(/\.mdx$/, ""),
-      children: item.children,
+      path: refinedPath.replace(/\.mdx$/, "")
     };
   }
 };
