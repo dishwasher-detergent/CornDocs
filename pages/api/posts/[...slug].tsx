@@ -13,9 +13,9 @@ export const search = (obj: any, predicate: any) => {
 
 export const getCertainPost = async (query: string) => {
   const slugs = await getPostSlugs(query);
-  const slug = search(slugs, (key: string, value: string) => {
-    return key === "path" && value === query;
-  });
+  // const slug = search(slugs, (key: string, value: string) => {
+  //   return key === "path" && value === query;
+  // });
   return slugs;
 };
 
