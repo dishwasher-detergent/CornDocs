@@ -28,7 +28,7 @@ const CodeBlock = ({ className = "lang-js", children }: CodeBlockProps) => {
         <code className={`language-${language}`}>{children}</code>
       </pre>
 
-      <CopyToClipboard text={children.props.children} onCopy={() => setIsCopied(true)}>
+      <CopyToClipboard text={children} onCopy={() => setIsCopied(true)}>
         <button className="absolute top-2 right-2 rounded-md bg-slate-200/10 p-1.5 text-slate-50 hover:bg-slate-200/40">
           {isCopied ? (
             <ClipboardDocumentCheckIcon className="h-4 w-4 text-emerald-300" />
