@@ -12,11 +12,11 @@ export const search = (obj: any, predicate: any) => {
 };
 
 export const getCertainPost = async (query: string) => {
-  const slugs = await getPostSlugs(query);
-  // const slug = search(slugs, (key: string, value: string) => {
-  //   return key === "path" && value === query;
-  // });
-  return {children: slugs};
+  const slugs = await getPostSlugs();
+  const slug = search(slugs, (key: string, value: string) => {
+    return key === "path" && value === query;
+  });
+  return slug;
 };
 
 export default async function userHandler(

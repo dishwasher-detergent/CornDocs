@@ -50,9 +50,9 @@ const callback: DirectoryTreeCallback = async (
   }
 };
 
-export async function getPostSlugs(path: string = "") {
+export async function getPostSlugs() {
   const dirTree: DirectoryTree & { id?: string } = directoryTree(
-    `${postsDirectory}${(path.length ? "/" + path : "")}`,
+    postsDirectory,
     { extensions: /\.mdx$/, normalizePath: true, attributes: ["type"] },
     callback,
     callback
