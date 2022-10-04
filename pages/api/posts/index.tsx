@@ -8,6 +8,7 @@ import directoryTree, {
 } from "directory-tree";
 
 const postsDirectory = join(process.cwd(), "_posts");
+let singlePost = false;
 
 async function getHeadings(source: any) {
   const headingLines = source.split("\n").filter((line: any) => {
@@ -24,8 +25,7 @@ async function getHeadings(source: any) {
 
 const callback: DirectoryTreeCallback = async (
   item: DirectoryTree,
-  path: string,
-  singlePost: boolean
+  path: string
 ) => {
   let refinedPath: string[] | string = item.path.split("/");
   refinedPath = refinedPath
@@ -52,11 +52,12 @@ const callback: DirectoryTreeCallback = async (
 };
 
 export async function getPostSlugs(singlePost: boolean = false) {
+  singlePost = singlePost;
   const dirTree: DirectoryTree & { id?: string } = directoryTree(
     postsDirectory,
     { extensions: /\.mdx$/, normalizePath: true, attributes: ["type"] },
-    callback(singlePost),
-    callback(singlePost)
+    callback,
+    callback
   );
   return dirTree.children;
 }
