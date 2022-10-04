@@ -16,7 +16,7 @@ export const getCertainPost = async (query: string) => {
   // const slug = search(slugs, (key: string, value: string) => {
   //   return key === "path" && value === query;
   // });
-  return slugs;
+  return {children: slugs};
 };
 
 export default async function userHandler(
