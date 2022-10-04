@@ -24,7 +24,8 @@ async function getHeadings(source: any) {
 
 const callback: DirectoryTreeCallback = async (
   item: DirectoryTree,
-  path: string
+  path: string,
+  singlePost: boolean
 ) => {
   let refinedPath: string[] | string = item.path.split("/");
   refinedPath = refinedPath
@@ -44,17 +45,18 @@ const callback: DirectoryTreeCallback = async (
     };
   } else {
     item.custom = {
-      path: refinedPath.replace(/\.mdx$/, "")
+      path: refinedPath.replace(/\.mdx$/, ""),
+      children: (singlePost ? item.children : null),
     };
   }
 };
 
-export async function getPostSlugs() {
+export async function getPostSlugs(singlePost: boolean = false) {
   const dirTree: DirectoryTree & { id?: string } = directoryTree(
     postsDirectory,
     { extensions: /\.mdx$/, normalizePath: true, attributes: ["type"] },
-    callback,
-    callback
+    callback(singlePost),
+    callback(singlePost)
   );
   return dirTree.children;
 }
