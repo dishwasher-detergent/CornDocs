@@ -13,6 +13,7 @@ interface CodeBlockProps {
 
 const CodeBlock = ({ className = "lang-js", children }: CodeBlockProps) => {
   const language = className.replace("lang-", "");
+  console.log(children)
 
   const [isCopied, setIsCopied] = useState(false);
 
