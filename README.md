@@ -8,8 +8,9 @@ Go into the **.env.local** file and change the following variables to include yo
 
 ```js
 NEXT_PUBLIC_PRODUCTION_ROOT_URL = "https://www.corndocs.com";
-NEXT_PUBLIC_GITHUB_PROFILE_URL = "https://github.com/dishwasher-detergent/CornDocs";
-NEXT_PUBLIC_GITHUB_BRANCH = "main"
+NEXT_PUBLIC_GITHUB_PROFILE_URL =
+  "https://github.com/dishwasher-detergent/CornDocs";
+NEXT_PUBLIC_GITHUB_BRANCH = "main";
 NEXT_PUBLIC_PROJECT_NAME = "CornDocs";
 NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY = "";
 ```
@@ -20,7 +21,7 @@ Go into the **public/static** folder and change the 2 images. Add your own logo 
 
 ### Step 3: Add the blog
 
-Create a new file under the **\_posts** directory. Let's assume the new documentation file name is **getting-started.md**
+Create a new file under the **\_posts** directory. Let's assume the new documentation file name is **getting-started.mdx**
 
 You can nest files within folders.
 
@@ -45,6 +46,7 @@ description: "This is a short description of the documentation"
 banner: "/images/getting-started.jpeg"
 tags: ["Setup"]
 date: 1 October 2022
+position: 1
 ---
 ```
 

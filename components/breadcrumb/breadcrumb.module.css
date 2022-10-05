@@ -1,5 +1,5 @@
 .breadcrumb {
-  @apply order-first flex space-x-2 text-sm font-semibold;
+  @apply order-first space-x-2 text-sm font-semibold;
 }
 
 .breadcrumb > :last-child {

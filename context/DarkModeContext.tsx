@@ -17,7 +17,6 @@ const DarkmodeProvider = ({ children }: ProviderProps) => {
 
   useEffect(() => {
     const local = localStorage.getItem("darkMode");
-    console.log(local);
     setDarkmode(local === "true");
   }, []);
 

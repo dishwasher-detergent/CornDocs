@@ -6,7 +6,7 @@ import { HomeIcon } from "@heroicons/react/20/solid";
 const Breadcrumb = ({ data }: any) => {
   return (
     <div
-      className={`mb-6 flex h-4 w-full flex-row items-center text-slate-500 dark:text-white  ${styles.breadcrumb}`}
+      className={`sticky top-0 z-10 mb-6 inline-flex h-4 flex-row items-center rounded-md bg-white p-4 pl-2 text-slate-500 dark:bg-slate-900 dark:text-white  ${styles.breadcrumb}`}
     >
       <Link href={"/Docs"}>
         <a className="flex flex-row gap-1 hover:text-slate-600 hover:dark:text-slate-200">

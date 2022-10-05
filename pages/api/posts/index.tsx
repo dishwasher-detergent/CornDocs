@@ -31,8 +31,9 @@ const callback: DirectoryTreeCallback = async (
     .splice(refinedPath.indexOf("_posts") + 1, refinedPath.length)
     .join("/");
 
+  const fullPath = join(postsDirectory, refinedPath);
+
   if (item.type != "directory") {
-    const fullPath = join(postsDirectory, refinedPath);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
 
@@ -43,20 +44,39 @@ const callback: DirectoryTreeCallback = async (
       headings: await getHeadings(content),
     };
   } else {
+    let data = "{}";
+
+    try {
+      data = fs.readFileSync(`${fullPath}/define.json`, "utf8");
+    } catch (err) {
+      data = "{}";
+    }
+
     item.custom = {
       path: refinedPath.replace(/\.mdx$/, ""),
-      children: item.children,
+      data: JSON.parse(data),
     };
   }
 };
 
-export async function getPostSlugs() {
+export async function getPostSlugs(path: string = "") {
+  let ext = "";
+
+  if (fs.existsSync(`${postsDirectory}/${path}.mdx`)) {
+    ext = ".mdx";
+  }
+
   const dirTree: DirectoryTree & { id?: string } = directoryTree(
-    postsDirectory,
+    `${postsDirectory}${path.length ? "/" + path : ""}${ext}`,
     { extensions: /\.mdx$/, normalizePath: true, attributes: ["type"] },
     callback,
     callback
   );
+
+  if (path.length) {
+    return dirTree;
+  }
+
   return dirTree.children;
 }
 

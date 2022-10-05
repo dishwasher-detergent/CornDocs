@@ -14,13 +14,15 @@ function Doc() {
       fetch(`/api/posts/${(router.query.slug as string[]).join("/")}`)
         .then((res) => res.json())
         .then((data) => {
-          setData(data[0]);
+          setData(data);
           setLoading(false);
         });
     }
   }, [router]);
-  
-  if(!data){
+
+  console.log(data);
+
+  if (!data) {
     return (
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <h1 className="rounded-md bg-primary-300/20 p-4 text-9xl font-black text-primary-500">
@@ -28,13 +30,14 @@ function Doc() {
         </h1>
         <div className="text-center text-xl text-slate-900 dark:text-white">
           <p>
-            Looks like the documentation for <span className="font-bold">{router.query.slug}</span> is nowhere to be
-            found!
+            Looks like the documentation for{" "}
+            <span className="font-bold">{router.query.slug}</span> is nowhere to
+            be found!
           </p>
           <p>Try looking for something else.</p>
         </div>
       </div>
-    )
+    );
   }
 
   return (

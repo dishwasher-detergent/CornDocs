@@ -7,6 +7,7 @@ interface PreviewProps {
   count: number;
   slug: string;
   path: string;
+  imageUrl: string;
   displayIcons?: boolean;
 }
 const customLoader = ({ src }: any) => {
@@ -18,7 +19,7 @@ const prefix = process.env.NEXT_PUBLIC_BASE_PATH
   : "";
 
 function PreviewFolder(props: PreviewProps) {
-  const { title, slug, count, path, displayIcons = true } = props;
+  const { title, slug, count, path, imageUrl, displayIcons = true } = props;
   const [fallbackImage, setFallbackImage] = useState(false);
 
   return (
@@ -30,7 +31,7 @@ function PreviewFolder(props: PreviewProps) {
               loader={customLoader}
               objectFit="cover"
               layout="fill"
-              src={`/images/${path}/${slug}.jpeg`}
+              src={`${imageUrl ? imageUrl : `/images/${path}/${slug}.jpeg`}`}
               alt={`This is a folder of ${count} components`}
               onError={() => {
                 setFallbackImage(true);
