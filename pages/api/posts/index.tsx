@@ -47,8 +47,8 @@ const callback: DirectoryTreeCallback = async (
     let data: any = { data: { title: item.name } };
 
     try {
-      data = fs.readFileSync(`${fullPath}/define.json`, "utf8");
-      JSON.parse(data);
+      let temp = fs.readFileSync(`${fullPath}/define.json`, "utf8");
+      data = JSON.parse(temp);
     } catch (err) {
       data = {};
     }
