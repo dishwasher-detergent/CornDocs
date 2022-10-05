@@ -44,17 +44,18 @@ const callback: DirectoryTreeCallback = async (
       headings: await getHeadings(content),
     };
   } else {
-    let data = "{}";
+    let data: any = { data: { title: item.name } };
 
     try {
       data = fs.readFileSync(`${fullPath}/define.json`, "utf8");
+      JSON.parse(data);
     } catch (err) {
-      data = "{}";
+      data = {};
     }
 
     item.custom = {
       path: refinedPath.replace(/\.mdx$/, ""),
-      data: JSON.parse(data),
+      data: data,
     };
   }
 };

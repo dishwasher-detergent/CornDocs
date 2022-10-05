@@ -34,7 +34,7 @@ function Sidebar() {
             )
             .map((item: any, index) => (
               <Button data={item} key={index}>
-                {item.type == "file" ? item.custom.data.title : item.name}
+                {item.custom.data.title}
               </Button>
             ))
         ) : (
