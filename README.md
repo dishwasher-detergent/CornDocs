@@ -2,7 +2,7 @@
 
 ## Adding docs to your project
 
-### Step 1: Change the environment variables
+### Changing the environment variables
 
 Go into the **.env.local** file and change the following variables to include your own.
 
@@ -15,7 +15,28 @@ NEXT_PUBLIC_PROJECT_NAME = "CornDocs";
 NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY = "";
 ```
 
-### Step 2: Change the images
+### Setting sidebar order
+
+For a file, you can set the sidebar order in the frontmattter. Use the key position.
+
+```js
+---
+...
+position: 1
+...
+---
+
+For a folder, you can set the sidebar order in the define.json file. Use the key position.
+
+```js
+{
+  ...
+  "position": 1
+  ...
+}
+```
+
+### Changing the images
 
 Go into the **public/static** folder and change the 2 images. Add your own logo and picture there. The logo must be in SVG format.
 
@@ -50,7 +71,7 @@ position: 1
 ---
 ```
 
-### Step 4: Add an image for the documentation file and folder (Optional)
+### Adding an image for the documentation file and folder (Optional)
 
 It is recommended the image is in the same file structure as the document that is referencing it.
 So if the doc is in **Getting Started/Setup**, you should mirror this into the **public/images/** folder.
@@ -60,6 +81,20 @@ So if the doc is in **Getting Started/Setup**, you should mirror this into the *
 Add an image to the **public/images/** folder.
 
 #### Folder Image
+
+Add a define.json file within the folder. For the banner key add the path to the image you want for the folder.
+
+#### Example:
+
+```js
+{
+  ...
+  "banner": "/images/setup.jpg"
+  ...
+}
+```
+
+**or**
 
 Add a image to the **public/images/(Folder Name)/(Folder Name.File Extension)**.
 
