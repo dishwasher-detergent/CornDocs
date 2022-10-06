@@ -13,9 +13,44 @@ const Responsive = ({ children, size }: ResponsiveProps) => {
         <iframe
           className="h-full w-full overflow-hidden"
           /* @ts-ignore */
-          srcDoc={
-            '<script src="https://cdn.tailwindcss.com"></script>' + children
-          }
+          srcDoc={`
+            <html class="flex w-full h-full ">
+              <head>
+                  <meta charset="utf-8">
+                  <title>Component Preview</title>
+                  <script src="https://cdn.tailwindcss.com"></script>
+
+                  <script>
+                      tailwind.config = {
+                          darkMode: 'class',
+                      }
+
+                      function test() {
+                          var links = document.querySelectorAll("a");
+
+                          for (var index = 0; index < links.length; index++) {
+                              links[index].removeAttribute('href');
+                          }
+                      }
+                  </script>
+
+                  <style>
+                      a {
+                          cursor: pointer;
+                      }
+                  </style>
+              </head>
+              <body
+                  onload="test();"
+                  style="height: min-content;"
+                  dir="ltr"
+                  class="flex items-center flex-1 w-full min-h-full "
+              >
+                    ${children}
+                  </main>
+              </body>
+            </html>
+          `}
         />
       </div>
     </div>

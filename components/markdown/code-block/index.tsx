@@ -29,7 +29,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
     if (typeof window !== "undefined") {
       Prism.highlightAll();
     }
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     if (children.props.className.includes("preview")) {
