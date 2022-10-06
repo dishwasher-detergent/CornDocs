@@ -41,7 +41,7 @@ For a folder, you can set the sidebar order in the define.json file. Use the key
 
 Go into the **public/static** folder and change the 2 images. Add your own logo and picture there. The logo must be in SVG format.
 
-### Step 3: Add the blog
+### Add the blog
 
 Create a new file under the **\_posts** directory. Let's assume the new documentation file name is **getting-started.mdx**
 
