@@ -20,8 +20,6 @@ function Doc() {
     }
   }, [router]);
 
-  console.log(data);
-
   if (!data) {
     return (
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">

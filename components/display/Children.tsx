@@ -23,8 +23,6 @@ interface DocProps {
 const DisplayChildren = ({ data }: DocProps) => {
   const router = useRouter();
 
-  console.log(data);
-
   return (
     <div className="h-full w-full p-6">
       <Breadcrumb data={router.query.slug} />

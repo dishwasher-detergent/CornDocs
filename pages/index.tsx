@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Responsive from "../components/markdown/code-block/resize";
 
 const Home = () => {
   const router = useRouter();

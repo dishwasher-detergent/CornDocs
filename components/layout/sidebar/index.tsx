@@ -21,7 +21,7 @@ function Sidebar() {
 
   return (
     <aside
-      className={`fixed inset-0 top-16 z-10 flex-none overflow-y-auto overflow-x-hidden border-slate-300 bg-white/80 pb-6 backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/80 dark:text-white md:absolute md:w-64 md:border-r ${
+      className={`fixed inset-0 top-16 z-40 flex-none overflow-y-auto overflow-x-hidden border-slate-300 bg-white/80 pb-6 backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/80 dark:text-white md:absolute md:w-64 md:border-r ${
         sidebar && "hidden lg:block"
       }`}
     >

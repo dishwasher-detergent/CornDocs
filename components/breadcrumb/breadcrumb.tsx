@@ -6,7 +6,7 @@ import { HomeIcon } from "@heroicons/react/20/solid";
 const Breadcrumb = ({ data }: any) => {
   return (
     <div
-      className={`sticky top-0 z-10 mb-6 inline-flex h-4 flex-row items-center rounded-md bg-white p-4 pl-2 text-slate-500 dark:bg-slate-900 dark:text-white  ${styles.breadcrumb}`}
+      className={`not-prose sticky top-0 z-10 mb-6 inline-flex h-4 flex-row items-center rounded-md bg-white p-4 pl-2 text-slate-500 dark:bg-slate-900 dark:text-white  ${styles.breadcrumb}`}
     >
       <Link href={"/Docs"}>
         <a className="flex flex-row gap-1 hover:text-slate-600 hover:dark:text-slate-200">
@@ -17,12 +17,17 @@ const Breadcrumb = ({ data }: any) => {
       {data &&
         data.map((item: string, index: number) => {
           return (
-            <>
+            <div
+              className={`flex flex-row gap-2 ${
+                index == data.length - 1 && "text-primary-500"
+              }`}
+              key={index}
+            >
               <div>/</div>
               <Link href={`/Docs/${data.slice(0, index + 1).join("/")}`}>
                 <a>{item}</a>
               </Link>
-            </>
+            </div>
           );
         })}
     </div>
