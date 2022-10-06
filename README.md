@@ -25,6 +25,7 @@ For a file, you can set the sidebar order in the frontmattter. Use the key posit
 position: 1
 ...
 ---
+```
 
 For a folder, you can set the sidebar order in the define.json file. Use the key position.
 
