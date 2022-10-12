@@ -74,7 +74,7 @@ const DisplayDoc = ({ data }: DocProps) => {
           site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
         }}
       />
-      <div className="min-h-screen">
+      <div className="min-h-screen pl-2">
         <main className="dark:bg-slate-900">
           <div className="container mx-auto py-6">
             <div className="grid grid-cols-12 gap-4">
