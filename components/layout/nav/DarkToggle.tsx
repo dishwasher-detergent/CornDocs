@@ -8,9 +8,11 @@ const DarkToggle = () => {
 
   return (
     <button
-      className="text-gray-900 dark:text-white"
+      type="button"
+      className="flex h-8 w-8 items-center justify-center"
       onClick={() => toggleDarkmode()}
     >
+      <span className="sr-only">Navigation</span>
       {darkmode ? (
         <SunIcon className="h-6 w-6" />
       ) : (

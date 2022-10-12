@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import Button from "./Button";
-import Skeleton from "react-loading-skeleton";
 import { SidebarContext } from "../../../context/SidebarContext";
+import Loading from "../../loading";
 
 function Sidebar() {
   const [data, setData] = useState([]);
@@ -21,36 +21,33 @@ function Sidebar() {
 
   return (
     <aside
-      className={`fixed inset-0 top-16 z-40 flex-none overflow-y-auto overflow-x-hidden border-slate-300 bg-white/80 pb-6 backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/80 dark:text-white md:absolute md:w-64 md:border-r ${
+      className={`fixed inset-0 top-16 left-[max(0px,calc(50%-45rem))] right-auto z-20 w-[19.5rem] overflow-y-auto border-r border-slate-300 bg-white/60 px-8 pb-10 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/60 dark:text-white lg:block ${
         sidebar && "hidden lg:block"
       }`}
     >
-      <ul className="flex w-full flex-col gap-1 px-4 pt-6">
-        {!isLoading ? (
-          data
-            .sort(
-              (a: any, b: any) =>
-                a.custom.data.position - b.custom.data.position
-            )
-            .map((item: any, index) => (
-              <Button data={item} key={index}>
-                {item.custom.data.title}
-              </Button>
-            ))
-        ) : (
-          <>
-            <li className="h-8 w-full rounded-md">
-              <Skeleton height={"100%"} />
-            </li>
-            <li className="h-8 w-full rounded-md">
-              <Skeleton height={"100%"} />
-            </li>
-            <li className="h-8 w-full rounded-md">
-              <Skeleton height={"100%"} />
-            </li>
-          </>
-        )}
-      </ul>
+      <nav id="nav" className="relative py-6 lg:text-sm lg:leading-6">
+        {/* <div className="pointer-events-none sticky top-0 -ml-0.5">
+          <div className="pointer-events-auto relative bg-white dark:bg-slate-900">
+            SEARCH HERE
+          </div>
+        </div> */}
+        <ul className="space-y-2">
+          {!isLoading ? (
+            data
+              .sort(
+                (a: any, b: any) =>
+                  a.custom.data.position - b.custom.data.position
+              )
+              .map((item: any, index) => (
+                <Button data={item} key={index}>
+                  {item.custom.data.title}
+                </Button>
+              ))
+          ) : (
+            <Loading />
+          )}
+        </ul>
+      </nav>
     </aside>
   );
 }

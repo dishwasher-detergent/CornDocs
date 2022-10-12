@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import DisplayChildren from "../../components/display/Children";
 import DisplayDoc from "../../components/display/Doc";
+import Layout from "../../components/layout/Layout";
+import Loading from "../../components/loading";
 
 function Doc() {
   const router = useRouter();
@@ -40,12 +42,15 @@ function Doc() {
 
   return (
     <>
-      {!isLoading &&
-        (data.children ? (
+      {!isLoading ? (
+        data.children ? (
           <DisplayChildren data={data} />
         ) : (
           <DisplayDoc data={data} />
-        ))}
+        )
+      ) : (
+        <Loading />
+      )}
     </>
   );
 }

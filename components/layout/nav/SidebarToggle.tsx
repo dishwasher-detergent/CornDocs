@@ -8,9 +8,11 @@ const SidebarToggle = () => {
 
   return (
     <button
-      className="block text-gray-900 dark:text-white lg:hidden"
+      type="button"
+      className="flex h-8 w-8 items-center justify-center"
       onClick={() => toggleSidebar()}
     >
+      <span className="sr-only">Navigation</span>
       {sidebar ? (
         <Bars3BottomRightIcon className="h-6 w-6" />
       ) : (

@@ -25,7 +25,7 @@ function PreviewFolder(props: PreviewProps) {
   return (
     <Link href={`/Docs/${path}`} passHref>
       <div className="flex w-full cursor-pointer flex-col overflow-hidden rounded-md p-2 transition-all hover:bg-primary-300/20">
-        <div className="relative h-[192px] w-full overflow-hidden rounded-md border border-slate-100 bg-slate-100 dark:border-slate-800 dark:bg-slate-800 md:h-[128px]">
+        <div className="relative h-[12rem] w-full overflow-hidden rounded-md border border-slate-300 bg-slate-100 dark:border-slate-800 dark:bg-slate-800 md:h-[10rem]">
           {!fallbackImage && (
             <Image
               loader={customLoader}
@@ -41,7 +41,7 @@ function PreviewFolder(props: PreviewProps) {
           {displayIcons && (
             <div className="absolute grid w-full grid-cols-4 gap-1 overflow-hidden p-2">
               {[...Array(count)].map((item: string) => (
-                <div className="h-16 w-full rounded-md bg-slate-300/30 backdrop-blur-sm dark:bg-slate-700/30 md:h-10"></div>
+                <div className="h-16 w-full rounded-md bg-slate-300/30 backdrop-blur-md dark:bg-slate-700/30 md:h-10"></div>
               ))}
             </div>
           )}

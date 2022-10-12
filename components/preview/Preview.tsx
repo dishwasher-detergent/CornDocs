@@ -22,7 +22,7 @@ function Preview(props: PreviewProps) {
   return (
     <Link href={`/Docs/${path}`} passHref>
       <div className="flex w-full cursor-pointer flex-col overflow-hidden rounded-md p-2 transition-all hover:bg-primary-300/20">
-        <div className="relative h-[192px] w-full overflow-hidden rounded-md border border-slate-100 bg-slate-200 dark:border-slate-800 dark:bg-slate-800 md:h-[128px]">
+        <div className="relative h-[12rem] w-full overflow-hidden rounded-md border border-slate-300 bg-slate-200 dark:border-slate-800 dark:bg-slate-800 md:h-[10rem]">
           {!fallbackImage ? (
             <Image
               loader={customLoader}
