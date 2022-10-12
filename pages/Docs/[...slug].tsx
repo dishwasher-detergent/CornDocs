@@ -49,7 +49,9 @@ function Doc() {
           <DisplayDoc data={data} />
         )
       ) : (
-        <Loading />
+        <div className="w-full py-6">
+          <Loading />
+        </div>
       )}
     </>
   );

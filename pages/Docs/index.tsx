@@ -48,7 +48,13 @@ const Docs = () => {
           site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
         }}
       />
-      {!isLoading ? <DisplayChildren data={data} /> : <Loading />}
+      {!isLoading ? (
+        <DisplayChildren data={data} />
+      ) : (
+        <div className="w-full py-6">
+          <Loading />
+        </div>
+      )}
     </>
   );
 };

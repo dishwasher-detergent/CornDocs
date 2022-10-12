@@ -44,7 +44,9 @@ function Sidebar() {
                 </Button>
               ))
           ) : (
-            <Loading />
+            <div className="w-full py-6">
+              <Loading />
+            </div>
           )}
         </ul>
       </nav>
