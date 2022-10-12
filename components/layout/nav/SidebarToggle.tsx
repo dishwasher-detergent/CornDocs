@@ -14,9 +14,9 @@ const SidebarToggle = () => {
     >
       <span className="sr-only">Navigation</span>
       {sidebar ? (
-        <Bars3BottomRightIcon className="h-6 w-6" />
+        <Bars3BottomRightIcon className="h-5 w-5" />
       ) : (
-        <XMarkIcon className="h-6 w-6" />
+        <XMarkIcon className="h-5 w-5" />
       )}
     </button>
   );

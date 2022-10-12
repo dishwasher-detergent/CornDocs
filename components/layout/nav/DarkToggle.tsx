@@ -1,4 +1,4 @@
-import { SunIcon, MoonIcon } from "@heroicons/react/20/solid";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { DarkmodeContext } from "../../../context/DarkModeContext";
 
@@ -14,9 +14,9 @@ const DarkToggle = () => {
     >
       <span className="sr-only">Navigation</span>
       {darkmode ? (
-        <SunIcon className="h-6 w-6" />
+        <SunIcon className="h-5 w-5" />
       ) : (
-        <MoonIcon className="h-6 w-6" />
+        <MoonIcon className="h-5 w-5" />
       )}
     </button>
   );

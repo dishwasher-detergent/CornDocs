@@ -41,7 +41,7 @@ function PreviewFolder(props: PreviewProps) {
           {displayIcons && (
             <div className="absolute grid w-full grid-cols-4 gap-1 overflow-hidden p-2">
               {[...Array(count)].map((item: string) => (
-                <div className="h-16 w-full rounded-md bg-slate-300/30 backdrop-blur-md dark:bg-slate-700/30 md:h-10"></div>
+                <div className="h-16 w-full rounded-md bg-slate-400/20 backdrop-blur-md dark:bg-slate-700/30 md:h-10"></div>
               ))}
             </div>
           )}

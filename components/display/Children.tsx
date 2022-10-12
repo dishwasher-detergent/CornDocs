@@ -26,7 +26,7 @@ const DisplayChildren = ({ data }: DocProps) => {
   return (
     <div className="h-full w-full py-6">
       <Breadcrumb data={router.query.slug} />
-      <section className="grid h-full w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid h-full w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
         {data.children
           .sort(
             (a: any, b: any) => a.custom.data.position - b.custom.data.position

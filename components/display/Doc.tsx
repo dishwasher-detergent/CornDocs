@@ -9,9 +9,6 @@ import Loading from "../loading";
 import ArticleNavigation from "../layout/docs/article/navigation";
 import ArticleSidebar from "../layout/docs/article/sidebar";
 import ArticleFooter from "../layout/docs/article/footer";
-import Sidebar from "../layout/sidebar";
-import Nav from "../layout/nav";
-import Layout from "../layout/Layout";
 
 const DynamicDocument = (c: any) =>
   dynamic(() => import(`../../_posts/${c}.mdx`), {

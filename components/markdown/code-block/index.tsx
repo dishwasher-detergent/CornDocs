@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import {
-  ClipboardDocumentIcon,
-  ClipboardDocumentCheckIcon,
-} from "@heroicons/react/24/solid";
 import Prism from "prismjs";
 import Responsive from "./resize";
 import {
@@ -11,6 +7,10 @@ import {
   ComputerDesktopIcon,
   DevicePhoneMobileIcon,
   PhotoIcon,
+  SunIcon,
+  MoonIcon,
+  ClipboardDocumentIcon,
+  ClipboardDocumentCheckIcon,
 } from "@heroicons/react/24/outline";
 
 interface CodeBlockProps {
@@ -21,6 +21,7 @@ interface CodeBlockProps {
 const CodeBlock = ({ children }: CodeBlockProps) => {
   const [isCopied, setIsCopied] = useState(false);
   const [code, setCode] = useState(true);
+  const [dark, setDark] = useState(false);
   const [size, setSize] = useState<number>(1500);
   const [language, setLanguage] = useState<string>(children.props.className);
   const [preview, setPreview] = useState<boolean>(false);
@@ -61,6 +62,18 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
             </button>
           </div>
           <button
+            type="button"
+            className="flex h-8 w-8 items-center justify-center"
+            onClick={() => setDark(!dark)}
+          >
+            <span className="sr-only">Navigation</span>
+            {dark ? (
+              <SunIcon width={20} height={20} />
+            ) : (
+              <MoonIcon width={20} height={20} />
+            )}
+          </button>
+          <button
             className={`rounded-md p-2 hover:bg-slate-300 hover:dark:bg-slate-800`}
             onClick={() => setCode(!code)}
           >
@@ -84,9 +97,13 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
           >
             <button className="absolute top-2 right-2 rounded-md bg-slate-200/10 p-1.5 text-slate-50 hover:bg-slate-200/40">
               {isCopied ? (
-                <ClipboardDocumentCheckIcon className="h-4 w-4 text-emerald-300" />
+                <ClipboardDocumentCheckIcon
+                  width={20}
+                  height={20}
+                  className="text-emerald-300"
+                />
               ) : (
-                <ClipboardDocumentIcon className="h-4 w-4" />
+                <ClipboardDocumentIcon width={20} height={20} />
               )}{" "}
             </button>
           </CopyToClipboard>
@@ -94,7 +111,9 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
       </div>
       {preview && (
         <div className="not-prose" style={{ display: code ? "none" : "" }}>
-          <Responsive size={size}>{children.props.children}</Responsive>
+          <Responsive size={size} dark={dark}>
+            {children.props.children}
+          </Responsive>
         </div>
       )}
     </>
