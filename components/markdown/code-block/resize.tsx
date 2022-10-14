@@ -18,10 +18,10 @@ const Responsive = ({ children, size, dark }: ResponsiveProps) => {
                 <head>
                     <meta charset="utf-8">
                     <title>Component Preview</title>
-                    <script src="https://cdn.tailwindcss.com"></script>
+                    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
                     <script>
                         tailwind.config = {
-                            darkMode: "class"
+                          darkMode: "class"
                         }
 
                         function removeLink() {

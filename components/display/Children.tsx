@@ -4,6 +4,7 @@ import PreviewFolder from "../preview/PreviewFolder";
 import { useRouter } from "next/router";
 
 interface DocProps {
+  breadcrumb?: boolean;
   data: {
     slug: string;
     content: any;
@@ -20,12 +21,12 @@ interface DocProps {
   };
 }
 
-const DisplayChildren = ({ data }: DocProps) => {
+const DisplayChildren = ({ data, breadcrumb = true }: DocProps) => {
   const router = useRouter();
 
   return (
     <div className="h-full w-full py-6">
-      <Breadcrumb data={router.query.slug} />
+      {breadcrumb && <Breadcrumb data={router.query.slug} />}
       <section className="grid h-full w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
         {data.children
           .sort(

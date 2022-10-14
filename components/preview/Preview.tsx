@@ -36,10 +36,10 @@ function Preview(props: PreviewProps) {
             />
           ) : (
             <div className="flex h-full w-full flex-col justify-center p-2">
-              <p className="whitespace-nowrap text-4xl font-black text-slate-300 dark:text-slate-700">
+              <p className="whitespace-nowrap text-4xl font-black text-slate-400 dark:text-slate-600">
                 {title}
               </p>
-              <p className="whitespace-nowrap text-2xl font-bold text-slate-300 dark:text-slate-700">
+              <p className="whitespace-nowrap text-2xl font-bold text-slate-400 dark:text-slate-600">
                 {description}
               </p>
             </div>
