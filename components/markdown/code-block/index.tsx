@@ -35,6 +35,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
   useEffect(() => {
     if (children.props.className.includes("preview")) {
       setPreview(true);
+      setCode(false);
       setLanguage(children.props.className.replace("-preview", ""));
     }
   }, []);
