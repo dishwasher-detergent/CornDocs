@@ -13,6 +13,7 @@ function addPage(page) {
 }
 
 async function generateSitemap() {
+  console.log("--- Generating Sitemap ---");
   const blogsDir = "_posts/**/*.*";
   let blogPaths = await glob.sync(blogsDir);
 
@@ -20,12 +21,13 @@ async function generateSitemap() {
   let pagesPaths = await glob.sync(pagesDir);
   pagesPaths = pagesPaths
     .filter((path) => !path.includes("["))
+    .filter((path) => !path.includes("api"))
     .filter((path) => !path.includes("/_"))
     .filter((path) => !path.includes("404"));
 
   blogPaths = blogPaths.map(
     (rawBlogName) =>
-      "blog" + rawBlogName.replace("_posts", "").replace(".md", "")
+      "Docs" + rawBlogName.replace("_posts", "").replace(".mdx", "")
   );
 
   pagesPaths = pagesPaths.map((rawPageName) =>
@@ -34,10 +36,11 @@ async function generateSitemap() {
 
   const allPages = [...pagesPaths, ...blogPaths];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-        ${allPages.map(addPage).join("\n")}
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${allPages.map(addPage).join("\n")}
   </urlset>`;
 
   fs.writeFileSync("public/sitemap.xml", sitemap);
+  console.log("--- Finished Generating Sitemap ---");
 }
 generateSitemap();
