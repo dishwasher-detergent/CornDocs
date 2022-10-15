@@ -23,11 +23,12 @@ const nextConfig = {
 module.exports = nextConfig;
 
 const frontmatter = require("remark-frontmatter");
+const gfm = require("remark-gfm");
 
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [frontmatter],
+    remarkPlugins: [frontmatter, gfm],
     providerImportSource: "@mdx-js/react",
   },
 });

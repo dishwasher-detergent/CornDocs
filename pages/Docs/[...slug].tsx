@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import DisplayChildren from "../../components/display/Children";
 import DisplayDoc from "../../components/display/Doc";
-import Layout from "../../components/layout/Layout";
 import Loading from "../../components/loading";
+import { NextSeo } from "next-seo";
 
 function Doc() {
   const router = useRouter();
@@ -43,11 +43,41 @@ function Doc() {
   return (
     <>
       {!isLoading ? (
-        data.children ? (
-          <DisplayChildren data={data} />
-        ) : (
-          <DisplayDoc data={data} />
-        )
+        <>
+          <NextSeo
+            title={`${data.custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
+            canonical={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/${data.custom.slug}`}
+            description={data.custom.data.description}
+            openGraph={{
+              title: `${data.custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`,
+              url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/Docs/${data.custom.path}`,
+              description: data.custom.data.description,
+              type: "article",
+              images: [
+                {
+                  url: data.custom.data.banner,
+                  width: 800,
+                  height: 600,
+                  alt: data.custom.data.title,
+                  type: "image/jpeg",
+                },
+                {
+                  url: data.custom.data.banner,
+                  width: 900,
+                  height: 800,
+                  alt: data.custom.data.title,
+                  type: "image/jpeg",
+                },
+              ],
+              site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
+            }}
+          />
+          {data.children ? (
+            <DisplayChildren data={data} />
+          ) : (
+            <DisplayDoc data={data} />
+          )}
+        </>
       ) : (
         <div className="w-full py-6">
           <Loading />

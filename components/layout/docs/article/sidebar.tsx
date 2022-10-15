@@ -24,10 +24,10 @@ const ArticleSidebar = ({ data }: Props) => {
                 </p>
                 <nav className="px-4 pt-2 dark:text-white">
                   <ul>
-                    {data.map((item: any) => {
+                    {data.map((item: any, index: number) => {
                       if (item.level > 3) return;
                       return (
-                        <li>
+                        <li key={index}>
                           <a
                             href={`#${item.text
                               ?.toString()

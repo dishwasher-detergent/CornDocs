@@ -1,5 +1,4 @@
 import Link from "next/link";
-import "react-loading-skeleton/dist/skeleton.css";
 import styles from "./breadcrumb.module.css";
 import { HomeIcon } from "@heroicons/react/20/solid";
 

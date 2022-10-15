@@ -46,34 +46,6 @@ const DisplayDoc = ({ data }: DocProps) => {
 
   return (
     <>
-      <NextSeo
-        title={`${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
-        canonical={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/${custom.slug}`}
-        description={custom.data.description}
-        openGraph={{
-          title: `${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`,
-          url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/Docs/${custom.path}`,
-          description: custom.data.description,
-          type: "article",
-          images: [
-            {
-              url: custom.data.banner,
-              width: 800,
-              height: 600,
-              alt: custom.data.title,
-              type: "image/jpeg",
-            },
-            {
-              url: custom.data.banner,
-              width: 900,
-              height: 800,
-              alt: custom.data.title,
-              type: "image/jpeg",
-            },
-          ],
-          site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
-        }}
-      />
       <div className="pl-2">
         <main className="dark:bg-slate-900">
           <div className="container mx-auto py-6">
