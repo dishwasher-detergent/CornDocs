@@ -21,11 +21,11 @@ function Sidebar() {
 
   return (
     <aside
-      className={`fixed inset-0 top-16 left-[max(0px,calc(50%-45rem))] right-auto z-20 w-[19.5rem] overflow-y-auto border-r border-slate-300 bg-white/60 px-8 pb-10 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/60 dark:text-white lg:block ${
-        sidebar && "hidden lg:block"
+      className={`fixed inset-0 top-16 left-[max(0px,calc(50%-45rem))] right-auto z-20 flex w-[19.5rem] flex-col overflow-y-auto border-r border-slate-300 bg-white/60 px-8 pb-10 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/60 dark:text-white ${
+        sidebar && "hidden lg:flex"
       }`}
     >
-      <nav id="nav" className="relative py-6 lg:text-sm lg:leading-6">
+      <nav id="nav" className="relative flex-1 py-6 lg:text-sm lg:leading-6">
         {/* <div className="pointer-events-none sticky top-0 -ml-0.5">
           <div className="pointer-events-auto relative bg-white dark:bg-slate-900">
             SEARCH HERE
@@ -50,6 +50,17 @@ function Sidebar() {
           )}
         </ul>
       </nav>
+      <div className="w-full flex-none text-center text-sm font-bold dark:text-white">
+        <p>
+          Built with ❤️ and{" "}
+          <a
+            target="_blank"
+            href="https://github.com/dishwasher-detergent/CornDocs"
+          >
+            CornDocs
+          </a>
+        </p>
+      </div>
     </aside>
   );
 }
