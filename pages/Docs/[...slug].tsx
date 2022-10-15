@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import DisplayChildren from "../../components/display/Children";
 import DisplayDoc from "../../components/display/Doc";
-import Layout from "../../components/layout/Layout";
 import Loading from "../../components/loading";
 
 function Doc() {

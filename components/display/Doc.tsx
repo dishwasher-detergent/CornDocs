@@ -1,4 +1,3 @@
-import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import { MDXProvider } from "@mdx-js/react";
 import CodeBlock from "../markdown/code-block";
@@ -9,6 +8,7 @@ import Loading from "../loading";
 import ArticleNavigation from "../layout/docs/article/navigation";
 import ArticleSidebar from "../layout/docs/article/sidebar";
 import ArticleFooter from "../layout/docs/article/footer";
+import Head from "next/head";
 
 const DynamicDocument = (c: any) =>
   dynamic(() => import(`../../_posts/${c}.mdx`), {
@@ -46,34 +46,41 @@ const DisplayDoc = ({ data }: DocProps) => {
 
   return (
     <>
-      <NextSeo
-        title={`${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
-        canonical={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/${custom.slug}`}
-        description={custom.data.description}
-        openGraph={{
-          title: `${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`,
-          url: `${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/Docs/${custom.path}`,
-          description: custom.data.description,
-          type: "article",
-          images: [
-            {
-              url: custom.data.banner,
-              width: 800,
-              height: 600,
-              alt: custom.data.title,
-              type: "image/jpeg",
-            },
-            {
-              url: custom.data.banner,
-              width: 900,
-              height: 800,
-              alt: custom.data.title,
-              type: "image/jpeg",
-            },
-          ],
-          site_name: `${process.env.NEXT_PUBLIC_PROJECT_NAME}'s Documentation`,
-        }}
-      />
+      <Head>
+        <title>{`${custom.data.title}`}</title>
+        <meta
+          name="title"
+          content={`${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
+        />
+        <meta name="description" content={custom.data.description} />
+
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/Docs/${custom.path}`}
+        />
+        <meta
+          property="og:title"
+          content={`${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
+        />
+        <meta property="og:description" content={custom.data.description} />
+        <meta property="og:image" content={custom.data.banner} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/Docs/${custom.path}`}
+        />
+        <meta
+          property="twitter:title"
+          content={`${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
+        />
+        <meta
+          property="twitter:description"
+          content={custom.data.description}
+        />
+        <meta property="twitter:image" content={custom.data.banner}></meta>
+      </Head>
       <div className="pl-2">
         <main className="dark:bg-slate-900">
           <div className="container mx-auto py-6">
