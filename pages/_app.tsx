@@ -18,36 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="description"
           content={"CornDocs - Documentation made easy."}
         />
-
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}`}
-        />
-        <meta
-          property="og:title"
-          content={`${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
-        />
-        <meta
-          property="og:description"
-          content={"CornDocs - Documentation made easy."}
-        />
-        <meta property="og:image" content={"/static/logo.svg"} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}`}
-        />
-        <meta
-          property="twitter:title"
-          content={`${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
-        />
-        <meta
-          property="twitter:description"
-          content={"CornDocs - Documentation made easy."}
-        />
-        <meta property="twitter:image" content={"/static/logo.svg"}></meta>
       </Head>
       <SidebarProvider>
         <DarkmodeProvider>
