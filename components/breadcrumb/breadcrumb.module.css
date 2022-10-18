@@ -1,7 +1,0 @@
-.breadcrumb {
-  @apply order-first space-x-2 text-sm font-semibold;
-}
-
-.breadcrumb > :last-child {
-  @apply font-black text-primary-500;
-}

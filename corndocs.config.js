@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   darkMode: true,
   googleAnalytics: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
@@ -9,4 +11,5 @@ module.exports = {
       usesMain: true,
     },
   },
+  color: colors.amber,
 };

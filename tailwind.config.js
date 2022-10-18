@@ -1,4 +1,4 @@
-const colors = require("tailwindcss/colors");
+const config = require("./corndocs.config");
 
 module.exports = {
   // purge: ["./**/*.tsx"],
@@ -7,7 +7,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./_posts/**/*.{md,mdx}"
+    "./_posts/**/*.{md,mdx}",
   ],
   plugins: [
     require("@tailwindcss/typography"),
@@ -20,7 +20,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.amber,
+        primary: config.color,
       },
     },
   },
