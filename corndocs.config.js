@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: false,
+  darkMode: true,
   googleAnalytics: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
   project: {
     name: "CornDocs",
