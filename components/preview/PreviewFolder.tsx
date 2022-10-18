@@ -14,10 +14,6 @@ const customLoader = ({ src }: any) => {
   return src;
 };
 
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH
-  ? `${process.env.NEXT_PUBLIC_BASE_PATH}/`
-  : "";
-
 function PreviewFolder(props: PreviewProps) {
   const { title, slug, count, path, imageUrl, displayIcons = true } = props;
   const [fallbackImage, setFallbackImage] = useState(false);

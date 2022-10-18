@@ -9,6 +9,7 @@ import ArticleNavigation from "../layout/docs/article/navigation";
 import ArticleSidebar from "../layout/docs/article/sidebar";
 import ArticleFooter from "../layout/docs/article/footer";
 import Head from "next/head";
+import corndocsConfig from "../../corndocs.config";
 
 const DynamicDocument = (c: any) =>
   dynamic(() => import(`../../_posts/${c}.mdx`), {
@@ -46,41 +47,6 @@ const DisplayDoc = ({ data }: DocProps) => {
 
   return (
     <>
-      <Head>
-        <title>{`${custom.data.title}`}</title>
-        <meta
-          name="title"
-          content={`${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
-        />
-        <meta name="description" content={custom.data.description} />
-
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/Docs/${custom.path}`}
-        />
-        <meta
-          property="og:title"
-          content={`${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
-        />
-        <meta property="og:description" content={custom.data.description} />
-        <meta property="og:image" content={custom.data.banner} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content={`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/Docs/${custom.path}`}
-        />
-        <meta
-          property="twitter:title"
-          content={`${custom.data.title} | ${process.env.NEXT_PUBLIC_PROJECT_NAME}`}
-        />
-        <meta
-          property="twitter:description"
-          content={custom.data.description}
-        />
-        <meta property="twitter:image" content={custom.data.banner}></meta>
-      </Head>
       <div className="pl-2">
         <main className="dark:bg-slate-900">
           <div className="container mx-auto py-6">
@@ -105,13 +71,11 @@ const DisplayDoc = ({ data }: DocProps) => {
             </div>
           </div>
           <ArticleFooter>
-            {process.env.NEXT_PUBLIC_GITHUB_URL ? (
+            {corndocsConfig.project.github.repo ? (
               <a
                 target="_blank"
-                href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/edit/${
-                  process.env.NEXT_PUBLIC_GITHUB_BRANCH
-                    ? process.env.NEXT_PUBLIC_GITHUB_BRANCH
-                    : "main"
+                href={`${corndocsConfig.project.github.repo}/edit/${
+                  corndocsConfig.project.github.usesMain ? "main" : "master"
                 }/_posts/${custom.path}.mdx`}
               >
                 Edit on GitHub

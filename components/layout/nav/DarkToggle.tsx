@@ -1,10 +1,13 @@
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { DarkmodeContext } from "../../../context/DarkModeContext";
+import corndocsConfig from "../../../corndocs.config";
 
 const DarkToggle = () => {
   /* @ts-ignore */
   const { darkmode, toggleDarkmode } = useContext(DarkmodeContext);
+
+  if (!corndocsConfig.darkMode) return null;
 
   return (
     <button

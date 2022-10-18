@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "./Logo";
 import DarkToggle from "./DarkToggle";
 import SidebarToggle from "./SidebarToggle";
+import corndocsConfig from "../../../corndocs.config";
 
 function Nav() {
   return (
@@ -13,9 +14,7 @@ function Nav() {
               className="mr-3 w-24 flex-none overflow-hidden md:w-auto"
               href="/"
             >
-              <span className="sr-only">
-                {process.env.NEXT_PUBLIC_PROJECT_NAME}
-              </span>
+              <span className="sr-only">{corndocsConfig.project.name}</span>
               <Logo />
             </a>
             <div className="relative ml-auto hidden items-center lg:flex">
