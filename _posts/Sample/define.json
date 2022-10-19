@@ -1,4 +1,5 @@
 {
   "title": "Sample",
-  "banner": "/images/corndocs.jpeg"
+  "banner": "/images/corndocs.jpeg",
+  "position": 9999
 }
