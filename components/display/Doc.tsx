@@ -8,8 +8,8 @@ import Loading from "../loading";
 import ArticleNavigation from "../layout/docs/article/navigation";
 import ArticleSidebar from "../layout/docs/article/sidebar";
 import ArticleFooter from "../layout/docs/article/footer";
-import Head from "next/head";
 import corndocsConfig from "../../corndocs.config";
+import { motion, AnimatePresence } from "framer-motion";
 
 const DynamicDocument = (c: any) =>
   dynamic(() => import(`../../_posts/${c}.mdx`), {
@@ -39,6 +39,12 @@ const components = {
   pre: CodeBlock,
 };
 
+const variants = {
+  hidden: { opacity: 0, y: 12 },
+  enter: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -12 },
+};
+
 const DisplayDoc = ({ data }: DocProps) => {
   const { custom } = data;
 
@@ -46,8 +52,15 @@ const DisplayDoc = ({ data }: DocProps) => {
   const router = useRouter();
 
   return (
-    <>
-      <div className="pl-2">
+    <AnimatePresence>
+      <motion.div
+        variants={variants} // Pass the variant object into Framer Motion
+        initial="hidden" // Set the initial state to variants.hidden
+        animate="enter" // Animated state to variants.enter
+        exit="exit" // Exit state (used later) to variants.exit
+        transition={{ type: "spring" }} // Set the transition to linear
+        className="pl-2"
+      >
         <main className="dark:bg-slate-900">
           <div className="container mx-auto py-6">
             <div className="grid grid-cols-12 gap-4">
@@ -83,8 +96,8 @@ const DisplayDoc = ({ data }: DocProps) => {
             ) : null}
           </ArticleFooter>
         </main>
-      </div>
-    </>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

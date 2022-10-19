@@ -18,7 +18,7 @@ function Layout({ children }: LayoutProps) {
         <div className="h-full">
           <div className="mx-auto h-full max-w-[90rem] px-4 sm:px-6 md:px-8">
             <Sidebar />
-            <div className="lg:pl-[19.5rem]">{children}</div>
+            <main className="lg:pl-[19.5rem]">{children}</main>
           </div>
         </div>
       </div>
