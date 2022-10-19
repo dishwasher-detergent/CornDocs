@@ -88,7 +88,9 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
       )}
       <div style={{ display: code ? "" : "none" }}>
         <div className="not-prose relative">
-          <pre className={`${language} h-full w-full`}>
+          <pre
+            className={`${language} h-full max-h-[48rem] w-full overflow-auto`}
+          >
             <code className={`${language}`}>{children}</code>
           </pre>
 
@@ -96,7 +98,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
             text={children.props.children}
             onCopy={() => setIsCopied(true)}
           >
-            <button className="absolute top-2 right-2 rounded-md bg-slate-200/10 p-1.5 text-slate-50 hover:bg-slate-200/40">
+            <button className="absolute top-2 right-2 rounded-md bg-slate-600/50 p-1.5 text-slate-50 hover:bg-slate-600">
               {isCopied ? (
                 <ClipboardDocumentCheckIcon
                   width={20}

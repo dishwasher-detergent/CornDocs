@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 interface ResponsiveProps {
   children: React.ReactChild;
   size?: number;
@@ -5,13 +7,34 @@ interface ResponsiveProps {
 }
 
 const Responsive = ({ children, size, dark }: ResponsiveProps) => {
+  const iframe = useRef(null);
+  const [height, setHeight] = useState(150);
+
+  const calcHeight = () => {
+    if (iframe.current) {
+      // @ts-ignore
+      let the_height = iframe.current.contentWindow.document.body.scrollHeight;
+      setHeight(the_height + 10);
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      calcHeight();
+    }, 250);
+  }, []);
+
   return (
-    <div className="mb-2 flex h-[30rem] items-center justify-center overflow-hidden rounded-md border border-slate-300 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
+    <div
+      style={{ height: height }}
+      className="mb-2 flex max-h-[48rem] items-center justify-center overflow-hidden rounded-md border border-slate-300 bg-slate-100 transition-all dark:border-slate-700 dark:bg-slate-800"
+    >
       <div
         style={{ maxWidth: size + "px" }}
         className="h-full w-full overflow-y-auto overflow-x-hidden bg-white transition-all dark:bg-slate-900"
       >
         <iframe
+          ref={iframe}
           aria-label="component preview"
           title="component preview"
           srcDoc={`<html class="flex w-full h-full ${dark && "dark"}">
