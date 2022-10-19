@@ -8,7 +8,7 @@ module.exports = {
     url: "https://www.corndocs.com",
     github: {
       repo: "https://github.com/dishwasher-detergent/CornDocs",
-      usesMain: true,
+      usesMain: false,
     },
   },
   color: colors.amber,
