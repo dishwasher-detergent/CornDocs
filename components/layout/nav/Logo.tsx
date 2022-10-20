@@ -11,7 +11,7 @@ const Logo = () => {
   const [fallbackImage, setFallbackImage] = useState(false);
 
   return (
-    <Link href="/" passHref>
+    <Link href="/">
       <a className="flex h-full cursor-pointer items-center justify-start gap-2 text-xl font-black">
         {!fallbackImage && (
           <span className="relative h-10 w-24 overflow-hidden">

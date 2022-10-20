@@ -16,17 +16,7 @@ const Docs = () => {
       });
   }, []);
 
-  return (
-    <>
-      {!isLoading ? (
-        <DisplayChildren data={data} />
-      ) : (
-        <div className="w-full py-6">
-          <Loading />
-        </div>
-      )}
-    </>
-  );
+  return <>{!isLoading && <DisplayChildren data={data} />}</>;
 };
 
 export default Docs;

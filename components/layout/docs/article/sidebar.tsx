@@ -19,10 +19,10 @@ const ArticleSidebar = ({ data }: Props) => {
             </div> */}
             <div>
               <div>
-                <p className="w-full rounded-md bg-primary-300/20 px-2 py-1.5 font-bold text-primary-500">
+                <p className="w-full rounded-md bg-primary-200/20 px-2 py-1.5 font-bold text-primary-500">
                   On this page
                 </p>
-                <nav className="px-4 pt-2 dark:text-white">
+                <nav className="px-4 pt-2 dark:text-white lg:text-sm lg:leading-6">
                   <ul>
                     {data.map((item: any, index: number) => {
                       if (item.level > 3) return;
@@ -34,8 +34,8 @@ const ArticleSidebar = ({ data }: Props) => {
                               .trim()
                               .replace(/\s+/g, "-")
                               .toLowerCase()}`}
-                            className={`jusify-between flex w-full flex-none flex-row items-center gap-2 hover:text-primary-500 lg:text-sm lg:leading-6 ${
-                              item.level == 2 ? "pt-2 font-bold" : `pl-4`
+                            className={`jusify-between flex w-full flex-none flex-row items-center gap-2 hover:text-primary-500 ${
+                              item.level == 2 ? "py-2 font-bold" : `py-0.5 pl-4`
                             }`}
                           >
                             <span className="w-full truncate">{item.text}</span>

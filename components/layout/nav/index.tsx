@@ -10,13 +10,10 @@ function Nav() {
       <div className="mx-auto h-full w-full max-w-[90rem]">
         <div className="mx-4 h-full lg:mx-0 lg:border-0 lg:px-8">
           <div className="relative flex h-full items-center">
-            <a
-              className="mr-3 w-24 flex-none overflow-hidden md:w-auto"
-              href="/"
-            >
+            <span className="mr-3 w-24 flex-none overflow-hidden md:w-auto">
               <span className="sr-only">{corndocsConfig.project.name}</span>
               <Logo />
-            </a>
+            </span>
             <div className="relative ml-auto hidden items-center lg:flex">
               <nav className="text-sm font-semibold leading-6">
                 <ul className="flex h-full items-center space-x-8">

@@ -1,4 +1,4 @@
-import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import { X, Menu } from "lucide-react";
 import { useContext } from "react";
 import { SidebarContext } from "../../../context/SidebarContext";
 
@@ -9,15 +9,11 @@ const SidebarToggle = () => {
   return (
     <button
       type="button"
-      className="flex h-8 w-8 items-center justify-center"
+      className="flex items-center justify-center rounded-md p-2 hover:bg-primary-200/20 dark:hover:bg-primary-500/10"
       onClick={() => toggleSidebar()}
     >
       <span className="sr-only">Navigation</span>
-      {sidebar ? (
-        <XMarkIcon className="h-5 w-5" />
-      ) : (
-        <Bars3BottomRightIcon className="h-5 w-5" />
-      )}
+      {sidebar ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
     </button>
   );
 };

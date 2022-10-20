@@ -3,15 +3,15 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Prism from "prismjs";
 import Responsive from "./resize";
 import {
-  CommandLineIcon,
-  ComputerDesktopIcon,
-  DevicePhoneMobileIcon,
-  PhotoIcon,
-  SunIcon,
-  MoonIcon,
-  ClipboardDocumentIcon,
-  ClipboardDocumentCheckIcon,
-} from "@heroicons/react/24/outline";
+  TerminalSquare,
+  Laptop,
+  Smartphone,
+  Sun,
+  Moon,
+  Clipboard,
+  ClipboardCheck,
+  Image,
+} from "lucide-react";
 
 interface CodeBlockProps {
   className: string;
@@ -40,6 +40,14 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (isCopied) {
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 1000);
+    }
+  }, [isCopied]);
+
   return (
     <>
       {preview && (
@@ -47,49 +55,41 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
           <div className="flex h-full w-full flex-row items-center gap-2">
             <button
               onClick={() => setSize(420)}
-              className={`rounded-md p-2 hover:bg-slate-300 hover:dark:bg-slate-800 ${
-                size == 420 && "bg-slate-300 dark:bg-slate-800"
+              className={`rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800 ${
+                size == 420 && "bg-slate-200 dark:bg-slate-800"
               }`}
             >
-              <DevicePhoneMobileIcon width={20} height={20} />
+              <Smartphone size={20} />
             </button>
             <button
               onClick={() => setSize(1500)}
               className={`${
-                size == 1500 && "bg-slate-300 dark:bg-slate-800"
-              } rounded-md p-2 hover:bg-slate-300 hover:dark:bg-slate-800`}
+                size == 1500 && "bg-slate-200 dark:bg-slate-800"
+              } rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
             >
-              <ComputerDesktopIcon width={20} height={20} />
+              <Laptop size={20} />
             </button>
           </div>
           <button
             type="button"
-            className="flex h-8 w-8 items-center justify-center"
+            className={`rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
             onClick={() => setDark(!dark)}
           >
             <span className="sr-only">Navigation</span>
-            {dark ? (
-              <SunIcon width={20} height={20} />
-            ) : (
-              <MoonIcon width={20} height={20} />
-            )}
+            {dark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           <button
-            className={`rounded-md p-2 hover:bg-slate-300 hover:dark:bg-slate-800`}
+            className={`rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
             onClick={() => setCode(!code)}
           >
-            {!code ? (
-              <CommandLineIcon width={20} height={20} />
-            ) : (
-              <PhotoIcon width={20} height={20} />
-            )}
+            {!code ? <TerminalSquare size={20} /> : <Image size={20} />}
           </button>
         </nav>
       )}
       <div style={{ display: code ? "" : "none" }}>
         <div className="not-prose relative">
           <pre
-            className={`${language} h-full max-h-[48rem] w-full overflow-auto`}
+            className={`${language} h-full max-h-[48rem] w-full overflow-auto rounded-md`}
           >
             <code className={`${language}`}>{children}</code>
           </pre>
@@ -100,13 +100,9 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
           >
             <button className="absolute top-2 right-2 rounded-md bg-slate-600/50 p-1.5 text-slate-50 hover:bg-slate-600">
               {isCopied ? (
-                <ClipboardDocumentCheckIcon
-                  width={20}
-                  height={20}
-                  className="text-emerald-300"
-                />
+                <ClipboardCheck size={20} className="text-emerald-300" />
               ) : (
-                <ClipboardDocumentIcon width={20} height={20} />
+                <Clipboard size={20} />
               )}{" "}
             </button>
           </CopyToClipboard>

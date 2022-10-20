@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
-import { ChevronRightIcon } from "@heroicons/react/24/solid";
+import { ChevronRight } from "lucide-react";
 import { TypeDocsDetails } from "../../../types/TypeDocsDetails";
 
 interface ButtonProps {
@@ -12,7 +12,7 @@ const Button = ({ data, children }: ButtonProps) => {
   return !data.children ? (
     <li>
       <Link href={`/Docs/${data.custom.path}`}>
-        <a className="flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-primary-300/20">
+        <a className="flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-primary-200/20 dark:hover:bg-primary-500/10">
           {children}
         </a>
       </Link>
@@ -24,14 +24,14 @@ const Button = ({ data, children }: ButtonProps) => {
           <>
             <Disclosure.Button
               as="li"
-              className={`flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold ${
-                open && "bg-primary-300/20"
+              className={`flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-primary-200/20 dark:hover:bg-primary-500/10 ${
+                open && "bg-primary-200/20 dark:bg-primary-500/10"
               }`}
             >
               <span className="flex w-full flex-row items-center gap-2 truncate">
                 {children}
               </span>
-              <ChevronRightIcon
+              <ChevronRight
                 className={`h-4 w-4 transition-all ${
                   open && "rotate-90 text-primary-500"
                 }`}
@@ -47,7 +47,7 @@ const Button = ({ data, children }: ButtonProps) => {
                   return !item.children ? (
                     <li key={index}>
                       <Link href={`/Docs/${item.custom.path}`}>
-                        <a className="flex cursor-pointer flex-row flex-nowrap items-center justify-start gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-primary-300/20">
+                        <a className="flex cursor-pointer flex-row flex-nowrap items-center justify-start gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-primary-200/20 dark:hover:bg-primary-500/10">
                           <svg
                             className="h-4 w-4 rotate-90 text-primary-500"
                             xmlns="http://www.w3.org/2000/svg"

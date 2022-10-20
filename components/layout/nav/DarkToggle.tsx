@@ -1,4 +1,4 @@
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { Sun, Moon } from "lucide-react";
 import { useContext } from "react";
 import { DarkmodeContext } from "../../../context/DarkModeContext";
 import corndocsConfig from "../../../corndocs.config";
@@ -11,16 +11,11 @@ const DarkToggle = () => {
 
   return (
     <button
-      type="button"
-      className="flex h-8 w-8 items-center justify-center"
+      className={`rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
       onClick={() => toggleDarkmode()}
     >
       <span className="sr-only">Navigation</span>
-      {darkmode ? (
-        <SunIcon className="h-5 w-5" />
-      ) : (
-        <MoonIcon className="h-5 w-5" />
-      )}
+      {darkmode ? <Sun size={20} /> : <Moon size={20} />}
     </button>
   );
 };

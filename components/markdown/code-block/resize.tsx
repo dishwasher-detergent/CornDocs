@@ -21,7 +21,7 @@ const Responsive = ({ children, size, dark }: ResponsiveProps) => {
   useEffect(() => {
     setTimeout(() => {
       calcHeight();
-    }, 250);
+    }, 500);
   }, []);
 
   return (

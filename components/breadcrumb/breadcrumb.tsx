@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HomeIcon } from "@heroicons/react/20/solid";
+import { Home } from "lucide-react";
 
 const Breadcrumb = ({ data }: any) => {
   return (
@@ -8,7 +8,7 @@ const Breadcrumb = ({ data }: any) => {
     >
       <Link href={"/Docs"}>
         <a className="flex flex-row gap-1 hover:text-slate-600 hover:dark:text-slate-200">
-          <HomeIcon className="h-4 w-4" />
+          <Home className="h-4 w-4" />
           Home
         </a>
       </Link>
