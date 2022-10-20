@@ -4,12 +4,12 @@ module.exports = {
   darkMode: true,
   googleAnalytics: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
   project: {
-    name: "CornDocs",
-    url: "https://www.corndocs.com",
+    name: "Okie.Design",
+    url: "https://www.okie.design",
     github: {
-      repo: "https://github.com/dishwasher-detergent/CornDocs",
-      usesMain: false,
+      repo: "https://github.com/dishwasher-detergent/OkieDesignDocs",
+      usesMain: true,
     },
   },
-  color: colors.amber,
+  color: colors.purple,
 };

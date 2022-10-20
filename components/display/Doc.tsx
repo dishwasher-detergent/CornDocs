@@ -4,7 +4,6 @@ import CodeBlock from "../markdown/code-block";
 import { H2, H3, H4 } from "../markdown/heading";
 import Breadcrumb from "../breadcrumb/breadcrumb";
 import { useRouter } from "next/router";
-import Loading from "../loading";
 import ArticleNavigation from "../layout/docs/article/navigation";
 import ArticleSidebar from "../layout/docs/article/sidebar";
 import ArticleFooter from "../layout/docs/article/footer";
@@ -14,7 +13,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const DynamicDocument = (c: any) =>
   dynamic(() => import(`../../_posts/${c}.mdx`), {
     ssr: false,
-    loading: Loading,
   });
 
 interface DocProps {
@@ -40,9 +38,9 @@ const components = {
 };
 
 const variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   enter: { opacity: 1 },
-  exit: { opacity: 0 },
+  exit: { opacity: 1 },
 };
 
 const DisplayDoc = ({ data }: DocProps) => {

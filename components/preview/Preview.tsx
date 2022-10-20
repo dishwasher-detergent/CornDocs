@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import Layout from "./Layout";
 
 interface PreviewProps {
@@ -27,7 +25,7 @@ function Preview(props: PreviewProps) {
         <Image
           loader={customLoader}
           objectFit="cover"
-          objectPosition="top center"
+          objectPosition="center"
           layout="fill"
           src={`${imageUrl}`}
           alt="This is the preview image of the component"

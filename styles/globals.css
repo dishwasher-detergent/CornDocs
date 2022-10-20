@@ -2,8 +2,18 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: Carena;
+  src: url(../public/fonts/Carena-Regular.otf);
+  font-display: fallback;
+}
+
 * {
   font-family: "Nunito", sans-serif;
+}
+
+.carena {
+  font-family: "Carena", sans-serif;
 }
 
 *::-webkit-scrollbar {
