@@ -29,7 +29,7 @@ function PreviewFolder(props: PreviewProps) {
           <Image
             loader={customLoader}
             objectFit="cover"
-            objectPosition="center"
+            objectPosition="top center"
             layout="fill"
             src={`${imageUrl}`}
             alt={`This is a folder of ${count} components`}
