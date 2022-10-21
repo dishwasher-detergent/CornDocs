@@ -38,9 +38,9 @@ const components = {
 };
 
 const variants = {
-  hidden: { opacity: 0 },
-  enter: { opacity: 0 },
-  exit: { opacity: 0 },
+  hidden: { opacity: 1 },
+  enter: { opacity: 1 },
+  exit: { opacity: 1 },
 };
 
 const DisplayDoc = ({ data }: DocProps) => {

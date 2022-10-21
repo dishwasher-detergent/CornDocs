@@ -18,12 +18,6 @@ const Responsive = ({ children, size, dark }: ResponsiveProps) => {
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      calcHeight();
-    }, 500);
-  }, []);
-
   return (
     <div
       style={{ height: height }}
@@ -34,6 +28,7 @@ const Responsive = ({ children, size, dark }: ResponsiveProps) => {
         className="h-full w-full overflow-y-auto overflow-x-hidden bg-white transition-all dark:bg-slate-900"
       >
         <iframe
+          onLoad={() => calcHeight()}
           ref={iframe}
           aria-label="component preview"
           title="component preview"
