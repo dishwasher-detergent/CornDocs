@@ -9,6 +9,7 @@ import ArticleSidebar from "../layout/docs/article/sidebar";
 import ArticleFooter from "../layout/docs/article/footer";
 import corndocsConfig from "../../corndocs.config";
 import { motion, AnimatePresence } from "framer-motion";
+import { Github } from "lucide-react";
 
 const DynamicDocument = (c: any) =>
   dynamic(() => import(`../../_posts/${c}.mdx`), {
@@ -84,12 +85,14 @@ const DisplayDoc = ({ data }: DocProps) => {
           <ArticleFooter>
             {corndocsConfig.project.github.repo ? (
               <a
+                className="flex items-center gap-2 text-sm font-bold"
                 target="_blank"
                 href={`${corndocsConfig.project.github.repo}/edit/${
                   corndocsConfig.project.github.usesMain ? "main" : "master"
                 }/_posts/${custom.path}.mdx`}
               >
-                Edit on GitHub
+                <span>Edit on GitHub</span>
+                <Github size={16} />
               </a>
             ) : null}
           </ArticleFooter>

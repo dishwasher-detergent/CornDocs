@@ -3,6 +3,8 @@ import Logo from "./Logo";
 import DarkToggle from "./DarkToggle";
 import SidebarToggle from "./SidebarToggle";
 import corndocsConfig from "../../../corndocs.config";
+import Link from "next/link";
+import { Github } from "lucide-react";
 
 function Nav() {
   return (
@@ -16,18 +18,26 @@ function Nav() {
             </span>
             <div className="relative ml-auto hidden items-center lg:flex">
               <nav className="text-sm font-semibold leading-6">
-                <ul className="flex h-full items-center space-x-8">
+                <ul className="flex h-full items-center space-x-4">
+                  <li>
+                    <Link href="/Docs/">
+                      <a className="block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800">
+                        Docs
+                      </a>
+                    </Link>
+                  </li>
                   <li>
                     <a
-                      className="hover:text-primary-500 dark:hover:text-primary-400"
-                      href="/Docs/"
+                      className={`block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+                      href={corndocsConfig.project.github.repo}
+                      target={"_blank"}
                     >
-                      Docs
+                      <Github size={20} />
                     </a>
                   </li>
                 </ul>
               </nav>
-              <div className="ml-6 flex items-center border-l border-slate-300 pl-6 dark:border-slate-800">
+              <div className="ml-4 flex items-center border-l border-slate-300 pl-4 dark:border-slate-800">
                 <DarkToggle />
               </div>
             </div>
