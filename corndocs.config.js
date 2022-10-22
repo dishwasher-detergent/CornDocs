@@ -1,9 +1,4 @@
 const colors = require("tailwindcss/colors");
-import Image from "next/image";
-
-const customLoader = ({ src }) => {
-  return src;
-};
 
 export default {
   darkMode: true,
