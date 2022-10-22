@@ -27,7 +27,7 @@ function Preview(props: PreviewProps) {
         <Image
           loader={customLoader}
           objectFit="cover"
-          objectPosition="top center"
+          objectPosition="center"
           layout="fill"
           src={`${imageUrl}`}
           alt="This is the preview image of the component"
