@@ -27,4 +27,4 @@ const config = {
   color: colors.amber,
 };
 
-module.exports = config;
+export default config;
