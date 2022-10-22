@@ -1,4 +1,4 @@
-const config = require("./corndocs.config");
+const config = require("./corndocs.config.jsx");
 
 module.exports = {
   // purge: ["./**/*.tsx"],
