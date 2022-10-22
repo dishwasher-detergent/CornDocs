@@ -1,5 +1,5 @@
 import Link from "next/link";
-import corndocsConfig from "../../../corndocs.config.jsx";
+import corndocsConfig from "../../../corndocs.config.js";
 
 const Logo = () => {
   return (

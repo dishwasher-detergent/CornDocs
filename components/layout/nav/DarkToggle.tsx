@@ -1,7 +1,7 @@
 import { Sun, Moon } from "lucide-react";
 import { useContext } from "react";
 import { DarkmodeContext } from "../../../context/DarkModeContext";
-import corndocsConfig from "../../../corndocs.config.jsx";
+import corndocsConfig from "../../../corndocs.config.js";
 
 const DarkToggle = () => {
   /* @ts-ignore */

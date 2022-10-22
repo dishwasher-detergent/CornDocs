@@ -1,6 +1,6 @@
 import React from "react";
 import Script from "next/script";
-import corndocsConfig from "../../corndocs.config.jsx";
+import corndocsConfig from "../../corndocs.config.js";
 
 export default function GoogleAnalytics() {
   return (
