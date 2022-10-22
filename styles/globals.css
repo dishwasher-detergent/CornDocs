@@ -18,6 +18,10 @@
   @apply rounded-full bg-slate-400 dark:bg-slate-600;
 }
 
+.logo * {
+  height: 100%;
+}
+
 .dotty {
   background-size: 20px 20px;
   background-image: radial-gradient(
