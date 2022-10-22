@@ -1,5 +1,5 @@
 import React from "react";
-import corndocsConfig from "../../../corndocs.config";
+import corndocsConfig from "../../../corndocs.config.jsx";
 
 interface FooterProps {
   children?: React.ReactChild;

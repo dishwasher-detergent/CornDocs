@@ -1,6 +1,5 @@
-import { useState } from "react";
 import Link from "next/link";
-import corndocsConfig from "../../../corndocs.config";
+import corndocsConfig from "../../../corndocs.config.jsx";
 
 const Logo = () => {
   return (

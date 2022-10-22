@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "./Logo";
 import DarkToggle from "./DarkToggle";
 import SidebarToggle from "./SidebarToggle";
-import corndocsConfig from "../../../corndocs.config";
+import corndocsConfig from "../../../corndocs.config.jsx";
 import Link from "next/link";
 import { Github } from "lucide-react";
 

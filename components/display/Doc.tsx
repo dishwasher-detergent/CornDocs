@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import ArticleNavigation from "../layout/docs/article/navigation";
 import ArticleSidebar from "../layout/docs/article/sidebar";
 import ArticleFooter from "../layout/docs/article/footer";
-import corndocsConfig from "../../corndocs.config";
+import corndocsConfig from "../../corndocs.config.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github } from "lucide-react";
 
