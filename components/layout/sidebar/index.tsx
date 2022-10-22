@@ -30,7 +30,7 @@ function Sidebar() {
           animate={{ left: "max(0px,calc(50% - 45rem))" }}
           exit={{ left: "-100%" }}
           transition={{ duration: 0.5, type: "spring" }}
-          className={`fixed inset-0 top-16 right-auto z-20 flex w-full md:w-[19.5rem] flex-col overflow-y-auto border-r border-slate-300 bg-white/60 px-8 pb-10 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/60 dark:text-white`}
+          className={`fixed inset-0 top-16 right-auto z-20 flex w-full flex-col overflow-y-auto border-r border-slate-300 bg-white/60 px-8 pb-10 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/60 dark:text-white md:w-[19.5rem]`}
         >
           <nav
             id="nav"

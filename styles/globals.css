@@ -17,3 +17,21 @@
 *::-webkit-scrollbar-thumb {
   @apply rounded-full bg-slate-400 dark:bg-slate-600;
 }
+
+.dotty {
+  background-size: 20px 20px;
+  background-image: radial-gradient(
+    circle,
+    theme(backgroundColor.slate.300) 1px,
+    transparent 1px
+  );
+}
+
+.dark .dotty {
+  background-size: 20px 20px;
+  background-image: radial-gradient(
+    circle,
+    theme(backgroundColor.slate.800) 1px,
+    transparent 1px
+  );
+}

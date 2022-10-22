@@ -26,22 +26,27 @@ function Nav() {
                       </a>
                     </Link>
                   </li>
-                  <li>
-                    <a
-                      className={`block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
-                      href={corndocsConfig.project.github.repo}
-                      target={"_blank"}
-                    >
-                      <Github size={20} />
-                    </a>
-                  </li>
                 </ul>
               </nav>
-              <div className="ml-4 flex items-center border-l border-slate-300 pl-4 dark:border-slate-800">
+              <div className="ml-4 flex items-center space-x-2 border-l border-slate-300 pl-4 dark:border-slate-800">
+                <a
+                  className={`block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+                  href={corndocsConfig.project.github.repo}
+                  target={"_blank"}
+                >
+                  <Github size={20} />
+                </a>
                 <DarkToggle />
               </div>
             </div>
             <div className="flex w-full justify-end gap-4 lg:hidden">
+              <a
+                className={`block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+                href={corndocsConfig.project.github.repo}
+                target={"_blank"}
+              >
+                <Github size={20} />
+              </a>
               <DarkToggle />
               <SidebarToggle />
             </div>

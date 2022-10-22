@@ -6,7 +6,6 @@ import Layout from "../components/layout/Layout";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "../styles/progress.css";
-import "../styles/vsCodePrism.css";
 import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
