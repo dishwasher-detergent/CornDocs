@@ -10,8 +10,12 @@ import { useRouter } from "next/router";
 import corndocsConfig from "../../../../corndocs.config";
 
 const searchClient = algoliasearch(
-  corndocsConfig.search.algolia_app_id,
+  corndocsConfig.search.algolia_app_id
+    ? corndocsConfig.search.algolia_app_id
+    : "",
   corndocsConfig.search.algolia_search_api_key
+    ? corndocsConfig.search.algolia_search_api_key
+    : ""
 );
 
 const SearchButton = () => {
