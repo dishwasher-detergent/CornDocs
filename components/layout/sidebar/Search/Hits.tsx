@@ -37,30 +37,28 @@ const Hits = ({ searchState, searchResults }: Props) => {
       {searchResults?.hits.length > 0 && (
         <Combobox.Options className="max-h-96 overflow-y-auto">
           {searchResults.hits.map((hit: OptionProp) => (
-            <Combobox.Option key={hit.objectID} value={hit.path}>
+            <Combobox.Option key={hit.objectID} value={`/Docs/${hit.path}`}>
               {({ active, selected }) => (
-                <Link href={`/Docs/${hit.path}`}>
-                  <a
-                    className={`group flex h-16 flex-col justify-center px-4 font-bold hover:bg-primary-200/20 dark:hover:bg-primary-500/10 ${
-                      active && "bg-primary-200/20 dark:bg-primary-500/10"
+                <span
+                  className={`group flex h-16 flex-col justify-center px-4 font-bold hover:bg-primary-200/20 dark:hover:bg-primary-500/10 ${
+                    active && "bg-primary-200/20 dark:bg-primary-500/10"
+                  }`}
+                >
+                  <span
+                    className={`group-hover:text-primary-500 ${
+                      active && "text-primary-500"
                     }`}
                   >
-                    <span
-                      className={`group-hover:text-primary-500 ${
-                        active && "text-primary-500"
-                      }`}
-                    >
-                      {hit.title}
-                    </span>
-                    <span
-                      className={`text-sm group-hover:text-primary-500 ${
-                        active && "text-primary-500"
-                      }`}
-                    >
-                      {hit.description}
-                    </span>
-                  </a>
-                </Link>
+                    {hit.title}
+                  </span>
+                  <span
+                    className={`text-sm group-hover:text-primary-500 ${
+                      active && "text-primary-500"
+                    }`}
+                  >
+                    {hit.description}
+                  </span>
+                </span>
               )}
             </Combobox.Option>
           ))}
