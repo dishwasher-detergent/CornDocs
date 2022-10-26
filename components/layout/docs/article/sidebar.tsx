@@ -1,8 +1,14 @@
-interface Props {
-  data: string[];
+interface ItemProps {
+  text: string;
+  level: number;
 }
 
-const ArticleSidebar = ({ data }: Props) => {
+interface HeadingsProps {
+  text: string;
+  level: number;
+}
+
+const ArticleSidebar = ({ data }: any) => {
   return (
     <aside className="col-span-12 space-y-8 lg:col-span-3 xl:col-start-10">
       <div className="space-y-8 lg:sticky lg:top-[4.5rem] lg:mb-16">
@@ -24,7 +30,7 @@ const ArticleSidebar = ({ data }: Props) => {
                 </p>
                 <nav className="px-4 pt-2 dark:text-white lg:text-sm lg:leading-6">
                   <ul>
-                    {data.map((item: any, index: number) => {
+                    {data.map((item: ItemProps, index: number) => {
                       if (item.level > 3) return;
                       return (
                         <li key={index}>

@@ -16,11 +16,16 @@ const DynamicDocument = (c: any) =>
     ssr: false,
   });
 
+interface HeadingsProps {
+  text: string;
+  level: number;
+}
+
 interface DocProps {
   data: {
     custom: {
       path: string;
-      headings: string[];
+      headings: HeadingsProps[];
       slug: string;
       data: {
         description: string;

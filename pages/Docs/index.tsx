@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import DisplayChildren from "../../components/display/Children";
-import Loading from "../../components/loading";
+import NProgress from "nprogress";
 
 const Docs = () => {
   const [data, setData] = useState<any>([]);
@@ -15,6 +15,16 @@ const Docs = () => {
         setLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    NProgress.configure({ showSpinner: false });
+
+    if (isLoading) {
+      NProgress.start();
+    } else {
+      NProgress.done();
+    }
+  }, [isLoading]);
 
   return <>{!isLoading && <DisplayChildren data={data} />}</>;
 };

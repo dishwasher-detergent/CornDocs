@@ -4,6 +4,8 @@ import { SidebarContext } from "../../../context/SidebarContext";
 import Loading from "../../loading";
 import { motion, AnimatePresence } from "framer-motion";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
+import SearchButton from "./Search";
+import corndocsConfig from "../../../corndocs.config";
 
 function Sidebar() {
   const [data, setData] = useState([]);
@@ -36,11 +38,7 @@ function Sidebar() {
             id="nav"
             className="relative flex-1 py-6 lg:text-sm lg:leading-6"
           >
-            {/* <div className="pointer-events-none sticky top-0 -ml-0.5">
-              <div className="pointer-events-auto relative bg-white dark:bg-slate-900">
-                SEARCH HERE
-              </div>
-            </div> */}
+            {corndocsConfig.search.enabled && <SearchButton />}
             <ul className="space-y-2">
               {!isLoading ? (
                 data

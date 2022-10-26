@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import DisplayChildren from "../../components/display/Children";
 import DisplayDoc from "../../components/display/Doc";
+import NProgress from "nprogress";
 
 function Doc() {
   const router = useRouter();
@@ -19,6 +20,16 @@ function Doc() {
         });
     }
   }, [router]);
+
+  useEffect(() => {
+    NProgress.configure({ showSpinner: false });
+
+    if (isLoading) {
+      NProgress.start();
+    } else {
+      NProgress.done();
+    }
+  }, [isLoading]);
 
   if (!data) {
     return (
