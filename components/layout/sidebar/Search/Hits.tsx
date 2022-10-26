@@ -39,7 +39,7 @@ const Hits = ({ searchState, searchResults }: Props) => {
           {searchResults.hits.map((hit: OptionProp) => (
             <Combobox.Option key={hit.objectID} value={hit.path}>
               {({ active, selected }) => (
-                <Link href={`${hit.path}`}>
+                <Link href={`/Docs/${hit.path}`}>
                   <a
                     className={`group flex h-16 flex-col justify-center px-4 font-bold hover:bg-primary-200/20 dark:hover:bg-primary-500/10 ${
                       active && "bg-primary-200/20 dark:bg-primary-500/10"
