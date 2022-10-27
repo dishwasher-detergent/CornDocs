@@ -4,15 +4,36 @@
 
 ### Changing the environment variables
 
-Go into the **.env.local** file and change the following variables to include your own.
+Go into the **corndocs.config.js** file and update the follow fields.
 
 ```js
-NEXT_PUBLIC_PRODUCTION_ROOT_URL = "https://www.corndocs.com";
-NEXT_PUBLIC_GITHUB_PROFILE_URL =
-  "https://github.com/dishwasher-detergent/CornDocs";
-NEXT_PUBLIC_GITHUB_BRANCH = "main";
-NEXT_PUBLIC_PROJECT_NAME = "CornDocs";
-NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY = "";
+const config = {
+  darkMode: true,
+  googleAnalytics: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
+  // Currently we only support Aloglia search.
+  search: {
+    enabled: true,
+    algolia_admin_key: process.env.ALGOLIA_SEARCH_ADMIN_KEY,
+    algolia_app_id: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+    algolia_search_api_key: process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
+    algolia_index: "dev_corndocs",
+  },
+  project: {
+    name: "CornDocs",
+    url: "https://www.corndocs.com",
+    github: {
+      repo: "https://github.com/dishwasher-detergent/CornDocs",
+      usesMain: false,
+    },
+    logo: {
+      src: "/static/logo.svg",
+      alt: "CornDocs Logo",
+      size: [80, 40],
+    },
+  },
+};
+
+module.exports = config;
 ```
 
 ### Setting sidebar order
@@ -20,6 +41,7 @@ NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY = "";
 For a file, you can set the sidebar order in the frontmattter. Use the key position.
 
 ```js
+//_posts/doc.mdx
 ---
 ...
 position: 1
@@ -30,6 +52,7 @@ position: 1
 For a folder, you can set the sidebar order in the define.json file. Use the key position.
 
 ```js
+//_posts/Folder/define.json
 {
   ...
   "position": 1
@@ -41,7 +64,7 @@ For a folder, you can set the sidebar order in the define.json file. Use the key
 
 Go into the **public/static** folder and change the 2 images. Add your own logo and picture there. The logo must be in SVG format.
 
-### Add the blog
+### Add your own content
 
 Create a new file under the **\_posts** directory. Let's assume the new documentation file name is **getting-started.mdx**
 
@@ -150,7 +173,7 @@ and go to **http://localhost:3000/getting-started** to see the fruits of your la
 
 Once you're done, you can deploy to Vercel with the click of a button!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdishwasher-detergent%2FCornDocs&env=NEXT_PUBLIC_PRODUCTION_ROOT_URL,NEXT_PUBLIC_GITHUB_PROFILE_URL,NEXT_PUBLIC_GITHUB_BRANCH,NEXT_PUBLIC_PROJECT_NAME,NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY&envDescription=Getting%20up%20and%20running&envLink=www.corndocs.com%2FDocs%2Fgetting-started)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdishwasher-detergent%2FCornDocs&env=ALGOLIA_SEARCH_ADMIN_KEY,NEXT_PUBLIC_ALGOLIA_APP_ID,NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY&envDescription=Required%20API%20Keys&envLink=https%3A%2F%2Fcorndocs.com%2FDocs%2Fgetting-started&project-name=corndocs&repo-name=corndocs&demo-title=CornDocs&demo-description=Documentation%20Made%20Easy&demo-url=https%3A%2F%2Fcorndocs.com)
 
 ### Technologies Used
 
@@ -163,5 +186,3 @@ Once you're done, you can deploy to Vercel with the click of a button!
 ### Github Repo
 
 [https://github.com/dishwasher-detergent/CornDocs](https://github.com/dishwasher-detergent/CornDocs)
-
-Built ontop of Mohammad-Faisal/nextjs-tailwindcss-beautiful-blog-template
