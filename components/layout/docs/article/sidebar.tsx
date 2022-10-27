@@ -60,7 +60,11 @@ const ArticleSidebar = ({ data, children }: any) => {
     >
       {({ open }) => (
         <>
-          <Disclosure.Button className="flex w-full flex-row items-center border-b border-slate-300 px-4 py-2 text-left text-sm font-bold dark:border-slate-700">
+          <Disclosure.Button
+            className={`flex w-full flex-row items-center border-slate-300 px-4 py-2 text-left text-sm font-bold dark:border-slate-700 ${
+              open && "border-b"
+            }`}
+          >
             <span className="flex-1">On This Page</span>
             <ChevronRight
               size={16}
