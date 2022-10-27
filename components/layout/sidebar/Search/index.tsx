@@ -8,6 +8,8 @@ import Hits from "./Hits";
 import { DarkmodeContext } from "../../../../context/DarkModeContext";
 import { useRouter } from "next/router";
 import corndocsConfig from "../../../../corndocs.config";
+import { CommandContext } from "../../../../context/CommandContext";
+import { SidebarContext } from "../../../../context/SidebarContext";
 
 const searchClient = algoliasearch(
   corndocsConfig.search.algolia_app_id
@@ -19,34 +21,41 @@ const searchClient = algoliasearch(
 );
 
 const SearchButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   /* @ts-ignore */
   const { darkmode } = useContext(DarkmodeContext);
+  /* @ts-ignore */
+  const { command, toggleCommand } = useContext(CommandContext);
+  /* @ts-ignore */
+  const { sidebar, toggleSidebar } = useContext(SidebarContext);
 
   const handleChange = (e: string) => {
     router.push(e);
-    setIsOpen(false);
+    toggleCommand();
+    toggleSidebar();
   };
 
   return (
     <>
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="mb-4 flex w-full cursor-pointer flex-row items-center gap-2 rounded-md border border-slate-300 p-2 px-4 text-left font-bold focus:ring-2 focus:ring-primary-200/70 focus:ring-offset-4 dark:border-slate-700 dark:focus:ring-primary-500/30 dark:focus:ring-offset-slate-900"
+        onClick={() => toggleCommand()}
+        className="mb-4 flex h-10 w-full flex-row items-center gap-2 truncate rounded-md border border-slate-300 pl-4 pr-2 text-left text-sm text-slate-500 outline-none hover:ring-2 hover:ring-primary-300 hover:ring-offset-2 hover:ring-offset-slate-50 dark:border-slate-700 dark:text-slate-100 dark:hover:ring-offset-slate-800"
       >
-        <Search size={16} />
-        Search
+        <Search size={16} className="flex-none" />
+        <span className="flex-1">Search Docs...</span>
+        <kbd className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800">
+          CTRL + K
+        </kbd>
       </button>
 
       <Dialog
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-        className={`fixed inset-0 z-[9999] pt-40 ${darkmode && "dark"}`}
+        open={command}
+        onClose={() => toggleCommand()}
+        className={`fixed inset-0 z-[9999] p-4 md:pt-40 ${darkmode && "dark"}`}
       >
-        <Dialog.Overlay className="fixed inset-0 bg-slate-900/50 backdrop-blur-md" />
-        <Dialog.Panel className="relative mx-auto max-w-xl overflow-hidden rounded-md border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900 dark:text-white">
+        <Dialog.Overlay className="fixed inset-0 bg-white/90 backdrop-blur-md dark:bg-slate-900/90" />
+        <Dialog.Panel className="relative mx-auto max-w-xl overflow-hidden rounded-md border border-slate-300 bg-white ring-2 ring-primary-300 ring-offset-2 ring-offset-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:ring-offset-slate-800">
           <Combobox onChange={(e: string) => handleChange(e)}>
             <InstantSearch
               searchClient={searchClient}

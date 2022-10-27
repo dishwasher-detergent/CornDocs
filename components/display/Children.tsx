@@ -42,7 +42,7 @@ const DisplayChildren = ({ data, breadcrumb = true }: DocProps) => {
         className="h-full w-full py-6"
       >
         {breadcrumb && <Breadcrumb data={router.query.slug} />}
-        <section className="grid h-full w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+        <section className="grid h-full w-full grid-cols-1 gap-2 lg:grid-cols-2 xl:grid-cols-3">
           {data.children
             .sort(
               (a: any, b: any) =>

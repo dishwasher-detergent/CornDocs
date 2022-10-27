@@ -8,7 +8,7 @@ import { Github } from "lucide-react";
 
 function Nav() {
   return (
-    <header className="sticky top-0 z-40 h-16 w-full flex-none border-b border-slate-300 bg-white/60 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/60 dark:text-white lg:z-50">
+    <header className="sticky top-0 z-40 h-16 w-full flex-none border-b border-slate-300 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90 dark:text-white lg:z-50">
       <div className="mx-auto h-full w-full max-w-[90rem]">
         <div className="mx-4 h-full lg:mx-0 lg:border-0 lg:px-8">
           <div className="relative flex h-full items-center">
@@ -39,7 +39,7 @@ function Nav() {
                 <DarkToggle />
               </div>
             </div>
-            <div className="flex w-full justify-end gap-4 lg:hidden">
+            <div className="flex w-full justify-end lg:hidden">
               <a
                 className={`block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
                 href={corndocsConfig.project.github.repo}

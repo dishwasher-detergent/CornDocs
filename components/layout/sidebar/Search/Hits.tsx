@@ -1,6 +1,5 @@
 import { Combobox } from "@headlessui/react";
-import Link from "next/link";
-import { connectStateResults } from "react-instantsearch-dom";
+import { connectStateResults, Highlight } from "react-instantsearch-dom";
 
 interface Props {
   searchState: {
@@ -29,41 +28,61 @@ const Hits = ({ searchState, searchResults }: Props) => {
 
   return (
     <>
-      {searchResults?.hits.length === 0 && (
-        <p className="px-4 py-2 font-bold">
-          Bummer! We couldn't find what you were looking for.
+      {searchResults.hits.length === 0 && (
+        <p className="flex flex-row items-center justify-between gap-4 rounded-md px-4 py-2 text-sm text-slate-700 ">
+          Shoot! We don't seem to have what you're looking for.
         </p>
       )}
-      {searchResults?.hits.length > 0 && (
-        <Combobox.Options className="max-h-96 overflow-y-auto">
-          {searchResults.hits.map((hit: OptionProp) => (
-            <Combobox.Option key={hit.objectID} value={`/Docs/${hit.path}`}>
-              {({ active, selected }) => (
-                <span
-                  className={`group flex h-16 flex-col justify-center px-4 font-bold hover:bg-primary-200/20 dark:hover:bg-primary-500/10 ${
-                    active && "bg-primary-200/20 dark:bg-primary-500/10"
-                  }`}
-                >
-                  <span
-                    className={`group-hover:text-primary-500 ${
-                      active && "text-primary-500"
+      {searchResults.hits.length > 0 && (
+        <div className="max-h-56 overflow-y-auto md:max-h-[20rem]">
+          <Combobox.Options className="w-full p-4">
+            {searchResults.hits.map((hit: OptionProp) => (
+              <Combobox.Option key={hit.objectID} value={`/Docs/${hit.path}`}>
+                {({ active, selected }) => (
+                  <div
+                    className={`flex flex-row items-center justify-between gap-4 rounded-md px-4 py-2 text-sm text-slate-700 ${
+                      active && "border-2 border-primary-300"
                     }`}
                   >
-                    {hit.title}
-                  </span>
-                  <span
-                    className={`text-sm group-hover:text-primary-500 ${
-                      active && "text-primary-500"
-                    }`}
-                  >
-                    {hit.description}
-                  </span>
-                </span>
-              )}
-            </Combobox.Option>
-          ))}
-        </Combobox.Options>
+                    <p className="flex flex-1 flex-col truncate dark:text-white">
+                      <span className="truncate break-all font-bold">
+                        <Highlight attribute="title" hit={hit} />
+                      </span>
+                      <span className="truncate">
+                        <Highlight attribute="description" hit={hit} />
+                      </span>
+                    </p>
+                    {active && (
+                      <p className="hidden flex-shrink-0 md:inline-block">
+                        <kbd className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+                          Enter
+                        </kbd>
+                      </p>
+                    )}
+                  </div>
+                )}
+              </Combobox.Option>
+            ))}
+            {/* // <li className="flex flex-col rounded-md px-4 py-2 text-sm text-slate-700">
+              //   <span className="font-bold">Title</span>
+              //   <span>Description</span>
+              // </li> */}
+          </Combobox.Options>
+        </div>
       )}
+      <div className="hidden h-10 items-center gap-2 border-t border-slate-300 px-2 dark:border-slate-700 md:flex">
+        <p className="text-xs font-semibold text-slate-600 dark:text-white">
+          Navigation:
+        </p>
+        <div className="space-x-1">
+          <kbd className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+            ↑
+          </kbd>
+          <kbd className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+            ↓
+          </kbd>
+        </div>
+      </div>
     </>
   );
 };

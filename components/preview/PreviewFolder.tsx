@@ -43,7 +43,7 @@ function PreviewFolder(props: PreviewProps) {
             {[...Array(count)].map((item: string, index: number) => (
               <div
                 key={index}
-                className="h-16 w-full rounded-md bg-slate-500/30 backdrop-blur-md md:h-10"
+                className="h-16 w-full rounded-md bg-slate-300/80 backdrop-blur-md dark:bg-slate-600/80 md:h-10"
               ></div>
             ))}
           </div>

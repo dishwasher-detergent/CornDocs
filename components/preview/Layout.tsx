@@ -55,7 +55,7 @@ const Layout = ({ children, path, title, description }: PreviewProps) => {
         initial="initial"
         whileHover="hover"
         animate="initial"
-        className="relative h-60 w-full cursor-pointer overflow-hidden rounded-md p-2 transition-all hover:bg-primary-200/20 hover:ring hover:ring-primary-200/70 dark:hover:bg-primary-500/10 hover:dark:ring-primary-500/30"
+        className="relative h-60 w-full cursor-pointer overflow-hidden rounded-md p-2 transition-all hover:bg-primary-200/20 hover:ring hover:ring-primary-300 dark:hover:bg-primary-500/10 hover:dark:ring-primary-500/30"
       >
         <motion.div
           variants={mainImage}
@@ -65,7 +65,7 @@ const Layout = ({ children, path, title, description }: PreviewProps) => {
         </motion.div>
         <motion.div
           variants={mainTextContainer}
-          className="absolute bottom-0 rounded-md bg-white/80 px-4 py-2 backdrop-blur-md dark:bg-slate-900/80"
+          className="absolute bottom-0 rounded-md bg-white/90 px-4 py-2 backdrop-blur-md dark:bg-slate-900/90"
         >
           <motion.h3
             variants={mainText}

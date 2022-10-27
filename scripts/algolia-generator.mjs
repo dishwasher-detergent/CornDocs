@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import directoryTree from "directory-tree";
 import algoliasearch from "algoliasearch/lite.js";
 import dotenv from "dotenv";
+import corndocsConfig from "../corndocs.config.js";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -100,11 +101,15 @@ async function getPostSlugs(path = "") {
     await getPostSlugs();
 
     const client = algoliasearch(
-      process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
-      process.env.ALGOLIA_SEARCH_ADMIN_KEY
+      corndocsConfig.search.algolia_app_id
+        ? corndocsConfig.search.algolia_app_id
+        : process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+      corndocsConfig.search.algolia_admin_key
+        ? corndocsConfig.search.algolia_admin_key
+        : process.env.ALGOLIA_SEARCH_ADMIN_KEY
     );
 
-    const index = client.initIndex("dev_corndocs");
+    const index = client.initIndex(corndocsConfig.search.algolia_index);
 
     const algoliaResponse = await index.saveObjects(algoliaPosts);
 

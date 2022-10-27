@@ -1,11 +1,12 @@
 import fs from "fs";
 import glob from "glob";
+import corndocsConfig from "../corndocs.config.js";
 
 function addPage(page) {
   page =
     page[page.length - 1] === "/" ? page.substring(0, page.length - 1) : page;
   return `<url>
-    <loc>${`${process.env.NEXT_PUBLIC_PRODUCTION_ROOT_URL}/${page}`}</loc>
+    <loc>${`${corndocsConfig.project.url}/${page}`}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>

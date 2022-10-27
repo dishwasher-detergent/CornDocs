@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Prism from "prismjs";
 import Responsive from "./resize";
@@ -12,6 +12,7 @@ import {
   ClipboardCheck,
   Image,
 } from "lucide-react";
+import { DarkmodeContext } from "../../../context/DarkModeContext";
 
 interface CodeBlockProps {
   className: string;
@@ -19,9 +20,12 @@ interface CodeBlockProps {
 }
 
 const CodeBlock = ({ children }: CodeBlockProps) => {
+  /* @ts-ignore */
+  const { darkmode } = useContext(DarkmodeContext);
+
   const [isCopied, setIsCopied] = useState(false);
   const [code, setCode] = useState(true);
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(darkmode);
   const [size, setSize] = useState<number>(1500);
   const [language, setLanguage] = useState<string>(children.props.className);
   const [preview, setPreview] = useState<boolean>(false);

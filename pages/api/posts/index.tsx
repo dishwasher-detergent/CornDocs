@@ -38,8 +38,9 @@ const callback: DirectoryTreeCallback = async (
     const { data, content } = matter(fileContents);
 
     item.custom = {
-      path: refinedPath.replace(/\.mdx$/, ""),
-      slug: item.name.replace(/\.mdx$/, ""),
+      truePath: refinedPath,
+      path: refinedPath.replace(/\.mdx?$/, ""),
+      slug: item.name.replace(/\.mdx?$/, ""),
       data: data as TypeDocsMetaData,
       headings: await getHeadings(content),
     };
@@ -54,7 +55,8 @@ const callback: DirectoryTreeCallback = async (
     }
 
     item.custom = {
-      path: refinedPath.replace(/\.mdx$/, ""),
+      truePath: refinedPath,
+      path: refinedPath.replace(/\.mdx?$/, ""),
       data: data,
     };
   }
@@ -65,11 +67,18 @@ export async function getPostSlugs(path: string = "") {
 
   if (fs.existsSync(`${postsDirectory}/${path}.mdx`)) {
     ext = ".mdx";
+  } else if (fs.existsSync(`${postsDirectory}/${path}.md`)) {
+    ext = ".md";
   }
 
   const dirTree: DirectoryTree & { id?: string } = directoryTree(
     `${postsDirectory}${path.length ? "/" + path : ""}${ext}`,
-    { extensions: /\.mdx$/, normalizePath: true, attributes: ["type"] },
+    {
+      extensions: /\.mdx?$/,
+      normalizePath: true,
+      attributes: ["type"],
+      exclude: path ? undefined : new RegExp(`_posts/index.*`),
+    },
     callback,
     callback
   );

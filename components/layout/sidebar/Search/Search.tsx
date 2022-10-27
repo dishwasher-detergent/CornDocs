@@ -1,24 +1,33 @@
 import { Combobox } from "@headlessui/react";
 import { Search } from "lucide-react";
 import { connectSearchBox } from "react-instantsearch-dom";
+import { CommandContext } from "../../../../context/CommandContext";
+import { useContext } from "react";
 
 const SearchBox = ({ refine }: any) => {
+  /* @ts-ignore */
+  const { command, toggleCommand } = useContext(CommandContext);
+
   return (
-    <div
-      role="search"
-      className="relative flex flex-row border-b border-slate-300 dark:border-slate-700"
-    >
-      <div className="grid h-16 w-16 place-items-center">
-        <Search size={20} />
-      </div>
+    <div className="relative" role="search">
       <Combobox.Input
-        className="w-full py-4 pr-6 text-lg outline-none dark:bg-slate-900"
+        className="peer flex h-12 w-full flex-row items-center gap-2 truncate border-b border-slate-300 pl-10 pr-16 text-left text-base text-slate-900 outline-none placeholder:text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-50 dark:placeholder:text-slate-200"
         id="algolia_search"
         type="search"
         placeholder="Search Docs"
         onChange={(e) => refine(e.currentTarget.value)}
         autoComplete="off"
       />
+      <Search
+        className="absolute top-1/2 left-4 -translate-y-1/2 text-slate-500 peer-focus:text-slate-900 dark:text-slate-200 dark:peer-focus:text-slate-50"
+        size={16}
+      />
+      <button
+        onClick={() => toggleCommand()}
+        className="absolute top-1/2 right-4 -translate-y-1/2 rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50"
+      >
+        <kbd>Esc</kbd>
+      </button>
     </div>
   );
 };

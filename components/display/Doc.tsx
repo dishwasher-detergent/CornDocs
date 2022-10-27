@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Github } from "lucide-react";
 
 const DynamicDocument = (c: any) =>
-  dynamic(() => import(`../../_posts/${c}.mdx`), {
+  dynamic(() => import(`../../_posts/${c}`), {
     ssr: false,
   });
 
@@ -24,6 +24,7 @@ interface HeadingsProps {
 interface DocProps {
   data: {
     custom: {
+      truePath: string;
       path: string;
       headings: HeadingsProps[];
       slug: string;
@@ -52,7 +53,7 @@ const variants = {
 const DisplayDoc = ({ data }: DocProps) => {
   const { custom } = data;
 
-  const DocumentContent = DynamicDocument(custom.path);
+  const DocumentContent = DynamicDocument(custom.truePath);
   const router = useRouter();
 
   return (
@@ -65,12 +66,12 @@ const DisplayDoc = ({ data }: DocProps) => {
         transition={{ duration: 0.75, type: "spring" }}
         className="pl-2"
       >
-        <main className="dark:bg-slate-900">
+        <main>
           <div className="container mx-auto py-6">
             <div className="grid grid-cols-12 gap-4">
               <div className="col-span-12">
-                <div className="grid grid-cols-12 lg:gap-16 xl:gap-8">
-                  <div className="col-span-12 lg:col-span-9">
+                <div className="flex grid-cols-12 flex-col-reverse xl:grid xl:gap-8">
+                  <div className="col-span-12 xl:col-span-9">
                     <Breadcrumb data={router.query.slug} />
                     <article className="prose prose-slate w-full max-w-none dark:prose-invert">
                       {/* @ts-ignore */}
@@ -81,7 +82,24 @@ const DisplayDoc = ({ data }: DocProps) => {
                     <ArticleNavigation />
                   </div>
                   {custom.headings.length > 0 && (
-                    <ArticleSidebar data={custom.headings} />
+                    <ArticleSidebar data={custom.headings}>
+                      {corndocsConfig.project.github.repo ? (
+                        <div className="mt-4 border-t border-slate-300 pt-4 dark:border-slate-700 dark:text-white">
+                          <a
+                            className="flex items-center gap-2 text-xs font-bold"
+                            target="_blank"
+                            href={`${corndocsConfig.project.github.repo}/edit/${
+                              corndocsConfig.project.github.usesMain
+                                ? "main"
+                                : "master"
+                            }/_posts/${custom.path}.mdx`}
+                          >
+                            <Github size={12} />
+                            <span>Edit on GitHub</span>
+                          </a>
+                        </div>
+                      ) : null}
+                    </ArticleSidebar>
                   )}
                 </div>
               </div>
@@ -96,8 +114,8 @@ const DisplayDoc = ({ data }: DocProps) => {
                   corndocsConfig.project.github.usesMain ? "main" : "master"
                 }/_posts/${custom.path}.mdx`}
               >
-                <span>Edit on GitHub</span>
                 <Github size={16} />
+                <span>Edit on GitHub</span>
               </a>
             ) : null}
           </ArticleFooter>

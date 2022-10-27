@@ -14,6 +14,7 @@ const Responsive = ({ children, size, dark }: ResponsiveProps) => {
     if (iframe.current) {
       // @ts-ignore
       let the_height = iframe.current.contentWindow.document.body.scrollHeight;
+      if (height - 2 == the_height) return;
       setHeight(the_height + 10);
     }
   };
@@ -25,7 +26,7 @@ const Responsive = ({ children, size, dark }: ResponsiveProps) => {
     >
       <div
         style={{ maxWidth: size + "px" }}
-        className="h-full w-full overflow-y-auto overflow-x-hidden border-x border-slate-300 bg-white transition-all dark:border-slate-700 dark:bg-slate-900"
+        className="h-full w-full overflow-y-auto overflow-x-hidden bg-white transition-all dark:border-slate-700 dark:bg-slate-900"
       >
         <iframe
           onLoad={() => calcHeight()}
