@@ -4,7 +4,7 @@ import { Home } from "lucide-react";
 const Breadcrumb = ({ data }: any) => {
   return (
     <div
-      className={`not-prose top-[4.5rem] z-10 order-first mb-6 inline-flex h-4 flex-row items-center space-x-2 rounded-md bg-white/90 p-4 pl-2 text-sm font-semibold text-slate-500 backdrop-blur-md dark:bg-slate-900/60 dark:text-white md:sticky`}
+      className={`not-prose top-[4.5rem] z-10 order-first mb-6 inline-flex h-4 flex-row items-center space-x-2 rounded-xl bg-white/90 p-4 pl-2 text-sm font-semibold text-slate-500 backdrop-blur-md dark:bg-slate-900/60 dark:text-white md:sticky`}
     >
       <Link href={"/Docs"}>
         <a className="flex flex-row gap-1 hover:text-slate-600 hover:dark:text-slate-200">

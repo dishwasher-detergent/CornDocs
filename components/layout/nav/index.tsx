@@ -21,7 +21,7 @@ function Nav() {
                 <ul className="flex h-full items-center space-x-4">
                   <li>
                     <Link href="/Docs/">
-                      <a className="block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800">
+                      <a className="block rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800">
                         Docs
                       </a>
                     </Link>
@@ -30,7 +30,7 @@ function Nav() {
               </nav>
               <div className="ml-4 flex items-center space-x-2 border-l border-slate-300 pl-4 dark:border-slate-800">
                 <a
-                  className={`block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+                  className={`block rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
                   href={corndocsConfig.project.github.repo}
                   target={"_blank"}
                 >
@@ -41,7 +41,7 @@ function Nav() {
             </div>
             <div className="flex w-full justify-end lg:hidden">
               <a
-                className={`block rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+                className={`block rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
                 href={corndocsConfig.project.github.repo}
                 target={"_blank"}
               >

@@ -29,7 +29,7 @@ const Hits = ({ searchState, searchResults }: Props) => {
   return (
     <>
       {searchResults.hits.length === 0 && (
-        <p className="flex flex-row items-center justify-between gap-4 rounded-md px-4 py-2 text-sm text-slate-700 ">
+        <p className="flex flex-row items-center justify-between gap-4 rounded-xl px-4 py-2 text-sm text-slate-700 ">
           Shoot! We don't seem to have what you're looking for.
         </p>
       )}
@@ -40,7 +40,7 @@ const Hits = ({ searchState, searchResults }: Props) => {
               <Combobox.Option key={hit.objectID} value={`/Docs/${hit.path}`}>
                 {({ active, selected }) => (
                   <div
-                    className={`flex flex-row items-center justify-between gap-4 rounded-md px-4 py-2 text-sm text-slate-700 ${
+                    className={`flex flex-row items-center justify-between gap-4 rounded-xl px-4 py-2 text-sm text-slate-700 ${
                       active && "border-2 border-primary-300"
                     }`}
                   >
@@ -54,7 +54,7 @@ const Hits = ({ searchState, searchResults }: Props) => {
                     </p>
                     {active && (
                       <p className="hidden flex-shrink-0 md:inline-block">
-                        <kbd className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+                        <kbd className="rounded-xl border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
                           Enter
                         </kbd>
                       </p>
@@ -63,7 +63,7 @@ const Hits = ({ searchState, searchResults }: Props) => {
                 )}
               </Combobox.Option>
             ))}
-            {/* // <li className="flex flex-col rounded-md px-4 py-2 text-sm text-slate-700">
+            {/* // <li className="flex flex-col rounded-xl px-4 py-2 text-sm text-slate-700">
               //   <span className="font-bold">Title</span>
               //   <span>Description</span>
               // </li> */}
@@ -75,10 +75,10 @@ const Hits = ({ searchState, searchResults }: Props) => {
           Navigation:
         </p>
         <div className="space-x-1">
-          <kbd className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+          <kbd className="rounded-xl border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
             ↑
           </kbd>
-          <kbd className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+          <kbd className="rounded-xl border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
             ↓
           </kbd>
         </div>

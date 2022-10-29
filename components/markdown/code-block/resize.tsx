@@ -22,7 +22,7 @@ const Responsive = ({ children, size, dark }: ResponsiveProps) => {
   return (
     <div
       style={{ height: height }}
-      className="dotty mb-2 flex max-h-[48rem] items-center justify-center overflow-hidden rounded-md border border-slate-300 bg-slate-100 transition-all dark:border-slate-700 dark:bg-slate-900"
+      className="dotty mb-2 flex max-h-[48rem] items-center justify-center overflow-hidden rounded-xl border border-slate-300 bg-slate-100 transition-all dark:border-slate-700 dark:bg-slate-900"
     >
       <div
         style={{ maxWidth: size + "px" }}

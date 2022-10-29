@@ -59,7 +59,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
           <div className="flex h-full w-full flex-row items-center gap-2">
             <button
               onClick={() => setSize(420)}
-              className={`rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800 ${
+              className={`rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800 ${
                 size == 420 && "bg-slate-200 dark:bg-slate-800"
               }`}
             >
@@ -69,21 +69,21 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
               onClick={() => setSize(1500)}
               className={`${
                 size == 1500 && "bg-slate-200 dark:bg-slate-800"
-              } rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+              } rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
             >
               <Laptop size={20} />
             </button>
           </div>
           <button
             type="button"
-            className={`rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+            className={`rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
             onClick={() => setDark(!dark)}
           >
             <span className="sr-only">Navigation</span>
             {dark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           <button
-            className={`rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+            className={`rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
             onClick={() => setCode(!code)}
           >
             {!code ? <TerminalSquare size={20} /> : <Image size={20} />}
@@ -93,7 +93,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
       <div style={{ display: code ? "" : "none" }}>
         <div className="not-prose relative">
           <pre
-            className={`${language} h-full max-h-[48rem] w-full overflow-auto rounded-md`}
+            className={`${language} h-full max-h-[48rem] w-full overflow-auto rounded-xl`}
           >
             <code className={`${language}`}>{children}</code>
           </pre>
@@ -102,7 +102,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
             text={children.props.children}
             onCopy={() => setIsCopied(true)}
           >
-            <button className="absolute top-2 right-2 rounded-md bg-slate-600/50 p-1.5 text-slate-50 hover:bg-slate-600">
+            <button className="absolute top-2 right-2 rounded-xl bg-slate-600/50 p-1.5 text-slate-50 hover:bg-slate-600">
               {isCopied ? (
                 <ClipboardCheck size={20} className="text-emerald-300" />
               ) : (

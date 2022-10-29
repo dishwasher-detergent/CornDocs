@@ -40,11 +40,11 @@ const SearchButton = () => {
     <>
       <button
         onClick={() => toggleCommand()}
-        className="mb-4 flex h-10 w-full flex-row items-center gap-2 truncate rounded-md border border-slate-300 pl-4 pr-2 text-left text-sm text-slate-500 outline-none hover:ring-2 hover:ring-primary-300 hover:ring-offset-2 hover:ring-offset-slate-50 dark:border-slate-700 dark:text-slate-100 dark:hover:ring-offset-slate-800"
+        className="mb-4 flex h-10 w-full flex-row items-center gap-2 truncate rounded-xl border border-slate-300 pl-4 pr-2 text-left text-sm text-slate-500 outline-none hover:ring-2 hover:ring-primary-300 hover:ring-offset-2 hover:ring-offset-slate-50 dark:border-slate-700 dark:text-slate-100 dark:hover:ring-offset-slate-800"
       >
         <Search size={16} className="flex-none" />
         <span className="flex-1">Search Docs...</span>
-        <kbd className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800">
+        <kbd className="rounded-xl border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800">
           CTRL + K
         </kbd>
       </button>
@@ -55,7 +55,7 @@ const SearchButton = () => {
         className={`fixed inset-0 z-[9999] p-4 md:pt-40 ${darkmode && "dark"}`}
       >
         <Dialog.Overlay className="fixed inset-0 bg-white/90 backdrop-blur-md dark:bg-slate-900/90" />
-        <Dialog.Panel className="relative mx-auto max-w-xl overflow-hidden rounded-md border border-slate-300 bg-white ring-2 ring-primary-300 ring-offset-2 ring-offset-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:ring-offset-slate-800">
+        <Dialog.Panel className="relative mx-auto max-w-xl overflow-hidden rounded-xl border border-slate-300 bg-white ring-2 ring-primary-300 ring-offset-2 ring-offset-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:ring-offset-slate-800">
           <Combobox onChange={(e: string) => handleChange(e)}>
             <InstantSearch
               searchClient={searchClient}

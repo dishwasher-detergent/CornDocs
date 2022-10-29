@@ -24,7 +24,7 @@ const SearchBox = ({ refine }: any) => {
       />
       <button
         onClick={() => toggleCommand()}
-        className="absolute top-1/2 right-4 -translate-y-1/2 rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50"
+        className="absolute top-1/2 right-4 -translate-y-1/2 rounded-xl border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50"
       >
         <kbd>Esc</kbd>
       </button>

@@ -9,7 +9,7 @@ const SidebarToggle = () => {
   return (
     <button
       type="button"
-      className="flex items-center justify-center rounded-md p-2 hover:bg-primary-200/20 dark:hover:bg-primary-500/10"
+      className="flex items-center justify-center rounded-xl p-2 hover:bg-primary-200/20 dark:hover:bg-primary-500/10"
       onClick={() => toggleSidebar()}
     >
       <span className="sr-only">Navigation</span>

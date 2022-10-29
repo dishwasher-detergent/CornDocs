@@ -37,7 +37,7 @@ const Home = () => {
   }, [isLoading]);
 
   if (isLoading) {
-    return <Loading />;
+    return null;
   }
 
   const DocumentContent = DynamicComponent(data.children.custom.truePath);

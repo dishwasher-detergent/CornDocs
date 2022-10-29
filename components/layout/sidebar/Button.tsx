@@ -27,7 +27,7 @@ const Button = ({ data, children }: ButtonProps) => {
     <li>
       <a
         onClick={() => Route(data.custom.path)}
-        className="flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-slate-100 dark:hover:bg-slate-800"
+        className="flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-xl px-3 py-1.5 font-bold hover:bg-slate-100 dark:hover:bg-slate-800"
       >
         {children}
       </a>
@@ -39,7 +39,7 @@ const Button = ({ data, children }: ButtonProps) => {
           <>
             <Disclosure.Button
               as="li"
-              className={`flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 ${
+              className={`flex cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-xl px-3 py-1.5 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 ${
                 open && "bg-slate-100 dark:bg-slate-800"
               }`}
             >
@@ -61,7 +61,7 @@ const Button = ({ data, children }: ButtonProps) => {
                     <li key={index}>
                       <a
                         onClick={() => Route(item.custom.path)}
-                        className="flex cursor-pointer flex-row flex-nowrap items-center justify-start gap-2 truncate rounded-md px-3 py-1.5 font-bold hover:bg-slate-100 dark:hover:bg-slate-800"
+                        className="flex cursor-pointer flex-row flex-nowrap items-center justify-start gap-2 truncate rounded-xl px-3 py-1.5 font-bold hover:bg-slate-100 dark:hover:bg-slate-800"
                       >
                         <span>{item.custom.data.title}</span>
                       </a>

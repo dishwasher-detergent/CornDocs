@@ -11,7 +11,7 @@ const DarkToggle = () => {
 
   return (
     <button
-      className={`rounded-md p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+      className={`rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
       onClick={() => toggleDarkmode()}
     >
       <span className="sr-only">Navigation</span>
