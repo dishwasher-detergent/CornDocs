@@ -11,7 +11,7 @@ function Sidebar() {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   /* @ts-ignore */
-  const { sidebar, toggleSidebar } = useContext(SidebarContext);
+  const { sidebar } = useContext(SidebarContext);
   const { height, width } = useWindowDimensions();
 
   useEffect(() => {
@@ -24,9 +24,10 @@ function Sidebar() {
       });
   }, []);
 
+  console.log(sidebar);
   return (
     <AnimatePresence>
-      {sidebar || width > 1024 ? (
+      {sidebar && (
         <motion.aside
           initial={{ left: "-100%" }}
           animate={{ left: "max(0px,calc(50% - 45rem))" }}
@@ -70,7 +71,7 @@ function Sidebar() {
             </p>
           </div>
         </motion.aside>
-      ) : null}
+      )}
     </AnimatePresence>
   );
 }

@@ -11,6 +11,7 @@ import {
   Clipboard,
   ClipboardCheck,
   Image,
+  Tablet,
 } from "lucide-react";
 import { DarkmodeContext } from "../../../context/DarkModeContext";
 
@@ -18,6 +19,10 @@ interface CodeBlockProps {
   className: string;
   children: any;
 }
+
+const desktop = 1500;
+const tablet = 768;
+const mobile = 425;
 
 const CodeBlock = ({ children }: CodeBlockProps) => {
   /* @ts-ignore */
@@ -58,17 +63,25 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
         <nav className="relative flex h-12 w-full flex-row items-center gap-2">
           <div className="flex h-full w-full flex-row items-center gap-2">
             <button
-              onClick={() => setSize(420)}
+              onClick={() => setSize(mobile)}
               className={`rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800 ${
-                size == 420 && "bg-slate-200 dark:bg-slate-800"
+                size == mobile && "bg-slate-200 dark:bg-slate-800"
               }`}
             >
               <Smartphone size={20} />
             </button>
             <button
-              onClick={() => setSize(1500)}
+              onClick={() => setSize(tablet)}
               className={`${
-                size == 1500 && "bg-slate-200 dark:bg-slate-800"
+                size == tablet && "bg-slate-200 dark:bg-slate-800"
+              } rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
+            >
+              <Tablet size={20} />
+            </button>
+            <button
+              onClick={() => setSize(desktop)}
+              className={`${
+                size == desktop && "bg-slate-200 dark:bg-slate-800"
               } rounded-xl p-2 hover:bg-slate-200 hover:dark:bg-slate-800`}
             >
               <Laptop size={20} />

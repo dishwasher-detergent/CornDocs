@@ -18,7 +18,7 @@ const Button = ({ data, children }: ButtonProps) => {
 
   const Route = (data: string) => {
     if (data) {
-      toggleSidebar();
+      toggleSidebar(false);
       router.push(`/Docs/${data}`);
     }
   };

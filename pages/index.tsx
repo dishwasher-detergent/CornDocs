@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import NProgress from "nprogress";
 import dynamic from "next/dynamic";
-import Loading from "../components/loading";
 import { MDXProvider } from "@mdx-js/react";
 import { useRouter } from "next/router";
 

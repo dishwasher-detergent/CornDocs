@@ -99,9 +99,6 @@ const ArticleSidebar = ({ data, children }: any) => {
               })}
             </ul>
             {children}
-            <div className="griddy absolute top-0 left-0 right-0 z-0 h-24 opacity-50">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-slate-900" />
-            </div>
           </Disclosure.Panel>
         </>
       )}

@@ -7,6 +7,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./customComponents/**/*.{js,ts,jsx,tsx}",
     "./_posts/**/*.{md,mdx}",
   ],
   plugins: [

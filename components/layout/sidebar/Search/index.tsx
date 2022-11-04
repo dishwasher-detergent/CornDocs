@@ -33,7 +33,7 @@ const SearchButton = () => {
   const handleChange = (e: string) => {
     router.push(e);
     toggleCommand();
-    toggleSidebar();
+    toggleSidebar(false);
   };
 
   return (
