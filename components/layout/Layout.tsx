@@ -10,21 +10,10 @@ interface LayoutProps {
 }
 
 function Layout({ children }: LayoutProps) {
-  const router = useRouter();
   /* @ts-ignore */
   const { darkmode } = useContext(DarkmodeContext);
   /* @ts-ignore */
-  const { sidebar, toggleSidebar } = useContext(SidebarContext);
-
-  useEffect(() => {
-    console.log(router.pathname);
-    if (!router.pathname) return;
-    if (!router.pathname.startsWith("/Docs")) {
-      toggleSidebar(false);
-    } else {
-      toggleSidebar(true);
-    }
-  }, [router.pathname]);
+  const { sidebar } = useContext(SidebarContext);
 
   return (
     <div className={`${darkmode && "dark"}`}>

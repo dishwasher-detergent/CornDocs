@@ -6,12 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 import SearchButton from "./Search";
 import corndocsConfig from "../../../corndocs.config";
+import { useRouter } from "next/router";
 
 function Sidebar() {
+  const router = useRouter();
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   /* @ts-ignore */
-  const { sidebar } = useContext(SidebarContext);
+  const { sidebar, toggleSidebar } = useContext(SidebarContext);
   const { height, width } = useWindowDimensions();
 
   useEffect(() => {
@@ -24,7 +26,16 @@ function Sidebar() {
       });
   }, []);
 
-  console.log(sidebar);
+  useEffect(() => {
+    if (width > 1024) {
+      if (router.pathname.includes("Docs")) {
+        toggleSidebar(true);
+        return;
+      }
+      toggleSidebar(false);
+    }
+  }, [width, router.pathname]);
+
   return (
     <AnimatePresence>
       {sidebar && (
@@ -37,9 +48,10 @@ function Sidebar() {
         >
           <nav
             id="nav"
-            className="relative flex-1 py-6 lg:text-sm lg:leading-6"
+            className="relative flex-1 space-y-4 py-6 lg:text-sm lg:leading-6"
           >
-            {corndocsConfig.search.enabled && <SearchButton />}
+            {corndocsConfig.search.enabled &&
+              corndocsConfig.search.algolia_search_api_key && <SearchButton />}
             <ul>
               {!isLoading ? (
                 data

@@ -5,6 +5,7 @@ import { TypeDocsDetails } from "../../../types/TypeDocsDetails";
 import { useContext } from "react";
 import { SidebarContext } from "../../../context/SidebarContext";
 import { useRouter } from "next/router";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
 
 interface ButtonProps {
   data: any;
@@ -14,11 +15,12 @@ interface ButtonProps {
 const Button = ({ data, children }: ButtonProps) => {
   /* @ts-ignore */
   const { sidebar, toggleSidebar } = useContext(SidebarContext);
+  const { height, width } = useWindowDimensions();
   const router = useRouter();
 
   const Route = (data: string) => {
     if (data) {
-      toggleSidebar(false);
+      if (width < 1024) toggleSidebar(false);
       router.push(`/Docs/${data}`);
     }
   };
