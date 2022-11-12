@@ -20,7 +20,10 @@
     "url": "https://github.com/dishwasher-detergent/CornDocs/tree/core"
   },
   "scripts": {
-    "build": "babel ./components --out-dir dist --copy-files"
+    "remove": "rimraf dist",
+    "bundle": "babel ./components --out-dir dist --copy-files",
+    "copy": "copyfiles ./styles/* ./dist && copyfiles ./hooks/* ./dist && copyfiles ./types/* ./dist && copyfiles ./context/* ./dist",
+    "build": "npm run remove && npm run bundle && npm run copy"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -30,6 +33,7 @@
     "@next/mdx": "^12.3.1",
     "@tailwindcss/line-clamp": "^0.3.1",
     "algoliasearch": "^4.14.2",
+    "copyfiles": "^2.4.1",
     "directory-tree": "^3.3.1",
     "dotenv": "^16.0.3",
     "framer-motion": "^6.5.1",
@@ -44,7 +48,8 @@
     "react-instantsearch": "^6.38.0",
     "react-instantsearch-dom": "^6.38.0",
     "remark-frontmatter": "3.0.0",
-    "remark-gfm": "^1.0.0"
+    "remark-gfm": "^1.0.0",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
