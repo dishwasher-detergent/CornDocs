@@ -6,7 +6,7 @@ module.exports = function (source) {
      import type { AppProps } from "next/app";
      import { SidebarProvider } from "../context/SidebarContext";
      import { DarkmodeProvider } from "../context/DarkModeContext";
-     import Layout from "../components/layout/Layout";
+     import { Layout } from "corndocs-components";
      import { CommandProvider } from "../context/CommandContext";
 
      function MyApp({ Component, pageProps }: AppProps) {
@@ -26,11 +26,6 @@ module.exports = function (source) {
      }
 
      export default MyApp;`;
-
-  const replace_source = source.replace(
-    "<Component {...pageProps} />",
-    new_content
-  );
 
   return `${new_content}`;
 };
