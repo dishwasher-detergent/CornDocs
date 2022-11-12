@@ -9,8 +9,8 @@
   ],
   "version": "0.1.2",
   "private": false,
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
+  "main": "dist/",
+  "module": "dist/",
   "files": [
     "dist",
     "README.md"
