@@ -1,3 +1,5 @@
+/** @type {import('./types/ConfigType').Config} */
+
 const config = {
   darkMode: true,
   googleAnalytics: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
@@ -23,4 +25,4 @@ const config = {
   },
 };
 
-module.exports = config;
+export default config;
