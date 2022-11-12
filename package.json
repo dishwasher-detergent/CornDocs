@@ -7,7 +7,7 @@
     "components",
     "ui"
   ],
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "main": "dist/",
   "module": "dist/",
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "remove": "rimraf dist",
-    "bundle": "babel ./components --out-dir dist --copy-files",
+    "bundle": "babel ./components --out-dir dist/components/ --copy-files",
     "copy": "copyfiles ./styles/* ./dist && copyfiles ./hooks/* ./dist && copyfiles ./types/* ./dist && copyfiles ./context/* ./dist",
     "build": "npm run remove && npm run bundle && npm run copy"
   },
