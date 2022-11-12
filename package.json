@@ -9,8 +9,12 @@
   ],
   "version": "0.1.5",
   "private": false,
-  "main": "dist/",
-  "module": "dist/",
+  "main": "dist/components/index.ts",
+  "hooks": "dist/hooks/index.ts",
+  "context": "dist/context/index.ts",
+  "styles": "dist/styles",
+  "types": "dist/types/index.ts",
+  "module": "dist/components/index.ts",
   "files": [
     "dist",
     "README.md"
