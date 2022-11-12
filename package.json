@@ -7,7 +7,7 @@
     "components",
     "ui"
   ],
-  "version": "0.1.12",
+  "version": "0.1.13",
   "private": false,
   "main": "dist/components.ts",
   "types": "dist/types.ts",
