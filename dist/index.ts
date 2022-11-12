@@ -1,11 +1,11 @@
-import Breadcrumb from "./components/breadcrumb/breadcrumb";
-import DisplayChildren from "./components/display/Children";
-import DisplayDoc from "./components/display/Doc";
-import Layout from "./components/preview/Layout";
-import Loading from "./components/loading";
-import CodeBlock from "./components/markdown/code-block";
-import Preview from "./components/preview/Preview";
-import PreviewFolder from "./components/preview/PreviewFolder";
+import Breadcrumb from "./breadcrumb/breadcrumb";
+import DisplayChildren from "./display/Children";
+import DisplayDoc from "./display/Doc";
+import Layout from "./preview/Layout";
+import Loading from "./loading";
+import CodeBlock from "./markdown/code-block";
+import Preview from "./preview/Preview";
+import PreviewFolder from "./preview/PreviewFolder";
 
 export {
   Breadcrumb,
