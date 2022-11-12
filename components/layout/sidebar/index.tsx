@@ -50,7 +50,7 @@ function Sidebar() {
             id="nav"
             className="relative flex-1 space-y-4 py-6 lg:text-sm lg:leading-6"
           >
-            {corndocsConfig.search.enabled &&
+            {corndocsConfig.search &&
               corndocsConfig.search.algolia_search_api_key && <SearchButton />}
             <ul>
               {!isLoading ? (
@@ -76,6 +76,7 @@ function Sidebar() {
               Built with ❤️ and{" "}
               <a
                 target="_blank"
+                rel="noreferrer"
                 href="https://github.com/dishwasher-detergent/CornDocs"
               >
                 CornDocs

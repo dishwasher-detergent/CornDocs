@@ -3,6 +3,7 @@ import NProgress from "nprogress";
 import dynamic from "next/dynamic";
 import { MDXProvider } from "@mdx-js/react";
 import { useRouter } from "next/router";
+import corndocsConfig from "../corndocs.config";
 
 const DynamicComponent = (c: any) => dynamic(() => import(`../_posts/${c}`));
 
@@ -13,7 +14,13 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/posts/index")
+    fetch(
+      `/api/posts/${
+        corndocsConfig.project.homePage
+          ? corndocsConfig.project.homePage
+          : "index"
+      }`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data) {

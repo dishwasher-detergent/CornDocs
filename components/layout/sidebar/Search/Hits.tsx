@@ -30,7 +30,7 @@ const Hits = ({ searchState, searchResults }: Props) => {
     <>
       {searchResults.hits.length === 0 && (
         <p className="flex flex-row items-center justify-between gap-4 rounded-xl px-4 py-2 text-sm text-slate-700 ">
-          Shoot! We don't seem to have what you're looking for.
+          Shoot! We don&apos;t seem to have what you&apos;re looking for.
         </p>
       )}
       {searchResults.hits.length > 0 && (

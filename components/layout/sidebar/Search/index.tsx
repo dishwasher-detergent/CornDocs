@@ -12,10 +12,10 @@ import { CommandContext } from "../../../../context/CommandContext";
 import { SidebarContext } from "../../../../context/SidebarContext";
 
 const searchClient = algoliasearch(
-  corndocsConfig.search.algolia_app_id
+  corndocsConfig?.search?.algolia_app_id
     ? corndocsConfig.search.algolia_app_id
     : "",
-  corndocsConfig.search.algolia_search_api_key
+  corndocsConfig?.search?.algolia_search_api_key
     ? corndocsConfig.search.algolia_search_api_key
     : ""
 );
@@ -35,6 +35,8 @@ const SearchButton = () => {
     toggleCommand();
     toggleSidebar(false);
   };
+
+  if (!corndocsConfig.search) return null;
 
   return (
     <>

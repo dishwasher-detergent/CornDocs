@@ -2,7 +2,6 @@ export interface Config {
   darkMode?: boolean;
   googleAnalyticsId?: string;
   search?: {
-    enabled: boolean;
     algolia_admin_key: string;
     algolia_app_id: string;
     algolia_index: string;
@@ -11,6 +10,7 @@ export interface Config {
   project: {
     name: string;
     url: string;
+    homePage?: string;
     github: {
       repo: string;
       usesMain?: boolean;

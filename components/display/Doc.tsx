@@ -83,11 +83,12 @@ const DisplayDoc = ({ data }: DocProps) => {
                   </div>
                   {custom.headings.length > 0 && (
                     <ArticleSidebar data={custom.headings}>
-                      {corndocsConfig.project.github.repo ? (
+                      {corndocsConfig.project.github ? (
                         <div className="mt-4 border-t border-slate-300 pt-4 dark:border-slate-700 dark:text-white">
                           <a
                             className="flex items-center gap-2 text-xs font-bold"
                             target="_blank"
+                            rel="noreferrer"
                             href={`${corndocsConfig.project.github.repo}/edit/${
                               corndocsConfig.project.github.usesMain
                                 ? "main"
@@ -106,10 +107,11 @@ const DisplayDoc = ({ data }: DocProps) => {
             </div>
           </div>
           <ArticleFooter>
-            {corndocsConfig.project.github.repo ? (
+            {corndocsConfig.project.github ? (
               <a
                 className="flex items-center gap-2 text-sm font-bold"
                 target="_blank"
+                rel="noreferrer"
                 href={`${corndocsConfig.project.github.repo}/edit/${
                   corndocsConfig.project.github.usesMain ? "main" : "master"
                 }/_posts/${custom.path}.mdx`}
