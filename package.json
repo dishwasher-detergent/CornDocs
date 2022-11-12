@@ -7,14 +7,10 @@
     "components",
     "ui"
   ],
-  "version": "0.1.7",
+  "version": "0.1.9",
   "private": false,
-  "main": "dist/components/index.ts",
-  "hooks": "dist/hooks/index.ts",
-  "context": "dist/context/index.ts",
-  "styles": "dist/styles",
-  "types": "dist/types/index.ts",
-  "module": "dist/components/index.ts",
+  "main": "dist/index.ts",
+  "module": "dist/index.ts",
   "files": [
     "dist",
     "README.md"
@@ -25,9 +21,9 @@
   },
   "scripts": {
     "remove": "rimraf dist",
-    "bundle": "babel ./components --out-dir dist/components/ --copy-files",
+    "bundle": "babel ./components --out-dir dist/ --copy-files",
     "copy": "copyfiles ./styles/* ./dist && copyfiles ./hooks/* ./dist && copyfiles ./types/* ./dist && copyfiles ./context/* ./dist",
-    "build": "npm run remove && npm run bundle && npm run copy"
+    "build": "npm run remove && npm run bundle"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
