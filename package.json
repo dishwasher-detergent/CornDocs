@@ -9,12 +9,12 @@
   ],
   "version": "0.1.12",
   "private": false,
-  "main": "dist/index.ts",
-  "types": "dist/types/index.ts",
-  "hooks": "dist/hooks/index.ts",
-  "context": "dist/context/index.ts",
+  "main": "dist/components.ts",
+  "types": "dist/types.ts",
+  "hooks": "dist/hooks.ts",
+  "context": "dist/context.ts",
   "styles": "dist/styles/",
-  "module": "dist/index.ts",
+  "module": "dist/components.ts",
   "files": [
     "dist/**",
     "README.md"
@@ -25,9 +25,9 @@
   },
   "scripts": {
     "remove": "rimraf dist",
-    "bundle": "babel ./components --out-dir dist/ --copy-files",
+    "bundle": "babel ./components --out-dir dist/ --copy-files && babel ./types --out-dir dist/ --copy-files && babel ./hooks --out-dir dist/ --copy-files && babel ./context --out-dir dist/ --copy-files && babel ./styles --out-dir dist/ --copy-files",
     "copy": "copyfiles components/** dist/ && copyfiles styles/** dist/ && copyfiles hooks/** dist/ && copyfiles types/** dist/ && copyfiles context/** dist/ && copyfiles index.ts dist/",
-    "build": "npm run remove && npm run copy"
+    "build": "npm run remove && npm run bundle"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
