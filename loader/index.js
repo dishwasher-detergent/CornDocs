@@ -10,10 +10,10 @@ module.exports = (nextConfig = {}) => {
 
   return Object.assign({}, nextConfig, {
     webpack(config, options) {
-      config.module.rules.push({
-        test: extension,
-        use: [options.defaultLoaders.babel, loader].filter(Boolean),
-      });
+      // config.module.rules.push({
+      //   test: extension,
+      //   use: [options.defaultLoaders.babel, loader].filter(Boolean),
+      // });
 
       config.module.rules.push({
         test: /\.mdx/,

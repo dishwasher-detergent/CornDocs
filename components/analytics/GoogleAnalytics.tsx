@@ -7,7 +7,7 @@ export default function GoogleAnalytics() {
     <>
       <Script
         strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${corndocsConfig.googleAnalytics}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${corndocsConfig.googleAnalyticsId}`}
       />
 
       <Script
@@ -18,7 +18,7 @@ export default function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${corndocsConfig.googleAnalytics}', {
+            gtag('config', '${corndocsConfig.googleAnalyticsId}', {
             page_path: window.location.pathname,
             });
         `,

@@ -6,8 +6,8 @@ module.exports = function (source) {
      import type { AppProps } from "next/app";
      import { SidebarProvider } from "../context/SidebarContext";
      import { DarkmodeProvider } from "../context/DarkModeContext";
-     import { Layout } from "corndocs-components";
      import { CommandProvider } from "../context/CommandContext";
+     import Layout from "../components/layout/Layout
 
      function MyApp({ Component, pageProps }: AppProps) {
        return (

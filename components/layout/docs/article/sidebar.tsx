@@ -1,5 +1,5 @@
 import { Disclosure } from "@headlessui/react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Album } from "lucide-react";
 import useWindowDimensions from "../../../../hooks/useWindowDimensions";
 
 interface ItemProps {
@@ -21,11 +21,12 @@ const ArticleSidebar = ({ data, children }: any) => {
         <div className="hidden lg:block">
           <div className="space-y-8 py-8 lg:py-0">
             <div className="px-8">
-              <p className="w-full rounded-xl pb-2 font-bold text-primary-500">
+              <p className="flex w-full flex-row gap-2 rounded-xl pb-2 text-sm font-bold">
+                <Album size={16} />
                 On this page
               </p>
-              <nav className="dark:text-white lg:text-sm lg:leading-6">
-                <ul className="space-y-1">
+              <nav className="text-xs dark:text-white lg:leading-6">
+                <ul>
                   {data.map((item: ItemProps, index: number) => {
                     if (item.level > 3) return;
                     return (
@@ -65,7 +66,10 @@ const ArticleSidebar = ({ data, children }: any) => {
               open && "border-b"
             }`}
           >
-            <span className="flex-1">On This Page</span>
+            <span className="flex flex-1 flex-row gap-2">
+              <Album size={16} />
+              On This Page
+            </span>
             <ChevronRight
               size={16}
               className={`flex-shrink-0 ${
@@ -75,9 +79,9 @@ const ArticleSidebar = ({ data, children }: any) => {
           </Disclosure.Button>
           <Disclosure.Panel
             as="nav"
-            className="relative bg-white px-4 pt-2 pb-4 text-base dark:bg-slate-900"
+            className="relative bg-white px-4 pt-2 pb-4 text-sm dark:bg-slate-900"
           >
-            <ul className="relative z-10 space-y-2 pb-2">
+            <ul className="relative z-10 space-y-1 pb-2">
               {data.map((item: ItemProps, index: number) => {
                 if (item.level > 3) return;
                 return (
@@ -89,7 +93,7 @@ const ArticleSidebar = ({ data, children }: any) => {
                         .replace(/\s+/g, "-")
                         .toLowerCase()}`}
                       className={`jusify-between flex w-full flex-none flex-row items-center gap-2 hover:text-primary-500 ${
-                        item.level == 2 ? "pt-1.5 font-bold" : `pl-4`
+                        item.level == 2 ? "pt-1.5" : `pl-4`
                       }`}
                     >
                       <span className="w-full truncate">{item.text}</span>
