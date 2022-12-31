@@ -43,7 +43,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
   }
 
   return (
-    <div className="not-prose my-4 overflow-hidden rounded-xl border border-slate-300 dark:border-slate-700">
+    <div className="not-prose my-4 overflow-hidden rounded-xl border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900">
       {preview && (
         <div className="border-b border-slate-300 dark:border-slate-700">
           <Responsive size={size} dark={dark}>

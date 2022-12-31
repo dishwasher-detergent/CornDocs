@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/sitemap-generator.mjs && node scripts/algolia-generator.mjs",
+    "postbuild": "node scripts/sitemap-generator.mjs && ts-node scripts/algolia-generator.ts",
     "export": "next export",
     "start": "next start",
     "lint": "next lint",

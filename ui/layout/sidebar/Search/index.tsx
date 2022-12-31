@@ -1,15 +1,15 @@
-import { Search } from "lucide-react";
-import { useState, useContext } from "react";
+import { CommandContext } from "#/context/commandContext";
+import { DarkmodeContext } from "#/context/darkmodeContext";
+import { SidebarContext } from "#/context/sidebarContext";
+import corndocsConfig from "#/corndocs.config";
+import SearchBox from "#/ui/layout/sidebar/Search/Search";
+import Hits from "#/ui/layout/sidebar/Search/Hits";
 import { Combobox, Dialog } from "@headlessui/react";
 import algoliasearch from "algoliasearch/lite";
-import { InstantSearch } from "react-instantsearch-dom";
-import SearchBox from "#/ui/layout/sidebar/Search";
-import Hits from "#/ui/layout/sidebar/Search/Hits";
-import { DarkmodeContext } from "#/context/darkmodeContext";
+import { Search } from "lucide-react";
 import { useRouter } from "next/router";
-import corndocsConfig from "#/corndocs.config";
-import { CommandContext } from "#/context/commandContext";
-import { SidebarContext } from "#/context/sidebarContext";
+import { useContext, useState } from "react";
+import { InstantSearch } from "react-instantsearch-dom";
 
 const searchClient = algoliasearch(
   corndocsConfig?.search?.algolia_app_id
@@ -38,8 +38,7 @@ const SearchButton = () => {
 
   if (!corndocsConfig.search) return null;
 
-  return corndocsConfig.search &&
-    corndocsConfig.search.algolia_search_api_key ? (
+  return (
     <>
       <button
         onClick={() => toggleCommand()}
@@ -71,7 +70,7 @@ const SearchButton = () => {
         </Dialog.Panel>
       </Dialog>
     </>
-  ) : null;
+  );
 };
 
 export default SearchButton;

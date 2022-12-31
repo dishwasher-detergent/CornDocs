@@ -16,7 +16,6 @@ const variants = {
 };
 
 const Article = ({ data }: { data: FoldersProps }) => {
-  console.log(data);
   const router = useRouter();
 
   return (

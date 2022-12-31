@@ -19,6 +19,7 @@
 }
 
 .griddy {
+  margin-top: -1px;
   background-size: 40px 40px;
   background-image: linear-gradient(
       to right,

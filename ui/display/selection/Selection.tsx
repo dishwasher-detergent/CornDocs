@@ -17,7 +17,6 @@ const variants = {
 };
 
 const Selection = ({ data, breadcrumb = true }: SelectionProps) => {
-  console.log(data);
   const router = useRouter();
 
   return (

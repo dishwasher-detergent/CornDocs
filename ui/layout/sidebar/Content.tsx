@@ -22,7 +22,7 @@ const Content = ({ folders, children }: ContentProps) => {
   const Route = (data: string | undefined) => {
     if (data) {
       if (width < 1024) toggleSidebar(false);
-      router.push(`/Docs/${data}`);
+      router.push(`/Docs${data}`);
     }
   };
 

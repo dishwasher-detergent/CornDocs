@@ -21,7 +21,7 @@ export interface FoldersProps {
   content?: string;
 }
 
-const basePath = join(process.cwd(), "_posts");
+const basePath = join(process.cwd(), "_posts").replace(/\\/g, "/");
 
 async function getHeadings(source: any) {
   const headingLines = source.split("\n").filter((line: any) => {
@@ -36,30 +36,30 @@ async function getHeadings(source: any) {
   });
 }
 
-async function getFile(filepath: string): Promise<string> {
+async function getFile(path: string): Promise<string> {
   const files: string[] = [];
 
-  await glob(filepath).then((matches) => {
+  await glob(join(basePath, path).replace(/\\/g, "/")).then((matches) => {
     files.push(...matches);
   });
 
   return files[0];
 }
 
-async function getFileContent(filepath: string): Promise<FoldersProps> {
-  const fileContents = fs.readFileSync(filepath, "utf8");
+async function getFileContent(path: string): Promise<FoldersProps> {
+  const fileContents = fs.readFileSync(path, "utf8");
   const { data, content } = matter(fileContents);
 
-  let name = filepath.split("/");
+  let name = path.split("/");
   let name_string = name[name.length - 1].replace(/\.[^\/.]+$/, "");
 
   return {
     name: name_string,
     headings: await getHeadings(content),
-    truePath: filepath.replace("//", "/").replace(basePath + "/", ""),
-    path: filepath
-      .replace("//", "/")
+    truePath: path,
+    path: path
       .replace(basePath + "/", "")
+      .replace(/\\/g, "/")
       .replace(/\.[^\/.]+$/, ""),
     content: content,
     metadata: data as TypeDocsMetaData,
@@ -68,16 +68,25 @@ async function getFileContent(filepath: string): Promise<FoldersProps> {
 
 async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
   const tree: FoldersProps[] = [];
+  let items: string[] = [];
+  const truePath = join(basePath, path);
+  try {
+    items = await fs.readdirSync(truePath);
+  } catch (err) {
+    return [];
+  }
 
-  const items = await fs.readdirSync(path);
   for (let i = 0; i < items.length; i++) {
     const itemPath = `${path}/${items[i]}`;
-    const stats = fs.statSync(itemPath);
+    const stats = fs.statSync(`${truePath}/${items[i]}`);
     if (stats.isDirectory()) {
       let data;
 
       try {
-        let temp = fs.readFileSync(`${path}/${items[i]}/define.json`, "utf8");
+        let temp = fs.readFileSync(
+          `${truePath}/${items[i]}/define.json`,
+          "utf8"
+        );
         data = JSON.parse(temp);
       } catch (err) {
         data = {};
@@ -88,8 +97,8 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
         filename: items[i],
         type: "directory",
         path: itemPath
-          .replace("//", "/")
           .replace(basePath + "/", "")
+          .replace(/\\/g, "/")
           .replace(/\.[^\/.]+$/, ""),
         metadata: data,
         children: await getDirectoryTree(itemPath),
@@ -97,7 +106,7 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
     } else if (stats.isFile()) {
       if (!path.includes("/") && items[i].includes("index")) continue;
       if (items[i].includes("define")) continue;
-      const fileContents = fs.readFileSync(`${path}/${items[i]}`, "utf8");
+      const fileContents = fs.readFileSync(`${truePath}/${items[i]}`, "utf8");
       const { data, content } = matter(fileContents);
 
       tree.push({
@@ -105,8 +114,8 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
         filename: items[i],
         type: "file",
         path: itemPath
-          .replace("//", "/")
           .replace(basePath + "/", "")
+          .replace(/\\/g, "/")
           .replace(/\.[^\/.]+$/, ""),
         headings: await getHeadings(content),
         metadata: data as TypeDocsMetaData,
@@ -121,13 +130,13 @@ export async function getPostSlugs(path: string = "") {
   let file = "";
 
   if (path) {
-    file = await getFile(`${basePath}/${path}.*`);
+    file = await getFile(`${path}.*`);
     if (file && file.includes(".md")) {
       return await getFileContent(file);
     }
   }
 
-  return getDirectoryTree(`${basePath}${path ? "/" + path : ""}`);
+  return getDirectoryTree(path);
 }
 
 export async function getAllPosts() {
