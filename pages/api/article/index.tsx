@@ -7,6 +7,7 @@ import { join } from "path";
 interface HeadingsProps {
   text: string;
   level: number;
+  id: string;
 }
 
 export interface FoldersProps {
