@@ -70,13 +70,13 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
   const tree: FoldersProps[] = [];
   let items: string[] = [];
   const truePath = join(basePath, path);
+
   try {
     items = await fs.readdirSync(truePath);
   } catch (err) {
+    throw new Error("Directory not found");
     return [];
   }
-
-  console.log("test");
 
   for (let i = 0; i < items.length; i++) {
     const itemPath = `${path}/${items[i]}`;
