@@ -38,7 +38,8 @@ const SearchButton = () => {
 
   if (!corndocsConfig.search) return null;
 
-  return (
+  return corndocsConfig.search &&
+    corndocsConfig.search.algolia_search_api_key ? (
     <>
       <button
         onClick={() => toggleCommand()}
@@ -70,7 +71,7 @@ const SearchButton = () => {
         </Dialog.Panel>
       </Dialog>
     </>
-  );
+  ) : null;
 };
 
 export default SearchButton;

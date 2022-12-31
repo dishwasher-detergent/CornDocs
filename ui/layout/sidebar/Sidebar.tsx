@@ -47,8 +47,7 @@ function Sidebar() {
           className={`fixed inset-0 top-16 right-auto z-20 flex w-full flex-col overflow-y-auto bg-white/90 px-8 pb-10 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90 dark:text-white md:w-[19.5rem]`}
         >
           <nav id="nav" className="relative flex-1 space-y-4 py-6 lg:leading-6">
-            {corndocsConfig.search &&
-              corndocsConfig.search.algolia_search_api_key && <SearchButton />}
+            <SearchButton />
             <ul>
               {!isLoading ? (
                 data
