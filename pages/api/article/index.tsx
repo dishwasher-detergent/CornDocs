@@ -58,8 +58,7 @@ async function getFileContent(path: string): Promise<FoldersProps> {
     headings: await getHeadings(content),
     truePath: path,
     path: path
-      .replace(basePath + "/", "")
-      .replace(/\\/g, "/")
+      .replace(basePath.replace(/\\/g, "/"), "")
       .replace(/\.[^\/.]+$/, ""),
     content: content,
     metadata: data as TypeDocsMetaData,
@@ -74,7 +73,7 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
   try {
     items = await fs.readdirSync(truePath);
   } catch (err) {
-    throw new Error(`Directory not found ${truePath}`);
+    console.log(truePath);
     return [];
   }
 
