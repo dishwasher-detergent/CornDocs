@@ -1,2 +1,6 @@
-const withCorndocs = require("./loader");
-module.exports = withCorndocs();
+const nextConfig = {
+  reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
+  swcMinify: true,
+};
+
+module.exports = nextConfig;

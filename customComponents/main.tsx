@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
-import DisplayChildren from "../components/display/Children";
-import NProgress from "nprogress";
+import Selection from "#/ui/display/selection/Selection";
+import SearchButton from "#/ui/layout/sidebar/Search";
 import Link from "next/link";
-import SearchButton from "../components/layout/sidebar/Search";
+import NProgress from "nprogress";
+import { useEffect, useState } from "react";
 
-const Main = () => {
+const DisplayComponents = () => {
   const [data, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/posts")
+    fetch("/api/article")
       .then((res) => res.json())
       .then((data) => {
-        setData({ children: data });
+        setData(data);
         setLoading(false);
       });
   }, []);
@@ -49,10 +49,10 @@ const Main = () => {
         </div>
       </section>
       <section className="not-prose">
-        {!isLoading && <DisplayChildren data={data} breadcrumb={false} />}
+        {!isLoading && <Selection data={data} breadcrumb={false} />}
       </section>
     </>
   );
 };
 
-export default Main;
+export default DisplayComponents;

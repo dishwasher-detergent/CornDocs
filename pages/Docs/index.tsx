@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import DisplayChildren from "../../components/display/Children";
+import Selection from "#/ui/display/selection/Selection";
 import NProgress from "nprogress";
 
 const Docs = () => {
@@ -8,10 +8,10 @@ const Docs = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/posts")
+    fetch("/api/article")
       .then((res) => res.json())
       .then((data) => {
-        setData({ children: data });
+        setData(data);
         setLoading(false);
       });
   }, []);
@@ -26,7 +26,7 @@ const Docs = () => {
     }
   }, [isLoading]);
 
-  return <>{!isLoading && <DisplayChildren data={data} />}</>;
+  return <>{!isLoading && <Selection data={data} />}</>;
 };
 
 export default Docs;

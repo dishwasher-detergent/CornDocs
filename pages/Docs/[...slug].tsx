@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import DisplayChildren from "../../components/display/Children";
-import DisplayDoc from "../../components/display/Doc";
+import Selection from "#/ui/display/selection/Selection";
+import Article from "#/ui/display/article/Article";
 import NProgress from "nprogress";
 
 function Doc() {
@@ -12,7 +12,7 @@ function Doc() {
   useEffect(() => {
     if (router.query.slug) {
       setLoading(true);
-      fetch(`/api/posts/${(router.query.slug as string[]).join("/")}`)
+      fetch(`/api/article/${(router.query.slug as string[]).join("/")}`)
         .then((res) => res.json())
         .then((data) => {
           setData(data);
@@ -52,11 +52,7 @@ function Doc() {
   return (
     <>
       {!isLoading &&
-        (data.children ? (
-          <DisplayChildren data={data} />
-        ) : (
-          <DisplayDoc data={data} />
-        ))}
+        (data.children ? <Selection data={data} /> : <Article data={data} />)}
     </>
   );
 }
