@@ -1,10 +1,10 @@
-import React from "react";
+import corndocsConfig from "#/corndocs.config.js";
 import Logo from "#/ui/layout/nav/Logo";
 import DarkToggle from "#/ui/toggles/DarkToggle";
 import SidebarToggle from "#/ui/toggles/SidebarToggle";
-import corndocsConfig from "#/corndocs.config.js";
-import Link from "next/link";
 import { Github } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 function Nav() {
   return (

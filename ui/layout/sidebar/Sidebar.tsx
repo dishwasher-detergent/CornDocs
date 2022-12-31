@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import Content from "#/ui/layout/sidebar/Content";
 import { SidebarContext } from "#/context/sidebarContext";
-import Loading from "#/ui/loaders/Loader";
-import { motion, AnimatePresence } from "framer-motion";
 import useWindowDimensions from "#/hooks/useWindowDimensions";
+import Content from "#/ui/layout/sidebar/Content";
 import SearchButton from "#/ui/layout/sidebar/Search";
-import corndocsConfig from "#/corndocs.config";
+import Loading from "#/ui/loaders/Loader";
 import { useRouter } from "next/router";
+import React, { useContext, useEffect, useState } from "react";
 
 function Sidebar() {
   const router = useRouter();
@@ -37,51 +35,45 @@ function Sidebar() {
   }, [width, router.pathname]);
 
   return (
-    <AnimatePresence>
-      {sidebar && (
-        <motion.aside
-          initial={{ left: "-100%" }}
-          animate={{ left: "max(0px,calc(50% - 45rem))" }}
-          exit={{ left: "-100%" }}
-          transition={{ duration: 0.5, type: "spring" }}
-          className={`fixed inset-0 top-16 right-auto z-20 flex w-full flex-col overflow-y-auto bg-white/90 px-8 pb-10 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90 dark:text-white md:w-[19.5rem]`}
-        >
-          <nav id="nav" className="relative flex-1 space-y-4 py-6 lg:leading-6">
-            <SearchButton />
-            <ul>
-              {!isLoading ? (
-                data
-                  .sort(
-                    (a: any, b: any) =>
-                      a.metadata.position - b.metadata.position
-                  )
-                  .map((item: any, index) => (
-                    <Content folders={item} key={index}>
-                      {item.metadata.title}
-                    </Content>
-                  ))
-              ) : (
-                <div className="w-full py-6">
-                  <Loading />
-                </div>
-              )}
-            </ul>
-          </nav>
-          <div className="w-full flex-none text-center text-sm font-bold dark:text-white">
-            <p>
-              Built with ❤️ and{" "}
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://github.com/dishwasher-detergent/CornDocs"
-              >
-                CornDocs
-              </a>
-            </p>
-          </div>
-        </motion.aside>
-      )}
-    </AnimatePresence>
+    sidebar && (
+      <aside
+        style={{ left: "max(0px,calc(50% - 45rem))" }}
+        className={`fixed inset-0 top-16 right-auto z-20 flex w-full flex-col overflow-y-auto bg-white/90 px-8 pb-10 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90 dark:text-white md:w-[19.5rem]`}
+      >
+        <nav id="nav" className="relative flex-1 space-y-4 py-6 lg:leading-6">
+          <SearchButton />
+          <ul>
+            {!isLoading ? (
+              data
+                .sort(
+                  (a: any, b: any) => a.metadata.position - b.metadata.position
+                )
+                .map((item: any, index) => (
+                  <Content folders={item} key={index}>
+                    {item.metadata.title}
+                  </Content>
+                ))
+            ) : (
+              <div className="w-full py-6">
+                <Loading />
+              </div>
+            )}
+          </ul>
+        </nav>
+        <div className="w-full flex-none text-center text-sm font-bold dark:text-white">
+          <p>
+            Built with ❤️ and{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/dishwasher-detergent/CornDocs"
+            >
+              CornDocs
+            </a>
+          </p>
+        </div>
+      </aside>
+    )
   );
 }
 

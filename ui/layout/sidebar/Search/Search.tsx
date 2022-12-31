@@ -1,8 +1,8 @@
+import { CommandContext } from "#/context/commandContext";
 import { Combobox } from "@headlessui/react";
 import { Search } from "lucide-react";
-import { connectSearchBox } from "react-instantsearch-dom";
-import { CommandContext } from "#/context/commandContext";
 import { useContext } from "react";
+import { connectSearchBox } from "react-instantsearch-dom";
 
 const SearchBox = ({ refine }: any) => {
   /* @ts-ignore */

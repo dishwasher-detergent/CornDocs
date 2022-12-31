@@ -1,5 +1,5 @@
-import { Moon, Sun } from 'lucide-react';
-import * as Tooltip from '@radix-ui/react-tooltip';
+import * as Tooltip from "@radix-ui/react-tooltip";
+import { Moon, Sun } from "lucide-react";
 
 export default function Dark({
   setDark,

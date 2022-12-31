@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
 import corndocsConfig from "#/corndocs.config.js";
+import Image from "next/image";
+import Link from "next/link";
 
 const customLoader = ({ src }: any) => {
   return src;

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Selection from "#/ui/display/selection/Selection";
 import Article from "#/ui/display/article/Article";
+import Selection from "#/ui/display/selection/Selection";
+import { useRouter } from "next/router";
 import NProgress from "nprogress";
+import React, { useEffect, useState } from "react";
 
 function Doc() {
   const router = useRouter();

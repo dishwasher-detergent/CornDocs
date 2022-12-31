@@ -1,10 +1,10 @@
-import Dark from '#/ui/markdown/nav/Button/Dark';
-import Copy from '#/ui/markdown/nav/Button/Copy';
+import Copy from "#/ui/markdown/nav/Button/Copy";
+import Dark from "#/ui/markdown/nav/Button/Dark";
 import {
   ComputerScreen,
   PhoneScreen,
   TabletScreen,
-} from '#/ui/markdown/nav/Button/Size';
+} from "#/ui/markdown/nav/Button/Size";
 
 const size = 0;
 const array = Array.from(Array(24).keys());
@@ -36,7 +36,7 @@ export default function CodeblockSkeleton({ preview }: { preview: boolean }) {
                 <ComputerScreen size={size} setSize={() => {}} />
               </div>
               <Dark dark={true} setDark={() => {}} />
-              <Copy text={''} />
+              <Copy text={""} />
             </>
           )}
         </nav>

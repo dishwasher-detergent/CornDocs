@@ -1,5 +1,5 @@
-import NextErrorComponent from "next/error";
 import { NextPageContext } from "next";
+import NextErrorComponent from "next/error";
 
 interface MyErrorPageProps {
   statusCode: number;

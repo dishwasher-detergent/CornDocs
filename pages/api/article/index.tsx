@@ -1,7 +1,7 @@
+import { TypeDocsMetaData } from "#/types/TypeDocsMetadata";
 import fs from "fs";
 import glob from "glob-promise";
 import matter from "gray-matter";
-import { TypeDocsMetaData } from "#/types/TypeDocsMetadata";
 import { join } from "path";
 
 interface HeadingsProps {

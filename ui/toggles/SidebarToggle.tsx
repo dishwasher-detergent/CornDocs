@@ -1,6 +1,6 @@
-import { X, Menu } from "lucide-react";
-import { useContext } from "react";
 import { SidebarContext } from "#/context/sidebarContext";
+import { Menu, X } from "lucide-react";
+import { useContext } from "react";
 
 const SidebarToggle = () => {
   /* @ts-ignore */

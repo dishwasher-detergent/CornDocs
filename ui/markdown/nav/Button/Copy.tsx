@@ -1,7 +1,7 @@
-import * as Tooltip from '@radix-ui/react-tooltip';
-import { Clipboard, ClipboardCheck } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import * as Tooltip from "@radix-ui/react-tooltip";
+import { Clipboard, ClipboardCheck } from "lucide-react";
+import { useEffect, useState } from "react";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 export default function Copy({ text }: { text: string }) {
   const [isCopied, setIsCopied] = useState(false);

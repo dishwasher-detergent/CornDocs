@@ -1,9 +1,9 @@
-import Breadcrumb from "#/ui/layout/breadcrumb/Breadcrumb";
+import { FoldersProps } from "#/pages/api/article";
 import PreviewArticle from "#/ui/display/selection/preview/PreviewArticle";
 import PreviewFolder from "#/ui/display/selection/preview/PreviewFolder";
+import Breadcrumb from "#/ui/layout/breadcrumb/Breadcrumb";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { motion, AnimatePresence } from "framer-motion";
-import { FoldersProps } from "#/pages/api/article";
 
 interface SelectionProps {
   breadcrumb?: boolean;

@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
 import { DarkmodeContext } from "#/context/darkmodeContext";
 import { SidebarContext } from "#/context/sidebarContext";
 import Nav from "#/ui/layout/nav/Nav";
 import Sidebar from "#/ui/layout/sidebar/Sidebar";
+import React, { useContext, useEffect } from "react";
 
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];

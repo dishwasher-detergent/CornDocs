@@ -1,8 +1,5 @@
 "use client";
 
-import React, { useState, useEffect, useContext } from "react";
-import Prism from "prismjs";
-import Responsive from "#/ui/markdown/Responsive";
 import { DarkmodeContext } from "#/context/darkmodeContext";
 import Copy from "#/ui/markdown/nav/Button/Copy";
 import Dark from "#/ui/markdown/nav/Button/Dark";
@@ -11,6 +8,9 @@ import {
   PhoneScreen,
   TabletScreen,
 } from "#/ui/markdown/nav/Button/Size";
+import Responsive from "#/ui/markdown/Responsive";
+import Prism from "prismjs";
+import React, { useContext, useEffect, useState } from "react";
 import CodeblockSkeleton from "../loaders/skeleton/Codeblock";
 
 interface CodeBlockProps {

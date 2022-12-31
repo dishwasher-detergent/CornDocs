@@ -1,6 +1,6 @@
+import Layout from "#/ui/display/selection/preview/Layout";
 import Image from "next/image";
 import React, { useState } from "react";
-import Layout from "#/ui/display/selection/preview/Layout";
 
 interface PreviewProps {
   title: string;

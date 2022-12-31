@@ -1,8 +1,8 @@
-import fs from "fs";
-import { join } from "path";
-import matter from "gray-matter";
 import algoliasearch from "algoliasearch/lite.js";
 import dotenv from "dotenv";
+import fs from "fs";
+import matter from "gray-matter";
+import { join } from "path";
 import corndocsConfig from "../corndocs.config.js";
 
 interface HeadingsProps {
