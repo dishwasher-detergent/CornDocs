@@ -1,13 +1,14 @@
 import corndocsConfig from "#/corndocs.config";
+import Loader from "#/ui/loaders/Loader";
 import CodeBlock from "#/ui/markdown/Codeblock";
 import { H1, H2, H3 } from "#/ui/markdown/Headings";
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import dynamic from "next/dist/shared/lib/dynamic";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import React, { useEffect, useState } from "react";
-import Loader from "#/ui/loaders/Loader";
-import dynamic from "next/dist/shared/lib/dynamic";
+import remarkGfm from "remark-gfm";
 
 type Post = {
   serialized: MDXRemoteSerializeResult;
@@ -25,7 +26,13 @@ const MdxComponents = {
 };
 
 async function cerealize(raw: string): Promise<Post> {
-  const serialized = await serialize(raw);
+  const serialized = await serialize(raw, {
+    parseFrontmatter: true,
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      format: "detect",
+    },
+  });
 
   return { serialized };
 }
