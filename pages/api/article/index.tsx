@@ -74,7 +74,7 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
   try {
     items = await fs.readdirSync(truePath);
   } catch (err) {
-    throw new Error("Directory not found");
+    throw new Error(`Directory not found ${truePath}`);
     return [];
   }
 
