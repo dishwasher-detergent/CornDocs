@@ -1,4 +1,3 @@
-import corndocsConfig from "#/corndocs.config";
 import Loader from "#/ui/loaders/Loader";
 import CodeBlock from "#/ui/markdown/Codeblock";
 import { H1, H2, H3 } from "#/ui/markdown/Headings";
@@ -9,6 +8,7 @@ import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import React, { useEffect, useState } from "react";
 import remarkGfm from "remark-gfm";
+import slug from "rehype-slug-custom-id";
 
 type Post = {
   serialized: MDXRemoteSerializeResult;
@@ -29,6 +29,7 @@ async function cerealize(raw: string): Promise<Post> {
   const serialized = await serialize(raw, {
     parseFrontmatter: true,
     mdxOptions: {
+      rehypePlugins: [slug],
       remarkPlugins: [remarkGfm],
       format: "detect",
     },

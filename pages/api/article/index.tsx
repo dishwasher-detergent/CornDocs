@@ -23,16 +23,53 @@ export interface FoldersProps {
 
 const basePath = join(process.cwd(), "_posts");
 
+function replaceDuplicates(names: string[]) {
+  // Store the frequency of strings
+  var hash = new Map();
+
+  // Iterate over the array
+  for (var i = 0; i < names.length; i++) {
+    // For the first occurrence,
+    // update the frequency count
+    if (!hash.has(names[i])) hash.set(names[i], 1);
+    // Otherwise
+    else {
+      var count = hash.get(names[i]);
+      hash.set(names[i], hash.get(names[i]) + 1);
+      // Append frequency count
+      // to end of the string
+      names[i] += "-" + count.toString();
+    }
+  }
+
+  // Print the modified array
+  return names;
+}
+
 async function getHeadings(source: any) {
   const headingLines = source.split("\n").filter((line: any) => {
-    return line.match(/^###*\s/);
+    return line.match(/#{1,6}\s/);
   });
 
-  return headingLines.map((raw: any) => {
-    const text = raw.replace(/^###*\s/, "");
-    const level = raw.split(" ")[0].lastIndexOf("#") + 1;
+  let idArray = headingLines.map((raw: any) => {
+    const text = raw.replace(/#{1,3}\s/, "");
+    const id = text
+      .toLowerCase()
+      .trim()
+      .replace(/\s/g, "-")
+      .replace(/[^a-zA-Z0-9-]/g, "");
 
-    return { text, level };
+    return id;
+  });
+
+  idArray = await replaceDuplicates(idArray);
+
+  return headingLines.map((raw: any, index: number) => {
+    const text = raw.replace(/#{1,3}\s/, "");
+    const level = raw.split(" ")[0].lastIndexOf("#") + 1;
+    const id = idArray[index];
+
+    return { text, level, id };
   });
 }
 

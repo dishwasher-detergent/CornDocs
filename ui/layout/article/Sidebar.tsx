@@ -5,6 +5,7 @@ import { Album, ChevronRight } from "lucide-react";
 interface Headings {
   text: string;
   level: number;
+  id: string;
 }
 
 interface SidebarProps {
@@ -27,15 +28,11 @@ const ArticleSidebar = ({ children, headings }: SidebarProps) => {
               <nav className="w-full text-sm dark:text-white lg:leading-6">
                 <ul className="w-full space-y-2">
                   {headings.map((item: Headings, index: number) => {
-                    if (item.level > 3) return;
+                    if (item.level > 3 || item.level == 1) return;
                     return (
                       <li key={index}>
                         <a
-                          href={`#${item.text
-                            ?.toString()
-                            .trim()
-                            .replace(/\s+/g, "-")
-                            .toLowerCase()}`}
+                          href={`#${item.id}`}
                           className={`jusify-between flex w-full flex-none flex-row items-center gap-2 hover:text-primary-500 ${
                             item.level == 2 ? "font-bold" : `pl-2`
                           }`}
@@ -80,15 +77,11 @@ const ArticleSidebar = ({ children, headings }: SidebarProps) => {
         <Accordion.Content className="relative bg-white px-4 pt-2 pb-4 dark:bg-slate-900">
           <ul className="relative z-10 space-y-1 pb-2">
             {headings.map((item: Headings, index: number) => {
-              if (item.level > 3) return;
+              if (item.level > 3 || item.level == 1) return;
               return (
                 <li key={index}>
                   <a
-                    href={`#${item.text
-                      ?.toString()
-                      .trim()
-                      .replace(/\s+/g, "-")
-                      .toLowerCase()}`}
+                    href={`#${item.id}`}
                     className={`jusify-between flex w-full flex-none flex-row items-center gap-2 hover:text-primary-500 ${
                       item.level == 2 ? "pt-1.5 font-bold" : `ml-1`
                     }`}
