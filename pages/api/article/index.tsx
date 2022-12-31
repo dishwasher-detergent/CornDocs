@@ -2,6 +2,7 @@ import fs from "fs";
 import glob from "glob-promise";
 import matter from "gray-matter";
 import { TypeDocsMetaData } from "#/types/TypeDocsMetadata";
+import { join } from "path";
 
 interface HeadingsProps {
   text: string;
@@ -20,7 +21,7 @@ export interface FoldersProps {
   content?: string;
 }
 
-const basePath = process.cwd().replaceAll("\\", "/") + "/_posts";
+const basePath = join(process.cwd(), "_posts");
 
 async function getHeadings(source: any) {
   const headingLines = source.split("\n").filter((line: any) => {
