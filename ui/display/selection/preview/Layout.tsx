@@ -50,7 +50,7 @@ interface PreviewProps {
 
 const Layout = ({ children, path, title, description }: PreviewProps) => {
   return (
-    <Link href={`/Docs${path}`} passHref>
+    <Link href={`/Docs/${path}`} passHref>
       <motion.div
         initial="initial"
         whileHover="hover"

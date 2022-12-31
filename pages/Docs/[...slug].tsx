@@ -49,10 +49,16 @@ function Doc() {
     );
   }
 
+  console.log(data);
+
   return (
     <>
       {!isLoading &&
-        (data.children ? <Selection data={data} /> : <Article data={data} />)}
+        (Array.isArray(data) ? (
+          <Selection data={data} />
+        ) : (
+          <Article data={data} />
+        ))}
     </>
   );
 }
