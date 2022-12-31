@@ -16,7 +16,7 @@ const ArticleSidebar = ({ children, headings }: SidebarProps) => {
   const { height, width } = useWindowDimensions();
 
   return width > 1028 ? (
-    <aside className="col-span-12 space-y-8 lg:col-span-3 xl:col-start-10">
+    <aside className="col-span-12 space-y-8 lg:col-span-4 xl:col-start-10">
       <div className="space-y-8 lg:sticky lg:top-[6.5rem] lg:mb-16">
         <div className="hidden lg:block">
           <div className="space-y-8 py-8 lg:py-0">
@@ -24,8 +24,8 @@ const ArticleSidebar = ({ children, headings }: SidebarProps) => {
               <p className="flex w-full flex-row gap-2 rounded-xl pb-6 font-bold">
                 On this page
               </p>
-              <nav className="dark:text-white lg:leading-6">
-                <ul className="space-y-2">
+              <nav className="w-full text-sm dark:text-white lg:leading-6">
+                <ul className="w-full space-y-2">
                   {headings.map((item: Headings, index: number) => {
                     if (item.level > 3) return;
                     return (
@@ -37,12 +37,12 @@ const ArticleSidebar = ({ children, headings }: SidebarProps) => {
                             .replace(/\s+/g, "-")
                             .toLowerCase()}`}
                           className={`jusify-between flex w-full flex-none flex-row items-center gap-2 hover:text-primary-500 ${
-                            item.level == 2 ? "font-bold" : `ml-2`
+                            item.level == 2 ? "font-bold" : `pl-2`
                           }`}
                         >
-                          <span className="flex w-full flex-row items-center gap-2 truncate">
+                          <span className="flex w-full flex-row items-center gap-2">
                             {item.level == 3 ? (
-                              <ChevronRight size={12} />
+                              <ChevronRight size={12} className="flex-none" />
                             ) : null}
                             {item.text}
                           </span>

@@ -33,7 +33,7 @@ const Article = ({ data }: { data: FoldersProps }) => {
           <div className="container mx-auto py-6">
             <div className="grid grid-cols-12 gap-4">
               <div className="col-span-12">
-                <div className="flex grid-cols-12 flex-col-reverse xl:grid xl:gap-8">
+                <div className="flex grid-cols-12 flex-col-reverse xl:grid xl:gap-7">
                   <div className="col-span-12 xl:col-span-9">
                     <Breadcrumb data={router.query.slug} />
                     <article className="prose prose-slate w-full max-w-none dark:prose-invert">
