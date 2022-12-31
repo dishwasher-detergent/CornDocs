@@ -21,7 +21,7 @@ export interface FoldersProps {
   content?: string;
 }
 
-const basePath = join(process.cwd(), "_posts").replace(/\\/g, "/");
+const basePath = join(process.cwd(), "_posts");
 
 async function getHeadings(source: any) {
   const headingLines = source.split("\n").filter((line: any) => {
