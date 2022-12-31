@@ -39,7 +39,7 @@ const DisplayComponents = () => {
           CornDocs lets you easily create documentation to show off your
           projects!
         </p>
-        <div className="mx-auto flex max-w-xl flex-col gap-2 py-8 md:flex-row">
+        <div className="mx-auto flex max-w-xl flex-col justify-center gap-2 py-8 md:flex-row">
           <SearchButton />
           <Link href="/Docs/getting-started">
             <a className="flex h-10 min-w-[6rem] flex-none items-center justify-center whitespace-nowrap rounded-xl bg-primary-500 px-6 text-base font-medium text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-primary-600 dark:ring-offset-slate-800 dark:hover:bg-primary-500">
