@@ -76,6 +76,8 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
     return [];
   }
 
+  console.log("test");
+
   for (let i = 0; i < items.length; i++) {
     const itemPath = `${path}/${items[i]}`;
     const stats = fs.statSync(`${truePath}/${items[i]}`);
