@@ -30,7 +30,7 @@ async function cerealize(raw: string): Promise<Post> {
   return { serialized };
 }
 
-export default function Markdown({ article }: { article: string }) {
+export default function Markdown({ article }: { article: string | undefined }) {
   const [cereal, setCereal] = useState<MDXRemoteSerializeResult | null>(null);
 
   const [isLoading, setLoading] = useState(true);
