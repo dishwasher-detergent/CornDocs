@@ -74,7 +74,6 @@ async function getDirectoryTree(path: string) {
       }
 
       algoliaPosts.push({
-        objectID: convertLetterToNumber(itemPath.replace(".mdx", "")),
         path: itemPath
           .replace(basePath + "/", "")
           .replace(/\\/g, "/")
@@ -90,7 +89,6 @@ async function getDirectoryTree(path: string) {
       const { data, content } = matter(fileContents);
 
       algoliaPosts.push({
-        objectID: convertLetterToNumber(itemPath.replace(".mdx", "")),
         path: itemPath
           .replace(basePath + "/", "")
           .replace(/\\/g, "/")
@@ -130,12 +128,14 @@ export async function getPostSlugs() {
       const index = client.initIndex(corndocsConfig.search.algolia_index);
 
       // @ts-ignore
-      index.clearObjects();
+      await index.clearObjects();
 
-      console.log("🗑️ Deleting records from Algolia search...");
+      console.log("🗑️  Deleting records from Algolia search...");
 
       // @ts-ignore
-      const algoliaResponse = await index.saveObjects(algoliaPosts);
+      const algoliaResponse = await index.saveObjects(algoliaPosts, {
+        autoGenerateObjectIDIfNotExist: true,
+      });
 
       console.log(
         `🎉 Sucessfully added ${
