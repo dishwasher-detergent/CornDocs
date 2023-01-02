@@ -41,25 +41,11 @@ const Article = ({ data }: { data: FoldersProps }) => {
                     <ArticleNavigation />
                   </div>
                   {data.headings && data.headings.length > 0 && (
-                    <ArticleSidebar headings={data.headings}>
-                      {corndocsConfig.project.github ? (
-                        <div className="mt-4 border-t border-slate-300 pt-4 dark:border-slate-700 dark:text-white">
-                          <a
-                            className="flex items-center gap-2 text-xs font-bold"
-                            target="_blank"
-                            rel="noreferrer"
-                            href={`${corndocsConfig.project.github.repo}/edit/${
-                              corndocsConfig.project.github.usesMain
-                                ? "main"
-                                : "master"
-                            }/_posts/${data.path}.mdx`}
-                          >
-                            <Github size={12} />
-                            <span>Edit on GitHub</span>
-                          </a>
-                        </div>
-                      ) : null}
-                    </ArticleSidebar>
+                    <ArticleSidebar
+                      headings={data.headings.filter(
+                        (item) => item.level <= 3 && item.level > 1
+                      )}
+                    />
                   )}
                 </div>
               </div>

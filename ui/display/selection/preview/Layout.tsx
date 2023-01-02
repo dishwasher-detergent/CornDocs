@@ -65,7 +65,7 @@ const Layout = ({ children, path, title, description }: PreviewProps) => {
         </motion.div>
         <motion.div
           variants={mainTextContainer}
-          className="absolute bottom-0 rounded-xl bg-white/90 px-4 py-2 backdrop-blur-md dark:bg-slate-900/90"
+          className="absolute bottom-0 rounded-xl px-4 py-2 backdrop-blur-md md:bg-white/90 md:dark:bg-slate-900/90"
         >
           <motion.h3
             variants={mainText}

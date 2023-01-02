@@ -9,6 +9,8 @@ import NProgress from "nprogress";
 import React, { useEffect, useState } from "react";
 import remarkGfm from "remark-gfm";
 import slug from "rehype-slug-custom-id";
+import remarkImageDimension from "#/plugins/setImageDimensions";
+import Images from "#/ui/markdown/Images";
 
 type Post = {
   serialized: MDXRemoteSerializeResult;
@@ -19,6 +21,7 @@ const MdxComponents = {
   h1: H1,
   h2: H2,
   h3: H3,
+  img: Images,
   DisplayComponents: dynamic(async () => {
     const component = await import("#/customComponents/main");
     return component;
@@ -30,7 +33,7 @@ async function cerealize(raw: string): Promise<Post> {
     parseFrontmatter: true,
     mdxOptions: {
       rehypePlugins: [slug],
-      remarkPlugins: [remarkGfm],
+      remarkPlugins: [remarkImageDimension, remarkGfm],
       format: "detect",
     },
   });

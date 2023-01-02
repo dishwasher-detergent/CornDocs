@@ -49,8 +49,6 @@ function Doc() {
     );
   }
 
-  console.log(data);
-
   return (
     <>
       {!isLoading &&
