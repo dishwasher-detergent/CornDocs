@@ -26,7 +26,7 @@ const Article = ({ data }: { data: FoldersProps }) => {
         animate="enter"
         exit="exit"
         transition={{ duration: 0.75, type: "spring" }}
-        className="pl-2"
+        className="md:pl-2"
       >
         <main>
           <div className="container mx-auto py-6">

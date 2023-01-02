@@ -10,7 +10,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import algoliasearch from "algoliasearch/lite";
 import { Search } from "lucide-react";
 import { useRouter } from "next/router";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { InstantSearch } from "react-instantsearch-dom";
 
 const searchClient = algoliasearch(
