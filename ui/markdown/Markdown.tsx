@@ -41,7 +41,6 @@ async function cerealize(raw: string): Promise<Post> {
 
 export default function Markdown({ article }: { article: string }) {
   const [cereal, setCereal] = useState<MDXRemoteSerializeResult | null>(null);
-  // console.log(article);
 
   useEffect(() => {
     (async () => {

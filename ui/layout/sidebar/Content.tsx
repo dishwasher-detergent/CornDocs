@@ -1,9 +1,8 @@
 import { SidebarContext } from "#/context/sidebarContext";
 import useWindowDimensions from "#/hooks/useWindowDimensions";
 import { FoldersProps } from "#/pages/api/article";
-import { TypeDocsDetails } from "#/types/TypeDocsDetails";
 import * as Collapsible from "@radix-ui/react-collapsible";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Link } from "lucide-react";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 
@@ -43,9 +42,12 @@ const Content = ({ folders, children }: ContentProps) => {
             open ? "bg-slate-100" : ""
           } flex w-full cursor-pointer flex-row flex-nowrap items-center gap-2 truncate rounded-xl px-3 py-1.5 font-bold hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-800`}
         >
-          <span className="flex w-full flex-row items-center gap-2 truncate">
+          <a
+            onClick={() => Route(folders.path)}
+            className="flex w-full flex-row items-center gap-2 truncate"
+          >
             {children}
-          </span>
+          </a>
           <ChevronRight
             size={16}
             className={`transition-all ${open ? "rotate-90" : ""}`}

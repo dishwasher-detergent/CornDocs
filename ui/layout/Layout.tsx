@@ -22,7 +22,7 @@ function Layout({ children }: LayoutProps) {
           <Sidebar />
           <main className={`${sidebar && "lg:pl-[19.5rem]"}`}>{children}</main>
         </div>
-        <div className="griddy fixed top-16 h-48 w-full opacity-50">
+        <div className="fixed top-16 h-48 w-full opacity-50">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-slate-900" />
         </div>
       </div>

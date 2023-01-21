@@ -16,7 +16,7 @@ export interface FoldersProps {
   type?: "directory" | "file";
   path?: string;
   truePath?: string;
-  children?: object[];
+  children?: object[] | object;
   headings?: HeadingsProps[];
   metadata?: any;
   content?: string;
@@ -103,7 +103,10 @@ async function getFileContent(path: string): Promise<FoldersProps> {
   };
 }
 
-async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
+async function getDirectoryTree(
+  path: string,
+  meta: boolean = true
+): Promise<FoldersProps[] | FoldersProps> {
   const tree: FoldersProps[] = [];
   let items: string[] = [];
   const truePath = join(basePath, path);
@@ -140,7 +143,7 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
           .replace(/\\/g, "/")
           .replace(/\.[^\/.]+$/, ""),
         metadata: data,
-        children: await getDirectoryTree(itemPath),
+        children: await getDirectoryTree(itemPath, false),
       });
     } else if (stats.isFile()) {
       if (!path.includes("/") && items[i].includes("index")) continue;
@@ -160,6 +163,31 @@ async function getDirectoryTree(path: string): Promise<FoldersProps[]> {
         metadata: data as TypeDocsMetaData,
       });
     }
+  }
+
+  if (meta && path) {
+    let data;
+
+    try {
+      let temp = fs.readFileSync(`${truePath}/define.json`, "utf8");
+      data = JSON.parse(temp);
+    } catch (err) {
+      data = {};
+    }
+
+    const treeParent: FoldersProps = {
+      name: path.substring(path.lastIndexOf("/") + 1),
+      filename: path.substring(path.lastIndexOf("/") + 1),
+      type: "directory",
+      path: truePath
+        .replace(basePath + "/", "")
+        .replace(/\\/g, "/")
+        .replace(/\.[^\/.]+$/, ""),
+      metadata: data,
+      children: tree,
+    };
+
+    return treeParent;
   }
 
   return tree;

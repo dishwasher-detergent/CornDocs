@@ -59,12 +59,12 @@ const ArticleSidebar = ({ headings }: SidebarProps) => {
   ) : (
     <Collapsible.Root
       open={open}
-      className="mb-4 overflow-hidden rounded-xl border border-slate-300 bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+      className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
     >
       <Collapsible.Trigger
         className={`${
           open ? "border-b" : ""
-        } flex w-full flex-row items-center border-slate-300 px-4 py-2 text-left font-bold dark:border-slate-700`}
+        } flex w-full flex-row items-center border-slate-200 px-4 py-2 text-left font-bold dark:border-slate-700`}
         onClick={() => setOpen(!open)}
       >
         <span className="flex flex-1 flex-row items-center gap-2">

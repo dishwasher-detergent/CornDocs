@@ -26,7 +26,7 @@ export function PhoneScreen({
         <Tooltip.Portal>
           <Tooltip.Content
             side="bottom"
-            className="z-40 rounded-xl border border-slate-300 bg-white py-1 px-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="z-40 rounded-xl border border-slate-200 bg-white py-1 px-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           >
             Screen Size: {mobile}px
           </Tooltip.Content>
@@ -57,7 +57,7 @@ export function TabletScreen({
         <Tooltip.Portal>
           <Tooltip.Content
             side="bottom"
-            className="z-40 rounded-xl border border-slate-300 bg-white py-1 px-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="z-40 rounded-xl border border-slate-200 bg-white py-1 px-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           >
             Screen Size: {tablet}px
           </Tooltip.Content>
@@ -88,7 +88,7 @@ export function ComputerScreen({
         <Tooltip.Portal>
           <Tooltip.Content
             side="bottom"
-            className="z-40 rounded-xl border border-slate-300 bg-white py-1 px-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="z-40 rounded-xl border border-slate-200 bg-white py-1 px-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           >
             Screen Size: {desktop}px
           </Tooltip.Content>

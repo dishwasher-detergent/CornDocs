@@ -11,7 +11,7 @@ const SearchBox = ({ refine }: any) => {
   return (
     <div className="relative" role="search">
       <Combobox.Input
-        className="peer flex h-12 w-full flex-row items-center gap-2 truncate border-b border-slate-300 pl-10 pr-16 text-left text-base text-slate-900 outline-none placeholder:text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-50 dark:placeholder:text-slate-200"
+        className="peer flex h-12 w-full flex-row items-center gap-2 truncate border-b border-slate-200 pl-10 pr-16 text-left text-base text-slate-900 outline-none placeholder:text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-50 dark:placeholder:text-slate-200"
         id="algolia_search"
         type="search"
         placeholder="Search Docs"
@@ -24,7 +24,7 @@ const SearchBox = ({ refine }: any) => {
       />
       <button
         onClick={() => toggleCommand()}
-        className="absolute top-1/2 right-4 -translate-y-1/2 rounded-xl border border-slate-300 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50"
+        className="absolute top-1/2 right-4 -translate-y-1/2 rounded-xl border border-slate-200 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50"
       >
         <kbd>Esc</kbd>
       </button>

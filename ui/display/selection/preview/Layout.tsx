@@ -59,7 +59,7 @@ const Layout = ({ children, path, title, description }: PreviewProps) => {
       >
         <motion.div
           variants={mainImage}
-          className="relative h-1/2 w-full overflow-hidden rounded-xl border border-slate-300 bg-slate-100 dark:border-slate-800 dark:bg-slate-800"
+          className="relative h-1/2 w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-800"
         >
           {children}
         </motion.div>

@@ -21,7 +21,7 @@ export default function Dark({
         <Tooltip.Portal>
           <Tooltip.Content
             side="bottom"
-            className="z-40 rounded-xl border border-slate-300 bg-white py-1 px-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="z-40 rounded-xl border border-slate-200 bg-white py-1 px-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           >
             Toggle Darkmode.
           </Tooltip.Content>

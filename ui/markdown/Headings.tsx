@@ -10,7 +10,7 @@ export const H1 = ({ id, children }: HeadingProps) => {
     <h1 className={`group relative flex items-center`} id={id}>
       <a
         href={`#${id}`}
-        className={`absolute -left-8 hidden place-content-center rounded-lg border border-slate-300 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all group-hover:opacity-100 dark:border-slate-700 md:grid`}
+        className={`absolute -left-8 hidden place-content-center rounded-lg border border-slate-200 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all group-hover:opacity-100 dark:border-slate-700 md:grid`}
       >
         #
       </a>
@@ -24,7 +24,7 @@ export const H2 = ({ id, children }: HeadingProps) => {
     <h2 className={`group relative flex items-center`} id={id}>
       <a
         href={`#${id}`}
-        className={`absolute -left-8 hidden place-content-center rounded-lg border border-slate-300 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all group-hover:opacity-100 dark:border-slate-700 md:grid`}
+        className={`absolute -left-8 hidden place-content-center rounded-lg border border-slate-200 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all group-hover:opacity-100 dark:border-slate-700 md:grid`}
       >
         #
       </a>
@@ -38,7 +38,7 @@ export const H3 = ({ id, children }: HeadingProps) => {
     <h3 className={`group relative flex items-center`} id={id}>
       <a
         href={`#${id}`}
-        className={`absolute -left-8 hidden place-content-center rounded-lg border border-slate-300 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all group-hover:opacity-100 dark:border-slate-700 md:grid`}
+        className={`absolute -left-8 hidden place-content-center rounded-lg border border-slate-200 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all group-hover:opacity-100 dark:border-slate-700 md:grid`}
       >
         #
       </a>
@@ -52,7 +52,7 @@ export const H4 = ({ id, children }: HeadingProps) => {
     <h4 className={`group relative flex items-center`} id={id}>
       <a
         href={`#${id}`}
-        className={`absolute -left-8 hidden place-content-center rounded-lg border border-slate-300 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all group-hover:opacity-100 dark:border-slate-700 md:grid`}
+        className={`absolute -left-8 hidden place-content-center rounded-lg border border-slate-200 px-1.5 py-0 text-base font-bold no-underline opacity-0 transition-all group-hover:opacity-100 dark:border-slate-700 md:grid`}
       >
         #
       </a>

@@ -11,9 +11,9 @@ const array = Array.from(Array(24).keys());
 
 export default function CodeblockSkeleton({ preview }: { preview: boolean }) {
   return (
-    <div className="not-prose my-4 overflow-hidden rounded-xl border border-slate-300 dark:border-slate-700">
+    <div className="not-prose my-4 overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700">
       {preview && (
-        <div className="flex flex-row flex-wrap gap-2 border-b border-slate-300 p-4 dark:border-slate-700">
+        <div className="flex flex-row flex-wrap gap-2 border-b border-slate-200 p-4 dark:border-slate-700">
           {array.map((i) => (
             <div
               key={i}
@@ -23,8 +23,8 @@ export default function CodeblockSkeleton({ preview }: { preview: boolean }) {
           ))}
         </div>
       )}
-      <div className="flex h-10 w-full items-center justify-between gap-4 border-b border-slate-300 py-1 px-4 dark:border-slate-700 dark:text-white">
-        <p className="border-r border-slate-300 pr-4 text-sm font-bold capitalize dark:border-slate-700">
+      <div className="flex h-10 w-full items-center justify-between gap-4 border-b border-slate-200 py-1 px-4 dark:border-slate-700 dark:text-white">
+        <p className="border-r border-slate-200 pr-4 text-sm font-bold capitalize dark:border-slate-700">
           html
         </p>
         <nav className="relative flex h-full flex-1 flex-row items-center gap-2">
