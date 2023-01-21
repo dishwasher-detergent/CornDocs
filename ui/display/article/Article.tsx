@@ -36,7 +36,7 @@ const Article = ({ data }: { data: FoldersProps }) => {
                   <div className="col-span-12 xl:col-span-9">
                     <Breadcrumb data={router.query.slug} />
                     <article className="prose prose-slate w-full max-w-none dark:prose-invert">
-                      {data && <Markdown article={data.path} />}
+                      {data.content && <Markdown article={data.content} />}
                     </article>
                     <ArticleNavigation />
                   </div>
