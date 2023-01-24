@@ -3,7 +3,7 @@ import corndocsConfig from "#/corndocs.config.js";
 import { Moon, Sun } from "lucide-react";
 import { useContext } from "react";
 
-const DarkToggle = () => {
+export default function DarkToggle() {
   /* @ts-ignore */
   const { darkmode, toggleDarkmode } = useContext(DarkmodeContext);
 
@@ -18,6 +18,4 @@ const DarkToggle = () => {
       {darkmode ? <Sun size={20} /> : <Moon size={20} />}
     </button>
   );
-};
-
-export default DarkToggle;
+}

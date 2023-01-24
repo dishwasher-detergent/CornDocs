@@ -11,7 +11,7 @@ interface ContentProps {
   children: React.ReactChild;
 }
 
-const Content = ({ folders, children }: ContentProps) => {
+export default function Content({ folders, children }: ContentProps) {
   /* @ts-ignore */
   const { sidebar, toggleSidebar } = useContext(SidebarContext);
   const { height, width } = useWindowDimensions();
@@ -82,6 +82,4 @@ const Content = ({ folders, children }: ContentProps) => {
       </Collapsible.Root>
     </li>
   );
-};
-
-export default Content;
+}

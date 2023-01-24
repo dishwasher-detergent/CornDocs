@@ -15,7 +15,7 @@ interface ImageProps {
   };
 }
 
-const Images = (props: ImageProps) => {
+export default function Images(props: ImageProps) {
   /* @ts-ignore */
   const { darkmode } = useContext(DarkmodeContext);
 
@@ -53,6 +53,4 @@ const Images = (props: ImageProps) => {
       </Dialog.Portal>
     </Dialog.Root>
   );
-};
-
-export default Images;
+}

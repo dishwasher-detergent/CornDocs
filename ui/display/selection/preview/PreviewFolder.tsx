@@ -14,7 +14,7 @@ const customLoader = ({ src }: any) => {
   return src;
 };
 
-function PreviewFolder(props: PreviewProps) {
+export default function PreviewFolder(props: PreviewProps) {
   const { title, slug, count, path, imageUrl, displayIcons = true } = props;
   const [fallbackImage, setFallbackImage] = useState(false);
 
@@ -52,5 +52,3 @@ function PreviewFolder(props: PreviewProps) {
     </Layout>
   );
 }
-
-export default PreviewFolder;

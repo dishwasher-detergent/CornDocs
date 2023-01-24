@@ -1,4 +1,3 @@
-import Loader from "#/ui/loaders/Loader";
 import CodeBlock from "#/ui/markdown/Codeblock";
 import { H1, H2, H3 } from "#/ui/markdown/Headings";
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";

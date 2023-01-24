@@ -2,7 +2,7 @@ import { SidebarContext } from "#/context/sidebarContext";
 import { Menu, X } from "lucide-react";
 import { useContext } from "react";
 
-const SidebarToggle = () => {
+export default function SidebarToggle() {
   /* @ts-ignore */
   const { sidebar, toggleSidebar } = useContext(SidebarContext);
 
@@ -16,6 +16,4 @@ const SidebarToggle = () => {
       {sidebar ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
     </button>
   );
-};
-
-export default SidebarToggle;
+}

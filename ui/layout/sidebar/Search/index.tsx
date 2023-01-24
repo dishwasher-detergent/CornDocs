@@ -22,7 +22,7 @@ const searchClient = algoliasearch(
     : ""
 );
 
-const SearchButton = () => {
+export default function SearchButton() {
   const router = useRouter();
 
   /* @ts-ignore */
@@ -69,7 +69,13 @@ const SearchButton = () => {
                   indexName={corndocsConfig.search.algolia_index}
                 >
                   <SearchBox />
-                  <Hits />
+                  <Hits
+                    searchState={{
+                      query: "",
+                      page: 0,
+                    }}
+                    searchResults={undefined}
+                  />
                 </InstantSearch>
               </Combobox>
             </div>
@@ -78,6 +84,4 @@ const SearchButton = () => {
       </Dialog.Root>
     </>
   );
-};
-
-export default SearchButton;
+}

@@ -48,9 +48,14 @@ interface PreviewProps {
   description: string;
 }
 
-const Layout = ({ children, path, title, description }: PreviewProps) => {
+export default function Layout({
+  children,
+  path,
+  title,
+  description,
+}: PreviewProps) {
   return (
-    <Link href={`/Docs/${path}`} passHref legacyBehavior>
+    <Link href={`/Docs${path}`} passHref legacyBehavior>
       <motion.div
         initial="initial"
         whileHover="hover"
@@ -83,6 +88,4 @@ const Layout = ({ children, path, title, description }: PreviewProps) => {
       </motion.div>
     </Link>
   );
-};
-
-export default Layout;
+}

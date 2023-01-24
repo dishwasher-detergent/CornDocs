@@ -6,7 +6,7 @@ const customLoader = ({ src }: any) => {
   return src;
 };
 
-const Logo = () => {
+export default function Logo() {
   const { logo } = corndocsConfig.project;
   return (
     <Link
@@ -33,6 +33,4 @@ const Logo = () => {
       </>
     </Link>
   );
-};
-
-export default Logo;
+}

@@ -15,7 +15,7 @@ const variants = {
   exit: { opacity: 1 },
 };
 
-const Article = ({ data }: { data: FoldersProps }) => {
+export default function Article({ data }: { data: FoldersProps }) {
   const router = useRouter();
 
   return (
@@ -73,6 +73,4 @@ const Article = ({ data }: { data: FoldersProps }) => {
       </motion.div>
     </AnimatePresence>
   );
-};
-
-export default Article;
+}

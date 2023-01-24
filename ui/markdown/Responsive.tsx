@@ -6,7 +6,7 @@ interface ResponsiveProps {
   dark?: boolean;
 }
 
-const Responsive = ({ children, size, dark }: ResponsiveProps) => {
+export default function Responsive({ children, size, dark }: ResponsiveProps) {
   const iframe = useRef(null);
   const [height, setHeight] = useState(150);
 
@@ -79,5 +79,4 @@ const Responsive = ({ children, size, dark }: ResponsiveProps) => {
       </div>
     </div>
   );
-};
-export default Responsive;
+}

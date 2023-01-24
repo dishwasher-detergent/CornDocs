@@ -4,7 +4,7 @@ import Link from "next/link";
 import NProgress from "nprogress";
 import { useEffect, useState } from "react";
 
-const DisplayComponents = () => {
+export default function DisplayComponents() {
   const [data, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -54,6 +54,4 @@ const DisplayComponents = () => {
       </section>
     </>
   );
-};
-
-export default DisplayComponents;
+}

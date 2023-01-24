@@ -2,7 +2,7 @@ interface Props {
   children: React.ReactChild | null;
 }
 
-const ArticleFooter = ({ children }: Props) => {
+export default function ArticleFooter({ children }: Props) {
   return (
     <footer
       className="
@@ -13,6 +13,4 @@ const ArticleFooter = ({ children }: Props) => {
       <div className="col-span-12">{children}</div>
     </footer>
   );
-};
-
-export default ArticleFooter;
+}

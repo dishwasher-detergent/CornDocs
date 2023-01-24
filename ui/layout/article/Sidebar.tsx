@@ -14,7 +14,7 @@ interface SidebarProps {
   children?: React.ReactChild | null;
 }
 
-const ArticleSidebar = ({ children, headings }: SidebarProps) => {
+export default function ArticleSidebar({ children, headings }: SidebarProps) {
   const { height, width } = useWindowDimensions();
   const [open, setOpen] = useState(false);
 
@@ -95,6 +95,4 @@ const ArticleSidebar = ({ children, headings }: SidebarProps) => {
       </Collapsible.Content>
     </Collapsible.Root>
   );
-};
-
-export default ArticleSidebar;
+}
