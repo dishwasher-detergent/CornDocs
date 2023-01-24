@@ -20,5 +20,17 @@ module.exports = {
       alt: "CornDocs Logo",
       size: [80, 40],
     },
+    mainScreen: {
+      showSearch: true,
+      showSelection: true,
+      homePage: {
+        custom: {
+          path: "index",
+        },
+        title: "Build documentation that will impress your friends and family.",
+        tagLine:
+          "CornDocs lets you easily create documentation to show off your projects!",
+      },
+    },
   },
 };

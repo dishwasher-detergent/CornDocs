@@ -10,7 +10,6 @@ export interface Config {
   project: {
     name: string;
     url: string;
-    homePage?: string;
     github: {
       repo: string;
       usesMain?: boolean;
@@ -19,6 +18,17 @@ export interface Config {
       src: string;
       alt: string;
       size?: number[];
+    };
+    mainScreen: {
+      showSelection: boolean;
+      showSearch: boolean;
+      homePage: {
+        custom?: {
+          path: string;
+        };
+        title: string;
+        tagLine: string;
+      };
     };
   };
 }

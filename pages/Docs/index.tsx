@@ -16,5 +16,5 @@ interface Props {
 }
 
 export default function Docs({ data }: Props) {
-  return <Selection data={data} />;
+  return <Selection data={data.children} />;
 }
