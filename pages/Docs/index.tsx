@@ -1,5 +1,5 @@
 import Selection from "#/ui/display/selection/Selection";
-import { getAllPosts } from "../api/article";
+import { getAllPosts } from "#/pages/api/article";
 
 export async function getStaticProps() {
   const data = await getAllPosts();

@@ -123,6 +123,15 @@ async function getDirectoryTree(
   for (let i = 0; i < items.length; i++) {
     const itemPath = `${path}/${items[i]}`;
     const stats = fs.statSync(`${truePath}/${items[i]}`);
+    const newPath = itemPath
+      .replace(basePath + "/", "")
+      .replace(/\\/g, "/")
+      .replace(/\.[^\/.]+$/, "");
+
+    const newTruePath = itemPath
+      .replace(basePath + "/", "")
+      .replace(/\\/g, "/");
+
     if (stats.isDirectory()) {
       let data;
 
@@ -140,11 +149,8 @@ async function getDirectoryTree(
         name: items[i].replace(/\.[^\/.]+$/, ""),
         filename: items[i],
         type: "directory",
-        path: itemPath
-          .replace(basePath + "/", "")
-          .replace(/\\/g, "/")
-          .replace(/\.[^\/.]+$/, ""),
-        truePath: itemPath.replace(basePath + "/", "").replace(/\\/g, "/"),
+        path: newPath[0] == "/" ? newPath : `/${newPath}`,
+        truePath: newTruePath[0] == "/" ? newTruePath : `/${newTruePath}`,
         metadata: data,
         children: await getDirectoryTree(itemPath, false),
       });
@@ -158,11 +164,8 @@ async function getDirectoryTree(
         name: items[i].replace(/\.[^\/.]+$/, ""),
         filename: items[i],
         type: "file",
-        path: itemPath
-          .replace(basePath + "/", "")
-          .replace(/\\/g, "/")
-          .replace(/\.[^\/.]+$/, ""),
-        truePath: itemPath.replace(basePath + "/", "").replace(/\\/g, "/"),
+        path: newPath[0] == "/" ? newPath : `/${newPath}`,
+        truePath: newTruePath[0] == "/" ? newTruePath : `/${newTruePath}`,
         extension: path.split(".").pop(),
         headings: await getHeadings(content),
         metadata: data as TypeDocsMetaData,
@@ -184,7 +187,8 @@ async function getDirectoryTree(
       name: path.substring(path.lastIndexOf("/") + 1),
       filename: path.substring(path.lastIndexOf("/") + 1),
       type: "directory",
-      path: truePath
+      path: path[0] == "/" ? path : `/${path}`,
+      truePath: truePath
         .replace(basePath + "/", "")
         .replace(/\\/g, "/")
         .replace(/\.[^\/.]+$/, ""),
