@@ -5,7 +5,7 @@ interface Props {
   data: any;
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const data = await getCertainPost("index");
 
   return {
