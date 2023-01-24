@@ -1,32 +1,20 @@
 import Selection from "#/ui/display/selection/Selection";
-import NProgress from "nprogress";
-import { useEffect, useState } from "react";
+import { getAllPosts } from "../api/article";
 
-const Docs = () => {
-  const [data, setData] = useState<any>([]);
-  const [isLoading, setLoading] = useState(true);
+export async function getStaticProps() {
+  const data = await getAllPosts();
 
-  useEffect(() => {
-    setLoading(true);
-    fetch("/api/article")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
 
-  useEffect(() => {
-    NProgress.configure({ showSpinner: false });
+interface Props {
+  data: any;
+}
 
-    if (isLoading) {
-      NProgress.start();
-    } else {
-      NProgress.done();
-    }
-  }, [isLoading]);
-
-  return <>{!isLoading && <Selection data={data} />}</>;
-};
-
-export default Docs;
+export default function Docs({ data }: Props) {
+  return <Selection data={data} />;
+}

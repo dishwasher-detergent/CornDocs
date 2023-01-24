@@ -49,10 +49,10 @@ export default function Markdown({ article }: { article: string }) {
     })();
   }, [article]);
 
-  return cereal ? (
-    // @ts-ignore
-    <MDXRemote {...cereal} components={MdxComponents} />
-  ) : (
-    <Loader />
+  return (
+    cereal && (
+      // @ts-ignore
+      <MDXRemote {...cereal} components={MdxComponents} />
+    )
   );
 }
