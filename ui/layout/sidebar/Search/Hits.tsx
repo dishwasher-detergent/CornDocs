@@ -1,5 +1,5 @@
 import { Combobox } from "@headlessui/react";
-import { Highlight } from "react-instantsearch-dom";
+import { connectStateResults, Highlight } from "react-instantsearch-dom";
 
 interface HitsProps {
   searchState: {
@@ -23,7 +23,7 @@ interface OptionProp {
   title: string;
 }
 
-export default function Hits({ searchState, searchResults }: HitsProps) {
+const Hits = ({ searchState, searchResults }: HitsProps) => {
   if (!searchState.query || searchState.query.length == 0) return null;
 
   return (
@@ -63,6 +63,10 @@ export default function Hits({ searchState, searchResults }: HitsProps) {
                 )}
               </Combobox.Option>
             ))}
+            {/* // <li className="flex flex-col rounded-xl px-4 py-2 text-sm text-slate-700">
+              //   <span className="font-bold">Title</span>
+              //   <span>Description</span>
+              // </li> */}
           </Combobox.Options>
         </div>
       )}
@@ -81,4 +85,6 @@ export default function Hits({ searchState, searchResults }: HitsProps) {
       </div>
     </>
   );
-}
+};
+
+export default connectStateResults(Hits);

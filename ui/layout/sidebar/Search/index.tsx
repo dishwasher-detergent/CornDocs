@@ -69,13 +69,7 @@ export default function SearchButton() {
                   indexName={corndocsConfig.search.algolia_index}
                 >
                   <SearchBox />
-                  <Hits
-                    searchState={{
-                      query: "",
-                      page: 0,
-                    }}
-                    searchResults={undefined}
-                  />
+                  <Hits />
                 </InstantSearch>
               </Combobox>
             </div>
