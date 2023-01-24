@@ -45,27 +45,30 @@ const Article = ({ data }: { data: FoldersProps }) => {
                       headings={data.headings.filter(
                         (item) => item.level <= 3 && item.level > 1
                       )}
-                    />
+                    >
+                      {corndocsConfig.project.github ? (
+                        <div className="mt-10 border-t border-slate-300 pt-4 dark:border-slate-700">
+                          <a
+                            className="flex items-center gap-2 text-xs font-bold"
+                            target="_blank"
+                            rel="noreferrer"
+                            href={`${corndocsConfig.project.github.repo}/edit/${
+                              corndocsConfig.project.github.usesMain
+                                ? "main"
+                                : "master"
+                            }/_posts/${data.path}.${data.extension}`}
+                          >
+                            <Github size={12} />
+                            <span>Edit on GitHub</span>
+                          </a>
+                        </div>
+                      ) : null}
+                    </ArticleSidebar>
                   )}
                 </div>
               </div>
             </div>
           </div>
-          <ArticleFooter>
-            {corndocsConfig.project.github ? (
-              <a
-                className="flex items-center gap-2 text-sm font-bold"
-                target="_blank"
-                rel="noreferrer"
-                href={`${corndocsConfig.project.github.repo}/edit/${
-                  corndocsConfig.project.github.usesMain ? "main" : "master"
-                }/_posts/${data.path}.mdx`}
-              >
-                <Github size={16} />
-                <span>Edit on GitHub</span>
-              </a>
-            ) : null}
-          </ArticleFooter>
         </main>
       </motion.div>
     </AnimatePresence>

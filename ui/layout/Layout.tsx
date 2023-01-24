@@ -22,8 +22,11 @@ function Layout({ children }: LayoutProps) {
           <Sidebar />
           <main className={`${sidebar && "lg:pl-[19.5rem]"}`}>{children}</main>
         </div>
-        <div className="fixed top-16 h-48 w-full opacity-50">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-slate-900" />
+        <div className="fixed inset-0 overflow-hidden">
+          <div
+            style={{ left: "max(0px,calc(50% - 45rem))" }}
+            className="radial absolute top-0 bottom-0 left-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 opacity-[0.15]"
+          />
         </div>
       </div>
     </div>

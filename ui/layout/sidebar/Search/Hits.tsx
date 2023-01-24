@@ -54,7 +54,7 @@ const Hits = ({ searchState, searchResults }: HitsProps) => {
                     </p>
                     {active && (
                       <p className="hidden flex-shrink-0 md:inline-block">
-                        <kbd className="rounded-xl border border-slate-200 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+                        <kbd className="rounded-xl border border-slate-300 bg-slate-100 px-2 py-1 text-xs text-slate-600 dark:border-slate-500 dark:bg-slate-700 dark:text-white">
                           Enter
                         </kbd>
                       </p>
@@ -70,15 +70,15 @@ const Hits = ({ searchState, searchResults }: HitsProps) => {
           </Combobox.Options>
         </div>
       )}
-      <div className="hidden h-10 items-center gap-2 border-t border-slate-200 px-2 dark:border-slate-700 md:flex">
+      <div className="hidden h-10 items-center gap-2 border-t border-slate-300 px-2 dark:border-slate-700 md:flex">
         <p className="text-xs font-semibold text-slate-600 dark:text-white">
           Navigation:
         </p>
         <div className="space-x-1">
-          <kbd className="rounded-xl border border-slate-200 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+          <kbd className="rounded-xl border border-slate-300 bg-slate-100 px-2 py-1 text-xs text-slate-600 dark:border-slate-500 dark:bg-slate-700 dark:text-white">
             ↑
           </kbd>
-          <kbd className="rounded-xl border border-slate-200 bg-slate-50 px-2 py-1 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-50">
+          <kbd className="rounded-xl border border-slate-300 bg-slate-100 px-2 py-1 text-xs text-slate-600 dark:border-slate-500 dark:bg-slate-700 dark:text-white">
             ↓
           </kbd>
         </div>

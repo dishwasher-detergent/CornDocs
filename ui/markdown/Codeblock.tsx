@@ -43,16 +43,16 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
   }
 
   return (
-    <div className="not-prose my-4 overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
+    <div className="not-prose my-4 overflow-hidden rounded-xl border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900">
       {preview && (
-        <div className="border-b border-slate-200 dark:border-slate-700">
+        <div className="border-b border-slate-300 dark:border-slate-700">
           <Responsive size={size} dark={dark}>
             {children.props.children}
           </Responsive>
         </div>
       )}
-      <div className="flex h-10 w-full items-center justify-between gap-4 border-b border-slate-200 py-1 px-4 dark:border-slate-700 dark:text-white">
-        <p className="border-r border-slate-200 pr-4 text-sm font-bold capitalize dark:border-slate-700">
+      <div className="flex h-10 w-full items-center justify-between gap-4 border-b border-slate-300 py-1 px-4 dark:border-slate-700 dark:text-white">
+        <p className="border-r border-slate-300 pr-4 text-sm font-bold capitalize dark:border-slate-700">
           {language.replace("language-", "")}
         </p>
         <nav className="relative flex h-full flex-1 flex-row items-center gap-2">

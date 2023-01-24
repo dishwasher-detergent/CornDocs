@@ -1,13 +1,21 @@
 import corndocsConfig from "#/corndocs.config";
+import { getPostSlugs } from "#/scripts/paths-generator";
 import Article from "#/ui/display/article/Article";
 import Selection from "#/ui/display/selection/Selection";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { getCertainPost } from "../api/article/[...slug]";
 
-export async function getServerSideProps(context: {
-  params: { slug: string[] };
-}) {
+export async function getStaticPaths() {
+  const paths = await getPostSlugs();
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context: { params: { slug: string[] } }) {
   const slug = context.params.slug;
   const data = await getCertainPost(slug.join("/"));
 

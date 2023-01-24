@@ -65,6 +65,15 @@
   );
 }
 
+.radial {
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    theme(backgroundColor.primary.500) 0%,
+    transparent 70%
+  );
+}
+
 .ais-Highlight-highlighted {
   @apply not-italic text-primary-500;
 }

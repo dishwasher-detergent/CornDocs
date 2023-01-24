@@ -11,9 +11,10 @@ interface Headings {
 
 interface SidebarProps {
   headings: Headings[];
+  children?: React.ReactChild | null;
 }
 
-const ArticleSidebar = ({ headings }: SidebarProps) => {
+const ArticleSidebar = ({ children, headings }: SidebarProps) => {
   const { height, width } = useWindowDimensions();
   const [open, setOpen] = useState(false);
 
@@ -40,9 +41,6 @@ const ArticleSidebar = ({ headings }: SidebarProps) => {
                           }`}
                         >
                           <span className="flex w-full flex-row items-center gap-2">
-                            {item.level == 3 ? (
-                              <ChevronRight size={12} className="flex-none" />
-                            ) : null}
                             {item.text}
                           </span>
                         </a>
@@ -50,6 +48,7 @@ const ArticleSidebar = ({ headings }: SidebarProps) => {
                     );
                   })}
                 </ul>
+                {children}
               </nav>
             </div>
           </div>
@@ -59,12 +58,12 @@ const ArticleSidebar = ({ headings }: SidebarProps) => {
   ) : (
     <Collapsible.Root
       open={open}
-      className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+      className="mb-4 overflow-hidden rounded-xl border border-slate-300 bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
     >
       <Collapsible.Trigger
         className={`${
           open ? "border-b" : ""
-        } flex w-full flex-row items-center border-slate-200 px-4 py-2 text-left font-bold dark:border-slate-700`}
+        } flex w-full flex-row items-center border-slate-300 px-4 py-2 text-left font-bold dark:border-slate-700`}
         onClick={() => setOpen(!open)}
       >
         <span className="flex flex-1 flex-row items-center gap-2">
@@ -85,9 +84,6 @@ const ArticleSidebar = ({ headings }: SidebarProps) => {
                   }`}
                 >
                   <span className="flex w-full flex-row items-center gap-2">
-                    {item.level == 3 ? (
-                      <ChevronRight size={12} className="flex-none" />
-                    ) : null}
                     {item.text}
                   </span>
                 </a>
@@ -95,6 +91,7 @@ const ArticleSidebar = ({ headings }: SidebarProps) => {
             );
           })}
         </ul>
+        {children}
       </Collapsible.Content>
     </Collapsible.Root>
   );

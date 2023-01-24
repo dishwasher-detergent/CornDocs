@@ -2,7 +2,7 @@ import { SidebarContext } from "#/context/sidebarContext";
 import useWindowDimensions from "#/hooks/useWindowDimensions";
 import { FoldersProps } from "#/pages/api/article";
 import * as Collapsible from "@radix-ui/react-collapsible";
-import { ChevronRight, Link } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 

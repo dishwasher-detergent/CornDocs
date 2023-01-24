@@ -50,7 +50,7 @@ interface PreviewProps {
 
 const Layout = ({ children, path, title, description }: PreviewProps) => {
   return (
-    <Link href={`/Docs/${path}`} passHref>
+    <Link href={`/Docs/${path}`} passHref legacyBehavior>
       <motion.div
         initial="initial"
         whileHover="hover"
@@ -59,7 +59,7 @@ const Layout = ({ children, path, title, description }: PreviewProps) => {
       >
         <motion.div
           variants={mainImage}
-          className="relative h-1/2 w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-800"
+          className="relative h-1/2 w-full overflow-hidden rounded-xl border border-slate-300 bg-slate-200/70 dark:border-slate-700 dark:bg-slate-800/50"
         >
           {children}
         </motion.div>

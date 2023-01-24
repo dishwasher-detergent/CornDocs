@@ -34,7 +34,7 @@ const Images = (props: ImageProps) => {
           <Dialog.Title className="text-xl font-bold text-white">
             {props.alt}
           </Dialog.Title>
-          <div className="dotty relative h-auto w-full overflow-hidden rounded-xl border-slate-200 bg-slate-100 p-4 dark:border-slate-700 dark:bg-slate-800 md:h-full">
+          <div className="dotty relative h-auto w-full overflow-hidden rounded-xl border-slate-300 bg-slate-100 p-4 dark:border-slate-700 dark:bg-slate-800 md:h-full">
             <Dialog.Close asChild>
               <button
                 className="absolute top-4 right-4 z-40 rounded-xl bg-rose-500 p-2 text-white hover:bg-rose-600"

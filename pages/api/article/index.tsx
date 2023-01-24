@@ -16,6 +16,7 @@ export interface FoldersProps {
   type?: "directory" | "file";
   path?: string;
   truePath?: string;
+  extension?: string;
   children?: object[] | object;
   headings?: HeadingsProps[];
   metadata?: any;
@@ -98,6 +99,7 @@ async function getFileContent(path: string): Promise<FoldersProps> {
     path: path
       .replace(basePath.replace(/\\/g, "/"), "")
       .replace(/\.[^\/.]+$/, ""),
+    extension: path.split(".").pop(),
     content: content,
     metadata: data as TypeDocsMetaData,
   };
@@ -142,6 +144,7 @@ async function getDirectoryTree(
           .replace(basePath + "/", "")
           .replace(/\\/g, "/")
           .replace(/\.[^\/.]+$/, ""),
+        truePath: itemPath.replace(basePath + "/", "").replace(/\\/g, "/"),
         metadata: data,
         children: await getDirectoryTree(itemPath, false),
       });
@@ -159,6 +162,8 @@ async function getDirectoryTree(
           .replace(basePath + "/", "")
           .replace(/\\/g, "/")
           .replace(/\.[^\/.]+$/, ""),
+        truePath: itemPath.replace(basePath + "/", "").replace(/\\/g, "/"),
+        extension: path.split(".").pop(),
         headings: await getHeadings(content),
         metadata: data as TypeDocsMetaData,
       });

@@ -9,8 +9,11 @@ const customLoader = ({ src }: any) => {
 const Logo = () => {
   const { logo } = corndocsConfig.project;
   return (
-    <Link href="/">
-      <a className="flex h-full cursor-pointer items-center justify-start gap-2 text-xl font-black">
+    <Link
+      href="/"
+      className="flex h-full cursor-pointer items-center justify-start gap-2 text-xl font-black"
+    >
+      <>
         {logo && (
           <span className="logo relative h-10 overflow-hidden">
             <Image
@@ -27,7 +30,7 @@ const Logo = () => {
         <span className="hidden md:inline-block">
           {corndocsConfig.project.name}
         </span>
-      </a>
+      </>
     </Link>
   );
 };

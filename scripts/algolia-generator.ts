@@ -24,16 +24,6 @@ const basePath = join(process.cwd(), "_posts").replace(/\\/g, "/");
 
 const algoliaPosts: FoldersProps[] = [];
 
-function convertLetterToNumber(a: string) {
-  let result = "";
-  for (let i = 0; i < 16; i++) {
-    result += Math.floor(
-      Math.random() * 10 + a.charCodeAt(i % a.length)
-    ).toString();
-  }
-  return result;
-}
-
 async function getHeadings(source: any) {
   const headingLines = source.split("\n").filter((line: any) => {
     return line.match(/^###*\s/);
