@@ -11,10 +11,6 @@ interface PreviewProps {
   path: string;
 }
 
-const customLoader = ({ src }: any) => {
-  return src;
-};
-
 function PreviewArticle(props: PreviewProps) {
   const { title, description, imageUrl, path } = props;
   const [fallbackImage, setFallbackImage] = useState(false);
@@ -23,10 +19,8 @@ function PreviewArticle(props: PreviewProps) {
     <Layout title={title} description={description} path={path}>
       {imageUrl ? (
         <Image
-          loader={customLoader}
-          objectFit="cover"
-          objectPosition="center"
-          layout="fill"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          fill={true}
           src={`${imageUrl}`}
           alt="This is the preview image of the component"
           onError={() => {

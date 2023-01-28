@@ -10,9 +10,6 @@ interface PreviewProps {
   imageUrl: string;
   displayIcons?: boolean;
 }
-const customLoader = ({ src }: any) => {
-  return src;
-};
 
 export default function PreviewFolder(props: PreviewProps) {
   const { title, slug, count, path, imageUrl, displayIcons = true } = props;
@@ -27,10 +24,8 @@ export default function PreviewFolder(props: PreviewProps) {
       <>
         {imageUrl && (
           <Image
-            loader={customLoader}
-            objectFit="cover"
-            objectPosition="center"
-            layout="fill"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+            fill={true}
             src={`${imageUrl}`}
             alt={`This is a folder of ${count} components`}
             onError={() => {
