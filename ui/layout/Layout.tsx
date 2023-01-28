@@ -6,16 +6,17 @@ import React, { useContext, useEffect } from "react";
 
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];
+  font: any;
 }
 
-function Layout({ children }: LayoutProps) {
+function Layout({ children, font }: LayoutProps) {
   /* @ts-ignore */
   const { darkmode } = useContext(DarkmodeContext);
   /* @ts-ignore */
   const { sidebar } = useContext(SidebarContext);
 
   return (
-    <div className={`${darkmode && "dark"}`}>
+    <div className={`${darkmode && "dark"} ${font}`}>
       <div className="relative flex min-h-screen w-full flex-col items-center dark:bg-slate-900">
         <Nav />
         <div className="z-10 w-full max-w-[90rem] flex-1 px-4 sm:px-6 md:px-8">

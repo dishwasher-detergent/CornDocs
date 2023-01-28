@@ -6,6 +6,9 @@ import "#/styles/prism.css";
 import "#/styles/progress.css";
 import Layout from "#/ui/layout/Layout";
 import type { AppProps } from "next/app";
+import { Nunito } from "@next/font/google";
+
+const font = Nunito({ subsets: ["latin"] });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <CommandProvider>
         <SidebarProvider>
           <DarkmodeProvider>
-            <Layout>
+            <Layout font={font.className}>
               <Component {...pageProps} />
             </Layout>
           </DarkmodeProvider>
