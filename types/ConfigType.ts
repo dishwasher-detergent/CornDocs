@@ -18,6 +18,7 @@ export interface Config {
       src: string;
       alt: string;
       size?: number[];
+      darkMode?: string;
     };
     mainScreen: {
       showSelection: boolean;
