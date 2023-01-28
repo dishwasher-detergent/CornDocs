@@ -2,10 +2,6 @@ import corndocsConfig from "#/corndocs.config.js";
 import Image from "next/image";
 import Link from "next/link";
 
-const customLoader = ({ src }: any) => {
-  return src;
-};
-
 export default function Logo() {
   const { logo } = corndocsConfig.project;
   return (
@@ -17,9 +13,7 @@ export default function Logo() {
         {logo && (
           <span className="logo relative h-10 overflow-hidden">
             <Image
-              loader={customLoader}
-              objectFit="contain"
-              objectPosition="center"
+              style={{ objectFit: "contain", objectPosition: "center" }}
               src={logo.src}
               alt={logo.alt}
               width={logo?.size?.[0] ? logo.size[0] : 80}
