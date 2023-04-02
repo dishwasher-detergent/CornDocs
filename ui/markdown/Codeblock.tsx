@@ -24,7 +24,9 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
 
   const [dark, setDark] = useState(darkmode);
   const [size, setSize] = useState<number>(1500);
-  const [language, setLanguage] = useState<string>(children.props.className);
+  const [language, setLanguage] = useState<string>(
+    children.props.className ?? "language-bash"
+  );
   const [preview, setPreview] = useState<boolean>(false);
   const [html, setHtml] = useState<string>("");
 
@@ -33,6 +35,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
   }, [language]);
 
   useEffect(() => {
+    if (!children.props.classname) return;
     if (children.props.className.includes("preview")) {
       setPreview(true);
       setLanguage(children.props.className.replace("-preview", ""));
