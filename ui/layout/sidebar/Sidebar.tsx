@@ -50,7 +50,7 @@ function Sidebar() {
                 )
                 .map((item: any, index) => (
                   <Content folders={item} key={index}>
-                    {item.metadata.title}
+                    {item.metadata.title ?? item.name}
                   </Content>
                 ))
             ) : (

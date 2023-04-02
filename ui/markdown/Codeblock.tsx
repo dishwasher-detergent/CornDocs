@@ -10,6 +10,7 @@ import {
 } from "#/ui/markdown/nav/Button/Size";
 import Responsive from "#/ui/markdown/Responsive";
 import Prism from "prismjs";
+import "prismjs/components/prism-typescript";
 import React, { useContext, useEffect, useState } from "react";
 import CodeblockSkeleton from "../loaders/skeleton/Codeblock";
 

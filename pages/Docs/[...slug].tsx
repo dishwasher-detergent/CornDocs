@@ -53,7 +53,7 @@ function Doc({ data, slug }: Props) {
   return (
     <>
       <NextSeo
-        title={`${data.metadata.title}${
+        title={`${data.metadata.title ?? data.name}${
           data.children
             ? ` ( ${data.children.length} ${
                 data.children.length > 1 ? "sub-items" : "sub-item"
@@ -63,7 +63,7 @@ function Doc({ data, slug }: Props) {
         description={data.metadata.description}
         openGraph={{
           url: corndocsConfig.project.url + data.path,
-          title: data.metadata.title,
+          title: data.metadata.title ?? data.name,
           description: data.metadata.description,
           images: [
             {

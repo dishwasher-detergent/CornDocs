@@ -39,7 +39,7 @@ const Selection = ({ data, breadcrumb = true }: SelectionProps) => {
                   path={item.path}
                   key={item.name}
                   slug={item.name}
-                  title={item.metadata.title}
+                  title={item.metadata.title ?? item.name}
                   description={item.metadata.description}
                   imageUrl={item.metadata.banner}
                   date={item.metadata.date}
@@ -49,7 +49,7 @@ const Selection = ({ data, breadcrumb = true }: SelectionProps) => {
                   key={item.name}
                   slug={item.name}
                   path={item.path}
-                  title={item.metadata.title}
+                  title={item.metadata.title ?? item.name}
                   imageUrl={item.metadata.banner}
                   count={item.children.length}
                 />

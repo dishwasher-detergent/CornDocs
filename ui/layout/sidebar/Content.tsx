@@ -66,7 +66,7 @@ export default function Content({ folders, children }: ContentProps) {
                       onClick={() => Route(item.path)}
                       className="flex cursor-pointer flex-row flex-nowrap items-center justify-start gap-2 truncate rounded-xl px-3 py-1.5 font-bold hover:bg-slate-100 dark:hover:bg-slate-800"
                     >
-                      <span>{item.metadata.title}</span>
+                      <span>{item.metadata.title ?? item.name}</span>
                     </a>
                   </li>
                 ) : (
