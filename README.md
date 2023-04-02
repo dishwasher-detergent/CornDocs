@@ -7,12 +7,11 @@
 Go into the **corndocs.config.js** file and update the follow fields.
 
 ```js
-const config = {
+/** @type {import('./types/ConfigType').Config} */
+
+module.exports = {
   darkMode: true,
-  googleAnalytics: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
-  // Currently we only support Aloglia search.
   search: {
-    enabled: true,
     algolia_admin_key: process.env.ALGOLIA_SEARCH_ADMIN_KEY,
     algolia_app_id: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
     algolia_search_api_key: process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
@@ -30,10 +29,20 @@ const config = {
       alt: "CornDocs Logo",
       size: [80, 40],
     },
+    mainScreen: {
+      showSearch: true,
+      showSelection: true,
+      homePage: {
+        custom: {
+          path: "index",
+        },
+        title: "Build documentation that will impress your friends and family.",
+        tagLine:
+          "CornDocs lets you easily create documentation to show off your projects!",
+      },
+    },
   },
 };
-
-module.exports = config;
 ```
 
 ### Setting sidebar order
@@ -174,14 +183,6 @@ and go to **http://localhost:3000/getting-started** to see the fruits of your la
 Once you're done, you can deploy to Vercel with the click of a button!
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdishwasher-detergent%2FCornDocs&env=ALGOLIA_SEARCH_ADMIN_KEY,NEXT_PUBLIC_ALGOLIA_APP_ID,NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY&envDescription=Required%20API%20Keys&envLink=https%3A%2F%2Fcorndocs.com%2FDocs%2Fgetting-started&project-name=corndocs&repo-name=corndocs&demo-title=CornDocs&demo-description=Documentation%20Made%20Easy&demo-url=https%3A%2F%2Fcorndocs.com)
-
-### Technologies Used
-
-- NextJS
-- Tailwind CSS
-- Typescript
-- Markdown
-- Syntax Highlighter
 
 ### Github Repo
 
