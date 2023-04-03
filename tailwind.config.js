@@ -10,10 +10,7 @@ module.exports = {
     "./customComponents/**/*.{js,ts,jsx,tsx}",
     "./_posts/**/*.{md,mdx}",
   ],
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/line-clamp"),
-  ],
+  plugins: [require("@tailwindcss/typography")],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
