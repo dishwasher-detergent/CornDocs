@@ -10,7 +10,6 @@ import {
 } from "#/ui/markdown/nav/Button/Size";
 import Responsive from "#/ui/markdown/Responsive";
 import Prism from "prismjs";
-import "prismjs/components/prism-typescript";
 import React, { useContext, useEffect, useState } from "react";
 import CodeblockSkeleton from "../loaders/skeleton/Codeblock";
 
@@ -24,9 +23,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
 
   const [dark, setDark] = useState(darkmode);
   const [size, setSize] = useState<number>(1500);
-  const [language, setLanguage] = useState<string>(
-    children.props.className ?? "language-bash"
-  );
+  const [language, setLanguage] = useState<string>(children.props.className);
   const [preview, setPreview] = useState<boolean>(false);
   const [html, setHtml] = useState<string>("");
 
@@ -35,7 +32,6 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
   }, [language]);
 
   useEffect(() => {
-    if (!children.props.classname) return;
     if (children.props.className.includes("preview")) {
       setPreview(true);
       setLanguage(children.props.className.replace("-preview", ""));
