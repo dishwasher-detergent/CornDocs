@@ -1,5 +1,3 @@
-import { OlHTMLAttributes } from "react"
-
 import { cn } from "@/lib/utils"
 
 export function TypographyList({
