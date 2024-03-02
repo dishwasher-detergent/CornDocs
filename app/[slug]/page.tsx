@@ -74,7 +74,7 @@ export default async function ContentPage({ params }: PageProps) {
             {title}
           </h1>
         </div>
-        <div className="pb-12 pt-8">
+        <div className="pb-12 pt-8 prose">
           {Markdoc.renderers.react(content, React, { components })}
         </div>
       </div>

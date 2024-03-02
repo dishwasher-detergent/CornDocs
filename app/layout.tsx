@@ -1,53 +1,43 @@
-import "@/styles/globals.css"
+import { Nunito as FontSans } from "next/font/google"
 
-import { Metadata } from "next"
-import { ThemeProvider } from "@/context/theme-provider"
+import "./globals.css"
 
-import { siteConfig } from "@/config/site.config"
-import { fontSans } from "@/lib/fonts"
+import { ThemeProvider } from "@/contexts/theme-provider"
+
 import { cn } from "@/lib/utils"
 import { Nav } from "@/components/ui/nav"
 
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-}
+const fontSans = FontSans({
+  subsets: ["latin"],
+})
 
-interface RootLayoutProps {
+export default function RootLayout({
+  children,
+}: Readonly<{
   children: React.ReactNode
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+}>) {
   return (
-    <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
-          )}
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          "relative flex min-h-screen flex-col bg-background antialiased",
+          fontSans.className
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <Nav />
-              <div className="flex-1">{children}</div>
-            </div>
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+          <Nav />
+          <main className="mx-auto w-full max-w-7xl flex-1 p-4">
+            {children}
+          </main>
+          {/* <Footer /> */}
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }

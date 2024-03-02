@@ -1,8 +1,5 @@
 import { Config, Tag } from "@markdoc/markdoc"
 
-import { TypographyBlockquote } from "@/components/ui/blockquote"
-import { TypographyList } from "@/components/ui/list"
-import TypographyP from "@/components/ui/paragraph"
 import {
   Table,
   TableBody,
@@ -17,32 +14,10 @@ import {
 } from "@/components/markdoc/accordion"
 import Callout from "@/components/markdoc/callout"
 import { Code } from "@/components/markdoc/code"
-import Heading from "@/components/markdoc/heading"
 import { MarkdocTab, MarkdocTabs } from "@/components/markdoc/tabs"
 
 const config: Config = {
   nodes: {
-    paragraph: {
-      render: "Paragraph",
-    },
-    heading: {
-      render: "Heading",
-      attributes: {
-        id: { type: String },
-        level: { type: Number, required: true },
-      },
-    },
-    blockquote: {
-      render: "Blockquote",
-    },
-    list: {
-      render: "List",
-      attributes: {
-        ordered: { type: Boolean, required: false },
-      },
-    },
-    inline: {},
-
     table: { render: "Table" },
     thead: { render: "TableHeader" },
     th: { render: "TableHead" },
@@ -148,11 +123,7 @@ const config: Config = {
 }
 
 const components = {
-  Paragraph: TypographyP,
-  Heading: Heading,
-  Blockquote: TypographyBlockquote,
   Callout: Callout,
-  List: TypographyList,
   Table: Table,
   TableHead: TableHead,
   TableHeader: TableHeader,
